@@ -1,0 +1,63 @@
+test_bb_bind_failure_preserves_first_server (test_isolation.IsolationTests.test_bb_bind_failure_preserves_first_server) ... ok
+test_bb_explicit_reload_does_not_change_other_store (test_isolation.IsolationTests.test_bb_explicit_reload_does_not_change_other_store) ... ok
+test_bb_import_has_no_workspace_or_socket_side_effect (test_isolation.IsolationTests.test_bb_import_has_no_workspace_or_socket_side_effect) ... ok
+test_bb_two_servers_are_independent (test_isolation.IsolationTests.test_bb_two_servers_are_independent) ... ok
+test_wb_cleanup_on_assertion_failure (test_isolation.IsolationTests.test_wb_cleanup_on_assertion_failure) ... ok
+test_wb_cleanup_on_thread_constructor_failure (test_isolation.IsolationTests.test_wb_cleanup_on_thread_constructor_failure) ... ok
+test_wb_cleanup_on_thread_start_failure (test_isolation.IsolationTests.test_wb_cleanup_on_thread_start_failure) ... ok
+test_wb_default_is_lazy_and_explicit_store_is_used (test_isolation.IsolationTests.test_wb_default_is_lazy_and_explicit_store_is_used) ... ok
+test_bb_01_static_content_policy (test_security.SecurityTests.test_bb_01_static_content_policy) ... ok
+test_bb_01_static_traversal (test_security.SecurityTests.test_bb_01_static_traversal) ... ok
+test_bb_01_symlink_escape (test_security.SecurityTests.test_bb_01_symlink_escape) ... ok
+test_bb_03_empty_reference_precedence (test_security.SecurityTests.test_bb_03_empty_reference_precedence) ... ok
+test_bb_03_malformed_json (test_security.SecurityTests.test_bb_03_malformed_json) ... ok
+test_bb_03_types_limits_and_required (test_security.SecurityTests.test_bb_03_types_limits_and_required) ... ok
+test_bb_04_references_and_enums (test_security.SecurityTests.test_bb_04_references_and_enums) ... ok
+test_bb_05_approval_not_forgeable (test_security.SecurityTests.test_bb_05_approval_not_forgeable) ... ok
+test_bb_06_ambiguous_history_and_missing_memory (test_security.SecurityTests.test_bb_06_ambiguous_history_and_missing_memory) ... ok
+test_bb_06_archive_replay_and_conflict (test_security.SecurityTests.test_bb_06_archive_replay_and_conflict) ... ok
+test_bb_06_concurrent_archive (test_security.SecurityTests.test_bb_06_concurrent_archive) ... ok
+test_bb_06_history_conflict_no_repair (test_security.SecurityTests.test_bb_06_history_conflict_no_repair) ... ok
+test_bb_06_history_repairs_preserve_identity (test_security.SecurityTests.test_bb_06_history_repairs_preserve_identity) ... ok
+test_bb_07_round_trip (test_security.SecurityTests.test_bb_07_round_trip) ... ok
+test_bb_07_theme_and_save_failure (test_security.SecurityTests.test_bb_07_theme_and_save_failure) ... ok
+test_bb_08_failed_reload (test_security.SecurityTests.test_bb_08_failed_reload) ... ok
+test_bb_09_duplicate_framing_and_host (test_security.SecurityTests.test_bb_09_duplicate_framing_and_host) ... ok
+test_bb_09_foreign_origin_and_host (test_security.SecurityTests.test_bb_09_foreign_origin_and_host) ... ok
+test_bb_09_host_guards_reads (test_security.SecurityTests.test_bb_09_host_guards_reads) ... ok
+test_bb_09_loopback_only (test_security.SecurityTests.test_bb_09_loopback_only) ... ok
+test_bb_10_legal_defaults_and_unicode (test_security.SecurityTests.test_bb_10_legal_defaults_and_unicode) ... ok
+test_wb_01_atomic_save_failure (test_security.SecurityTests.test_wb_01_atomic_save_failure) ... ok
+test_wb_02_seeded_invalid_command_corpus (test_security.SecurityTests.test_wb_02_seeded_invalid_command_corpus) ... ok
+test_wb_07_fsync_failure (test_security.SecurityTests.test_wb_07_fsync_failure) ... ok
+test_wb_07_save_serializes_mutation (test_security.SecurityTests.test_wb_07_save_serializes_mutation) ... ok
+test_index_and_state_endpoints (test_server.ServerTests.test_index_and_state_endpoints) ... ok
+test_phase_endpoints (test_server.ServerTests.test_phase_endpoints) ... ok
+test_theme_switch_endpoint (test_server.ServerTests.test_theme_switch_endpoint) ... ok
+test_create_agent_and_move (test_store.WorkspaceStoreTests.test_create_agent_and_move) ... ok
+test_expand_and_save_reload (test_store.WorkspaceStoreTests.test_expand_and_save_reload) ... ok
+test_meeting_archive_document_and_memory (test_store.WorkspaceStoreTests.test_meeting_archive_document_and_memory) ... ok
+test_seed_contains_core_phase_one_objects (test_store.WorkspaceStoreTests.test_seed_contains_core_phase_one_objects) ... ok
+test_task_status_transition (test_store.WorkspaceStoreTests.test_task_status_transition) ... ok
+test_theme_switch (test_store.WorkspaceStoreTests.test_theme_switch) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 2.797s
+
+OK
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "rounds": [
+    {
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "before": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+  "after": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+  "denied_accesses": 0,
+  "leaked_threads": []
+}

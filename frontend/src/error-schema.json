@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": ["error"],
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": { "enum": ["invalid_payload", "forbidden", "not_found", "conflict", "payload_too_large", "storage_error"] },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}

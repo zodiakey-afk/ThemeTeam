@@ -1,0 +1,84 @@
+{
+  "version": "0.1",
+  "date": "2026-09-14",
+  "status": "draft-not-frozen-pending-independent-design-review-and-W00V",
+  "relatedContracts": ["m1-map-v0.1.schema.json", "m1-assets-v0.1.schema.json"],
+  "scope": "Root-local M1 scene only; no backend schema or API change",
+  "compatibility": {
+    "base": "w03-v1.1.json",
+    "adapterUpdate": "update(snapshot: Snapshot|null, selection: Selection|null): void",
+    "adapterDestroy": "destroy(): void, idempotent",
+    "initialUpdate": "Immediate; asynchronous construction retains latest input pair only",
+    "selectionOwner": "W03 controller; scene only calls injected root-local select callback",
+    "writes": "Scene intents issue zero HTTP writes; never modify snapshot, seatId or task/meeting status",
+    "persistence": "None: no localStorage/sessionStorage/BroadcastChannel",
+    "unknownWrite": "W03 uncertain barrier unchanged; scene retry cannot unlock or replay writes"
+  },
+  "dependencies": {"phaser": "3.90.0", "easystarjs": "0.4.4", "installed": false},
+  "geometry": {
+    "columns": 32, "rows": 24, "tileWidth": 64, "tileHeight": 32,
+    "projection": "x=originX+(col-row)*32; y=originY+(col+row)*16",
+    "candidateActorFrame": {"width": 32, "height": 48, "pivotX": 16, "pivotY": 48},
+    "directions": {"col+1": "SE", "row+1": "SW", "col-1": "NW", "row-1": "NE"},
+    "workSeats": 8, "meetingSeats": 6,
+    "roomKeys": ["boss", "work", "meeting", "coffee"],
+    "roomMapping": "Explicit mapping to existing snapshot roomIds; missing/locked rooms cannot admit a move",
+    "navigation": "EasyStar four-neighbor, no diagonals, unit cell cost",
+    "assetBaseline": "Pending approved VIS references and independently validated runtime atlas; concept boards are not runtime assets"
+  },
+  "camera": {
+    "minZoom": 0.5, "maxZoom": 2, "stops": [0.5, 0.75, 1, 1.5, 2],
+    "dragThresholdCssPx": 6,
+    "rightTap": "Movement <=6 CSS px and released on same target opens local menu; >6 pans with no menu or command",
+    "safeRect": "Actual drawable viewport excluding visible panels; selected target and marker remain visible when details open",
+    "close": "Retain selection; restore pre-panel camera when adjustment was required",
+    "emptySafeRect": "Pause scene interaction, preserve camera, show DOM entry; never divide by zero",
+    "dpr": "Backing-buffer density only, not a second multiplier for pointer coordinates"
+  },
+  "motion": {
+    "phases": ["standing", "planning", "walking", "waiting", "docking", "seated", "undocking", "obstructed", "removed"],
+    "candidateCellsPerSecond": 4, "candidateDockMs": 300, "candidateUndockMs": 300,
+    "planningTimeoutForegroundMs": 1000, "waitBeforeReplanForegroundMs": 2000, "maxReplans": 2,
+    "maxPendingPaths": 20, "maxSearchIterationsPerFrame": 200, "maxDeltaMs": 50,
+    "completionBoundForegroundMs": "pathEdges*250+600+3*2000+1000",
+    "tokens": ["rootGeneration", "motionId", "mapRevision"],
+    "reservationRules": [
+      "Validate shape/entity/map/lock/reachability before replacing old intent",
+      "One target reservation owner, one cell owner, no opposite edge swap",
+      "Reserve new destination before undocking; release old seat after reaching legal stand point",
+      "Arrive at approach before docking to sit; validate reservation ownership again",
+      "Selecting same agent and unrelated snapshots never restart/cancel motion",
+      "Timeout/replacement/deletion/map-change/dispose releases only owned reservations",
+      "Hidden state pauses foreground clocks; reduced motion still honors path/occupancy legality"
+    ],
+    "outcomes": ["accepted", "occupied", "unreachable", "locked", "unknown-target", "busy", "obstructed", "disposed"],
+    "source": "All movement/activity feedback explicitly demo; no model execution inferred"
+  },
+  "intentSchema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "M1 root-local intent draft",
+    "oneOf": [
+      {"type": "object", "additionalProperties": false, "required": ["type", "agentId", "anchorId"], "properties": {"type": {"const": "demo-move"}, "agentId": {"type": "string", "minLength": 1, "maxLength": 512}, "anchorId": {"type": "string", "minLength": 1, "maxLength": 128}}},
+      {"type": "object", "additionalProperties": false, "required": ["type", "agentId"], "properties": {"type": {"enum": ["focus-agent", "follow-agent", "demo-return-home"]}, "agentId": {"type": "string", "minLength": 1, "maxLength": 512}}},
+      {"type": "object", "additionalProperties": false, "required": ["type", "zoom"], "properties": {"type": {"const": "zoom"}, "zoom": {"type": "number", "minimum": 0.5, "maximum": 2}}},
+      {"type": "object", "additionalProperties": false, "required": ["type"], "properties": {"type": {"enum": ["overview", "stop-follow", "enter-demo", "leave-demo"]}}}
+    ]
+  },
+  "runtimeAssetChecks": [
+    "Local allowlisted PNG/atlas; no data-controlled URLs or path construction",
+    "Unique frame and anchor IDs; finite coordinates; rectangles inside PNG bounds",
+    "Every animation frame resolves and every direction has an identifiable fallback",
+    "One declared ground pivot per frame; standing/walking/docking/seated align with chair",
+    "Map dimensions and collision matrix agree; all approach points reachable from legal spawns",
+    "Exactly 8 work and 6 meeting anchors; doors remain passable; no overlapping footprints",
+    "Missing/unknown resources fail safely with DOM access; never accept blank canvas",
+    "Record author/source/terms/hash independently; no unreviewed redistribution rights inferred"
+  ],
+  "remainingBeforeFreeze": [
+    "Independent W00V and technical review, plan approval, BB freeze",
+    "Concrete Tiled export mapping, map layout/collision oracle and actual atlas rectangles conforming to draft schemas",
+    "Replace design fixtures with actual runtime map/atlas inputs and retain semantic validation evidence",
+    "Approve candidate motion timings, navigation budgets, camera and small-screen behavior",
+    "Complete first-batch NFR measurement environment; no metrics waived"
+  ]
+}

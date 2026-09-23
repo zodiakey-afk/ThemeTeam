@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "themeteam-m1-map-v0.3",
+  "title": "ThemeTeam M1 office map contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "mapRevision", "dimensions", "origin", "roomBindings", "collision", "doors", "anchors", "props", "spawns", "renderLayers"],
+  "properties": {
+    "version": {"const": "0.3"},
+    "mapRevision": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "dimensions": {
+      "type": "object", "additionalProperties": false,
+      "required": ["columns", "rows", "tileWidth", "tileHeight"],
+      "properties": {
+        "columns": {"const": 32}, "rows": {"const": 24},
+        "tileWidth": {"const": 64}, "tileHeight": {"const": 32}
+      }
+    },
+    "origin": {
+      "type": "object", "additionalProperties": false, "required": ["x", "y"],
+      "properties": {"x": {"type": "number"}, "y": {"type": "number"}}
+    },
+    "roomBindings": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["key", "roomId", "roomType", "movementEnabled", "cells"],
+        "properties": {
+          "key": {"enum": ["boss", "work", "meeting", "coffee"]},
+          "roomId": {"type": "string", "minLength": 1, "maxLength": 512},
+          "roomType": {"type": "string", "minLength": 1, "maxLength": 64},
+          "movementEnabled": {"type": "boolean"},
+          "cells": {"type": "array", "minItems": 1, "items": {"$ref": "#/definitions/cell"}}
+        }
+      }
+    },
+    "collision": {
+      "type": "array", "minItems": 24, "maxItems": 24,
+      "items": {"type": "string", "minLength": 32, "maxLength": 32, "pattern": "^[01]{32}$"}
+    },
+    "doors": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["id", "cell", "roomKeys", "open"],
+        "properties": {
+          "id": {"$ref": "#/definitions/id"}, "cell": {"$ref": "#/definitions/cell"},
+          "roomKeys": {"type": "array", "minItems": 1, "maxItems": 2, "uniqueItems": true, "items": {"enum": ["boss", "work", "meeting", "coffee"]}},
+          "open": {"type": "boolean"}
+        }
+      }
+    },
+    "anchors": {
+      "type": "array", "minItems": 26, "maxItems": 26,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "kind", "roomKey", "stand", "approach", "sit", "facing", "footprint"],
+        "properties": {
+          "id": {"$ref": "#/definitions/id"}, "kind": {"enum": ["workSeat", "meetingSeat"]},
+          "roomKey": {"enum": ["boss", "work", "meeting", "coffee"]},
+          "stand": {"$ref": "#/definitions/cell"},
+          "approach": {"$ref": "#/definitions/cell"},
+          "sit": {
+            "type": "object", "additionalProperties": false, "required": ["worldX", "worldY"],
+            "properties": {"worldX": {"type": "number"}, "worldY": {"type": "number"}}
+          },
+          "facing": {"enum": ["NE", "SE", "SW", "NW"]},
+          "footprint": {"type": "array", "minItems": 1, "items": {"$ref": "#/definitions/cell"}}
+        }
+      }
+    },
+    "props": {
+      "type": "array", "minItems": 43,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "frameId", "cell", "layer", "depthOffset"],
+        "properties": {
+          "id": {"$ref": "#/definitions/id"},
+          "frameId": {"$ref": "#/definitions/id"},
+          "cell": {"$ref": "#/definitions/cell"},
+          "layer": {"enum": ["ground", "propsBack", "propsFront"]},
+          "depthOffset": {"type": "number", "minimum": -128, "maximum": 128}
+        }
+      }
+    },
+    "spawns": {"type": "array", "minItems": 20, "maxItems": 20, "items": {"$ref": "#/definitions/cell"}},
+    "renderLayers": {
+      "type": "array", "const": ["ground", "propsBack", "dynamic", "propsFront", "effects"]
+    }
+  },
+  "definitions": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "cell": {
+      "type": "object", "additionalProperties": false, "required": ["col", "row"],
+      "properties": {"col": {"type": "integer", "minimum": 0, "maximum": 31}, "row": {"type": "integer", "minimum": 0, "maximum": 23}}
+    }
+  },
+  "x-semanticChecks": [
+    "room keys and explicit roomIds occur exactly once; the four required room keys occur exactly once",
+    "mapRevision changes whenever collision, doors, bindings or anchors change and is copied into every path token",
+    "door ids, anchor ids and prop ids are unique; every prop frameId resolves in the approved asset manifest",
+    "collision[row][col]=0 for every open door, anchor stand, anchor approach and spawn",
+    "exactly 20 workSeat and 6 meetingSeat anchors",
+    "anchor footprints do not overlap and each anchor stand/approach/footprint belongs to its room binding",
+    "stand and approach are the same walkable cell or four-neighbor adjacent; both are reachable from a legal spawn",
+    "all 20 pressure spawns are unique, walkable and do not overlap footprints",
+    "door roomKeys exist; closed doors are collision regardless of collision string; movementEnabled=false rooms reject new targets",
+    "sit world coordinates and facing are finite; projection uses m1-v0.3 tile/origin contract"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "snapshot": "workspace-snapshot-v1.json",
+  "api": {"base": "/api", "timeoutMs": 10000, "contentType": "application/json", "queue": "FIFO including reads", "retries": 0, "selectionPosts": 0},
+  "selection": {"kind": ["agent", "task", "room", "meeting", "document"], "id": "string", "empty": null, "persistence": "root-local only"},
+  "clientState": {"snapshot": "WorkspaceSnapshot|null", "selection": "Selection|null", "previousSelection": "Selection|null", "pending": "nonnegative count", "error": "string|null", "dirty": "boolean", "disposed": "boolean"},
+  "commands": {"load": "GET /api/state", "createAgent": "POST /api/agents", "createTask": "POST /api/tasks", "taskStatus": "POST /api/tasks/{encodedId}/status", "save": "POST /api/save", "reload": "POST /api/reload"},
+  "bridge": {"mount": "subscribe once and immediate update", "update": "same snapshot and selection as DOM", "dispose": "unsubscribe and adapter.destroy once, idempotent"},
+  "failure": "retain last good snapshot/selection; error visible; pending decremented; no dirty success; next command can proceed",
+  "scope": "Frontend foundation only; real office map/sprites/Phaser adapter and motion/performance are M1 W04-W06, blocked on visual baseline. No static art used as pretend interactive scene."
+}

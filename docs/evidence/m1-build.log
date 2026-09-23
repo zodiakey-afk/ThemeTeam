@@ -1,0 +1,27 @@
+
+> themeteam-frontend@0.1.0 prebuild
+> npm run generate:validators
+
+
+> themeteam-frontend@0.1.0 generate:validators
+> node scripts/generate-validators.cjs
+
+
+> themeteam-frontend@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 1864 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.40 kB │ gzip:   0.29 kB
+dist/assets/index-BUb5tfsl.css     12.71 kB │ gzip:   3.52 kB
+dist/assets/index-BViPev53.js   1,562.28 kB │ gzip: 420.38 kB
+
+✓ built in 813ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

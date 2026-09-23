@@ -1,0 +1,715 @@
+{
+  "version": "1.1",
+  "supersedes": "w02.json operation details; original v1.0 retained",
+  "lengthUnit": "Unicode code points; no trimming; empty text legal; empty ids -> unknown reference 404",
+  "precedence": [
+    "Host/Origin 403",
+    "framing 400/body cap 413",
+    "JSON or payload shape 400",
+    "approvedByHuman true 403",
+    "unknown reference 404",
+    "locked destination/archive ambiguity or changed summary 409",
+    "filesystem/load failure 500"
+  ],
+  "routes": {
+    "POST /api/theme": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "themeMode": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "retro",
+              "modern"
+            ],
+            "default": "retro"
+          }
+        },
+        "required": []
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/agents": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "New Agent"
+          },
+          "roleTemplate": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "generalist"
+          },
+          "modelProfileId": {
+            "type": "string",
+            "maxLength": 512,
+            "x-default": "first modelProfiles id; absent profiles -> 409"
+          },
+          "seatId": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "room_work"
+          },
+          "status": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "Idle",
+              "Walking",
+              "Working",
+              "Thinking",
+              "Speaking",
+              "Blocked",
+              "Error",
+              "Offline"
+            ],
+            "default": "Idle"
+          },
+          "appearancePresetId": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "default"
+          },
+          "leaderFlag": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": []
+      },
+      "successStatus": 201,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/tasks": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "未命名任务"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 65536,
+            "default": ""
+          },
+          "status": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "todo",
+              "in_progress",
+              "in_review",
+              "done"
+            ],
+            "default": "todo"
+          },
+          "priority": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "default": "medium"
+          },
+          "assigneeIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          },
+          "sourceType": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "manual"
+          }
+        },
+        "required": []
+      },
+      "successStatus": 201,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/meetings": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "新会议"
+          },
+          "mode": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "group",
+              "private"
+            ],
+            "default": "group"
+          },
+          "roomId": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "room_meeting"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          },
+          "moderatorId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 512
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null
+          },
+          "roundsLimit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 3
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 65536,
+            "default": ""
+          },
+          "status": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "draft",
+              "active",
+              "closed"
+            ],
+            "default": "draft"
+          },
+          "linkedTaskIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          },
+          "linkedDocIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          }
+        },
+        "required": []
+      },
+      "successStatus": 201,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/documents": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "other"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "未命名文档"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 65536,
+            "default": ""
+          },
+          "sourceRef": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "manual"
+          },
+          "version": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "v1.0"
+          },
+          "linkedTaskIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          },
+          "linkedMeetingIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          },
+          "visibilityScope": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "agent",
+              "team",
+              "global"
+            ],
+            "default": "team"
+          }
+        },
+        "required": []
+      },
+      "successStatus": 201,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/memory": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "scope": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "agent",
+              "team",
+              "global"
+            ],
+            "default": "team"
+          },
+          "sourceType": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "meeting"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 65536,
+            "default": ""
+          },
+          "embeddingRef": {
+            "type": "string",
+            "maxLength": 512,
+            "default": ""
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.8
+          },
+          "approvedByHuman": {
+            "type": "boolean",
+            "default": false,
+            "x-true-error": 403
+          },
+          "linkedDocs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 512,
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "maxItems": 256,
+            "default": []
+          }
+        },
+        "required": []
+      },
+      "successStatus": 201,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/office/expand": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "roomId": {
+            "type": "string",
+            "maxLength": 512
+          },
+          "visualPreset": {
+            "type": "string",
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "roomId"
+        ]
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/save": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/reload": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/rooms/{id}/unlock": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/select": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "workspace",
+              "team",
+              "room",
+              "agent",
+              "task",
+              "meeting",
+              "document",
+              "memory"
+            ],
+            "default": "workspace"
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 512,
+            "default": "workspace"
+          }
+        },
+        "required": []
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/agents/{id}/move": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "roomId": {
+            "type": "string",
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "roomId"
+        ]
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/tasks/{id}/status": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "type": "string",
+            "maxLength": 512,
+            "enum": [
+              "todo",
+              "in_progress",
+              "in_review",
+              "done"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "POST /api/meetings/{id}/close": {
+      "request": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "summary": {
+            "type": "string",
+            "maxLength": 65536,
+            "default": ""
+          }
+        },
+        "required": []
+      },
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403,
+        404,
+        409,
+        413,
+        500
+      ]
+    },
+    "GET /api/state": {
+      "successStatus": 200,
+      "response": {
+        "$ref": "#/$defs/snapshot"
+      },
+      "errors": [
+        400,
+        403
+      ]
+    }
+  },
+  "$defs": {
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "themeMode",
+        "activeTeamId",
+        "selection",
+        "teams",
+        "rooms",
+        "agents",
+        "tasks",
+        "meetings",
+        "documents",
+        "memoryItems",
+        "modelProfiles",
+        "events",
+        "lastSavedAt"
+      ],
+      "description": "Exact existing WorkspaceState.to_dict fields and nested JSON model schema, unchanged; no extra response wrapper."
+    },
+    "error": {
+      "type": "object",
+      "required": [
+        "error"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "type": "object",
+          "required": [
+            "code",
+            "message"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "enum": [
+                "invalid_payload",
+                "forbidden",
+                "not_found",
+                "conflict",
+                "payload_too_large",
+                "storage_error"
+              ]
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "store": "Same strict payload validation, refs and conflicts for direct public Store mutators under lock. Internal helpers do not bypass. Successful defaults as routes. Legacy select aliases delegate to same operation."
+}

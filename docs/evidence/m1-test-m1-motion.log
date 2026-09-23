@@ -1,0 +1,25 @@
+
+> themeteam-frontend@0.1.0 test:m1:motion
+> node tests/m1-motion-evidence.cjs
+
+{
+  "result": "passed",
+  "facings": [
+    "NE",
+    "NW",
+    "SE",
+    "SW"
+  ],
+  "phases": [
+    "docking",
+    "obstructed",
+    "planning",
+    "seated",
+    "undocking",
+    "waiting",
+    "walking"
+  ],
+  "timelineEvents": 159,
+  "posts": 0,
+  "externalRequests": 0
+}

@@ -1,0 +1,55 @@
+
+> themeteam-frontend@0.1.0 test:m1:accessibility
+> node tests/m1-accessibility.cjs
+
+{
+  "result": "passed",
+  "keyboardOnly": true,
+  "contrastChecks": 38,
+  "mobileTargets": [
+    {
+      "label": "移动到当前目标",
+      "width": 148,
+      "height": 44
+    },
+    {
+      "label": "聚焦成员",
+      "width": 106,
+      "height": 44
+    },
+    {
+      "label": "关闭场景操作",
+      "width": 44,
+      "height": 44
+    }
+  ],
+  "occlusion": {
+    "agent": {
+      "id": "agent_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_",
+      "phase": "seated",
+      "target": null,
+      "occupied": "work-3",
+      "cell": {
+        "col": 11,
+        "row": 11
+      },
+      "replanAttempts": 0,
+      "frame": "developer-work-NE",
+      "tint": 16777215,
+      "spriteDepth": 424,
+      "frontOccluderDepth": 496,
+      "homeOccluderDepth": 496,
+      "screen": {
+        "x": 724,
+        "y": 498
+      },
+      "hit": {
+        "x": 724,
+        "y": 415.05600000000004
+      }
+    },
+    "colors": 5260,
+    "hash": "e621e389"
+  },
+  "sourceUnchanged": true
+}

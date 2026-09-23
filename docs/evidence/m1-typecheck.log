@@ -1,0 +1,8 @@
+
+> themeteam-frontend@0.1.0 pretypecheck
+> node scripts/generate-validators.cjs --check
+
+
+> themeteam-frontend@0.1.0 typecheck
+> tsc --noEmit
+

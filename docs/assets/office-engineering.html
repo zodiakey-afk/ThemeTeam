@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThemeTeam - Office Geometry Reference</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#253831;background:#f6f8f7;font:15px/1.7 "Segoe UI","Microsoft YaHei",sans-serif;letter-spacing:0}main{max-width:1320px;margin:auto;padding:28px}h1{font-size:26px;margin:0}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:0}p{margin:8px 0 18px}header,section{padding:24px 0;border-bottom:1px solid #cbd6cf}header{padding-top:0}.meta{color:#56685e}.columns{display:grid;grid-template-columns:1fr 1fr;gap:28px}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}figure{margin:0;min-width:0}svg{width:100%;height:auto;display:block;background:#fff}svg text{font:14px "Segoe UI",sans-serif;fill:#253831}figcaption{font-size:13px;padding-top:8px;color:#475d51}code{font-size:13px}img{max-width:100%;height:auto;display:block}.reference{max-width:880px}a{color:#126246}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:9px;border-bottom:1px solid #d5ded8;text-align:left;overflow-wrap:anywhere}h1,h2,p{overflow-wrap:anywhere}.tile{fill:#e8f0eb;stroke:#9bb5a5;stroke-width:1}.wall{fill:#91b8be;stroke:#406a72;stroke-width:1.5}.foot{fill:#fff;stroke:#ae2946;stroke-width:2}.route{fill:none;stroke:#246bba;stroke-width:3;stroke-dasharray:5 4}.proxy{fill:#258652;stroke:#183e2c;stroke-width:2} @media(max-width:760px){main{padding:18px}.columns,.steps{grid-template-columns:1fr;gap:22px}h1{font-size:23px}header,section{padding:18px 0}}
+</style>
+</head>
+<body><main>
+<header><div class="meta">ThemeTeam / W00V / VIS-02 Technical Supplement</div><h1>投影、脚底锚点与遮挡基准</h1><p>工程示意，不是 M1 运行画布，也不是可用精灵图集。原始生成图保持不变；示意人形只用于定位，正式造型以 VIS-02 位图参考为准。</p></header>
+<section class="columns">
+<figure><h2>2:1 地砖与坐标</h2><svg id="projection" viewBox="0 0 560 350" role="img" aria-label="宽128、高64的2比1菱形地砖与坐标轴"></svg><figcaption>世界地砖 W=64、H=32；此处放大两倍，标注地砖宽 128、高 64。坐标线由同一投影公式生成。</figcaption></figure>
+<div><h2>确定性约定</h2><table><tbody><tr><th>投影</th><td>x = ox + (col - row) * 32<br>y = oy + (col + row) * 16</td></tr><tr><th>人物</th><td>局部包围框 32x48，脚底 pivot=(16,48)</td></tr><tr><th>旋转</th><td>无自由旋转。四邻接对应屏幕 NE/SE/SW/NW。</td></tr><tr><th>地面锚点</th><td>红色十字；不以图片左上角或头部代替。</td></tr><tr><th>遮挡</th><td>地面底层；墙段与人物按地面深度关系分段绘制。选中不提升至全局最上层。</td></tr><tr><th>适用边界</th><td>此附板定义工程规则，不声称自由绘制概念图已逐像素对齐。运行资产须重新标定并在 M1 验证。</td></tr></tbody></table></div>
+</section>
+<section><h2>同尺度人物框与脚底对齐</h2><div class="steps" id="pivots"></div><p class="meta">四个方向使用同一个 32x48 框和 (16,48) pivot。此处线性人形是定位代理；四向美术见下方实际位图，不将代理作为最终人物。</p></section>
+<section><h2>墙段前后关系</h2><div class="columns"><figure><svg id="behind" viewBox="0 0 440 290" role="img" aria-label="人物在墙后，下半身被前景墙段遮住"></svg><figcaption>后侧：人物先绘制，前景墙段遮住下半身；脚底定位不改变。</figcaption></figure><figure><svg id="front" viewBox="0 0 440 290" role="img" aria-label="人物在墙前，人物覆盖后方墙段"></svg><figcaption>前侧：人物后绘制；不能把所有人物永久画在全部家具之上。</figcaption></figure></div></section>
+<section><h2>成功通过门洞的连续位置</h2><div class="steps" id="doorway"></div><p class="meta">同一门洞、同一角色、五个连续位置，包含门洞中央。蓝线为此示例的四邻接路径，不是新写的寻路引擎。实际 M1 使用经评审的 A* 库，并另验占用、取消和入座。</p></section>
+<section><h2>实际美术参考</h2><figure class="reference"><img src="../../output/imagegen/vis02-closeups-v1.png" alt="同一Dev四向、工位与会议桌近景、坐姿和工作动作参考"><figcaption>VIS-02 v1 原始生成图。示意几何不替代这份人物与家具造型。</figcaption></figure></section>
+<footer><p><a href="../evidence/w00v-visual-review.md">独立视觉评审</a> · <a href="../office-canvas.md">办公室设计约束</a></p></footer>
+</main>
+<script>
+const ns='http://www.w3.org/2000/svg';
+const point=(c,r,ox=220,oy=65)=>[ox+(c-r)*32,oy+(c+r)*16];
+const el=(tag,attrs={},parent)=>{const node=document.createElementNS(ns,tag);for(const [key,value] of Object.entries(attrs))node.setAttribute(key,value);if(parent)parent.append(node);return node};
+const poly=(points,attrs,parent)=>el('polygon',{points:points.map(p=>p.join(',')).join(' '),...attrs},parent);
+const text=(parent,x,y,value)=>{const node=el('text',{x,y},parent);node.textContent=value;return node};
+function cross(parent,x,y){el('path',{d:`M${x-5} ${y}h10 M${x} ${y-5}v10`,stroke:'#ae2946','stroke-width':2,'data-pivot':`${x},${y}`},parent)}
+function actor(parent,x,y,facing='NW'){
+ const g=el('g',{transform:`translate(${x-16} ${y-48})`,'data-ground':`${x},${y}`},parent);
+ el('rect',{x:0,y:0,width:32,height:48,fill:'none',stroke:'#7c9885','stroke-dasharray':'2 3','data-frame':'32x48'},g);
+ el('path',{d:'M10 11 L10 3 L22 3 L22 11 L27 18 L26 31 L22 31 L22 47 L17 47 L16 34 L14 47 L9 47 L10 31 L6 30 L6 18 Z',class:'proxy'},g);
+ const face=facing==='SE'||facing==='SW';
+ if(face){el('path',{d:facing==='SE'?'M19 6h3':'M10 6h3',stroke:'#fff','stroke-width':2},g)}
+ cross(g,16,48);return g;
+}
+function floor(svg){for(let c=0;c<6;c++)for(let r=0;r<6;r++){const [x,y]=point(c,r);poly([[x,y-16],[x+32,y],[x,y+16],[x-32,y]],{class:'tile'},svg)}}
+function wall(svg,a,b){const p=point(...a),q=point(...b);poly([p,q,[q[0],q[1]-55],[p[0],p[1]-55]],{class:'wall'},svg)}
+const projection=document.querySelector('#projection');
+const center=[220,120];
+poly([[220,88],[284,120],[220,152],[156,120]],{class:'tile','data-ratio-tile':'true'},projection);
+el('path',{d:'M156 170H284 M156 163v14 M284 163v14',stroke:'#253831'},projection);text(projection,196,194,'128 px');
+el('path',{d:'M310 88V152 M303 88h14 M303 152h14',stroke:'#253831'},projection);text(projection,326,126,'64 px');
+cross(projection,...center);text(projection,172,72,'(col, row) = (0, 0)');
+el('path',{d:'M220 120L348 184 M220 120L92 184',stroke:'#246bba','stroke-width':2},projection);text(projection,348,204,'+col');text(projection,50,204,'+row');
+text(projection,125,250,'W / H = 128 / 64 = 2');text(projection,125,279,'world tile = 64 x 32');
+for(const direction of ['NE','SE','SW','NW']){
+ const fig=document.createElement('figure');const title=document.createElement('h3');title.textContent=direction;fig.append(title);
+ const svg=el('svg',{viewBox:'0 0 180 150',role:'img','aria-label':`${direction} common foot pivot`},fig);
+ const g=el('g',{transform:'translate(58 10) scale(2)'},svg);actor(g,16,48,direction);
+ el('path',{d:'M16 106H164',stroke:'#ae2946'},svg);text(svg,34,137,'pivot (16, 48)');document.querySelector('#pivots').append(fig);
+}
+for(const [id,c,r] of [['behind',3,2],['front',3,4]]){
+ const svg=document.getElementById(id);floor(svg);const p=point(c,r);
+ if(id==='behind')actor(svg,...p);wall(svg,[1,3],[5,3]);if(id==='front')actor(svg,...p);
+ text(svg,16,270,`foot = (${c}, ${r}), groundY = ${p[1]}`);
+}
+const route=[[3,1],[3,2],[3,3],[3,4],[4,4]];
+for(const [index,cell] of route.entries()){
+ const fig=document.createElement('figure');const title=document.createElement('h3');title.textContent=['1 门前','2 门洞入口','3 门洞中央','4 已通过','5 Approach'][index];fig.append(title);
+ const svg=el('svg',{viewBox:'0 0 440 290',role:'img','aria-label':title.textContent},fig);floor(svg);
+ el('polyline',{points:route.map(p=>point(...p).join(',')).join(' '),class:'route'},svg);
+ const foot=point(...cell);if(cell[1]<3)actor(svg,...foot,'SW');
+ wall(svg,[0,3],[2.5,3]);wall(svg,[3.5,3],[5,3]);
+ if(cell[1]>=3)actor(svg,...foot,index===4?'SE':'SW');
+ cross(svg,...point(3,3));text(svg,20,267,`foot (${cell.join(',')})`);document.querySelector('#doorway').append(fig);
+}
+window.geometryEvidence={worldTile:[64,32],diagramTile:[128,64],pivot:[16,48],frames:4,routeFrames:5,route,doorCell:[3,3],
+ fourAdjacent:route.every((p,i)=>!i||Math.abs(p[0]-route[i-1][0])+Math.abs(p[1]-route[i-1][1])===1),
+ runtime:false,artworkUnmodified:true};
+</script>
+</body></html>

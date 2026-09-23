@@ -1,0 +1,81 @@
+
+> themeteam-frontend@0.1.0 test:e2e
+> node tests/e2e.cjs
+
+{
+  "result": "passed",
+  "screens": [
+    {
+      "width": 1440,
+      "height": 900,
+      "bounds": {
+        "scroll": 1440,
+        "viewport": 1440,
+        "outside": []
+      },
+      "dialogBounds": {
+        "left": 480,
+        "right": 960,
+        "top": 229.5,
+        "bottom": 670.5,
+        "scroll": 478,
+        "width": 478
+      }
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "bounds": {
+        "scroll": 1024,
+        "viewport": 1024,
+        "outside": []
+      },
+      "dialogBounds": {
+        "left": 272,
+        "right": 752,
+        "top": 163.5,
+        "bottom": 604.5,
+        "scroll": 478,
+        "width": 478
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "bounds": {
+        "scroll": 390,
+        "viewport": 390,
+        "outside": []
+      },
+      "dialogBounds": {
+        "left": 17,
+        "right": 373,
+        "top": 146,
+        "bottom": 698,
+        "scroll": 354,
+        "width": 354
+      }
+    }
+  ],
+  "pageErrors": [],
+  "proxyRejected": 12,
+  "rejectedUpstreamRequests": 0,
+  "previewRejected": 3,
+  "previewApiDisabled": true,
+  "previewUpstreamRequests": 0,
+  "workflows": [
+    "task create",
+    "task status",
+    "owner select/back",
+    "close/reopen",
+    "dialog keyboard focus",
+    "exact repeated-owner focus",
+    "two-root focus isolation",
+    "owner close/back focus",
+    "reload prune focus",
+    "save",
+    "agent create/XSS",
+    "unknown write freeze"
+  ],
+  "fixture": "temporary Python Store; never real workspace"
+}

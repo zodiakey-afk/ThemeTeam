@@ -1,0 +1,25 @@
+
+> themeteam-frontend@0.1.0 test:m1:divergence
+> node tests/m1-divergence.cjs
+
+{
+  "result": "passed",
+  "seed": 20260911,
+  "interactionSequences": 200,
+  "obstacleMaps": 100,
+  "actionCounts": {
+    "zoom": 25,
+    "target": 22,
+    "preview": 20,
+    "select": 20,
+    "menu": 20,
+    "overview": 28,
+    "focus": 28,
+    "pan": 19,
+    "close": 18
+  },
+  "failures": 0,
+  "posts": 0,
+  "external": 0,
+  "sourceUnchanged": true
+}

@@ -1,0 +1,200 @@
+{
+  "version": "0.2",
+  "mapRevision": "office-v0.2-r1",
+  "sourceMap": "/assets/office/office-map.v0.2.json",
+  "topology": {
+    "neighborMode": "four",
+    "diagonals": false,
+    "connectedRoomKeys": [
+      "boss",
+      "work",
+      "meeting",
+      "coffee"
+    ],
+    "mandatoryDoors": [
+      {
+        "id": "door-boss-meeting",
+        "cell": {
+          "col": 16,
+          "row": 5
+        }
+      },
+      {
+        "id": "door-boss-work",
+        "cell": {
+          "col": 6,
+          "row": 9
+        }
+      },
+      {
+        "id": "door-meeting-coffee",
+        "cell": {
+          "col": 24,
+          "row": 9
+        }
+      },
+      {
+        "id": "door-work-coffee",
+        "cell": {
+          "col": 20,
+          "row": 16
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "straight-work",
+      "start": {
+        "col": 1,
+        "row": 11
+      },
+      "target": {
+        "col": 15,
+        "row": 14
+      },
+      "expectation": "reachable"
+    },
+    {
+      "id": "boss-through-door",
+      "start": {
+        "col": 1,
+        "row": 11
+      },
+      "target": {
+        "col": 5,
+        "row": 5
+      },
+      "expectation": "reachable",
+      "mustVisit": [
+        {
+          "col": 6,
+          "row": 9
+        }
+      ]
+    },
+    {
+      "id": "meeting-through-door",
+      "start": {
+        "col": 21,
+        "row": 11
+      },
+      "target": {
+        "col": 24,
+        "row": 6
+      },
+      "expectation": "reachable",
+      "mustVisit": [
+        {
+          "col": 24,
+          "row": 9
+        }
+      ]
+    },
+    {
+      "id": "blocked-wall",
+      "start": {
+        "col": 1,
+        "row": 11
+      },
+      "target": {
+        "col": 10,
+        "row": 9
+      },
+      "expectation": "unreachable-target-cell"
+    },
+    {
+      "id": "occupied-desk",
+      "start": {
+        "col": 1,
+        "row": 11
+      },
+      "target": {
+        "col": 3,
+        "row": 13
+      },
+      "expectation": "unreachable-target-cell"
+    }
+  ],
+  "syntheticUniqueDoor": {
+    "dimensions": {
+      "columns": 9,
+      "rows": 7
+    },
+    "collision": [
+      "111111111",
+      "100010001",
+      "100010001",
+      "100000001",
+      "100010001",
+      "100010001",
+      "111111111"
+    ],
+    "door": {
+      "col": 4,
+      "row": 3
+    },
+    "cases": [
+      {
+        "id": "straight",
+        "start": {
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "col": 7,
+          "row": 3
+        },
+        "expectation": "reachable",
+        "requiredDoor": {
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "id": "l-route",
+        "start": {
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "col": 7,
+          "row": 5
+        },
+        "expectation": "reachable",
+        "requiredDoor": {
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "id": "blocked-end",
+        "start": {
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "col": 4,
+          "row": 1
+        },
+        "expectation": "unreachable-target-cell"
+      },
+      {
+        "id": "closed-door",
+        "start": {
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "col": 7,
+          "row": 1
+        },
+        "expectation": "unreachable-when-door-closed",
+        "requiredDoor": {
+          "col": 4,
+          "row": 3
+        }
+      }
+    ]
+  }
+}

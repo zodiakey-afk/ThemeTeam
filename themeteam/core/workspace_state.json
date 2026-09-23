@@ -1,0 +1,318 @@
+{
+  "id": "workspace_main",
+  "name": "ThemeTeam Workspace",
+  "themeMode": "retro",
+  "activeTeamId": "team_alpha",
+  "selection": {
+    "kind": "workspace",
+    "id": "workspace"
+  },
+  "teams": [
+    {
+      "id": "team_alpha",
+      "name": "产品团队",
+      "leaderAgentId": "agent_pm",
+      "capacity": 8,
+      "defaultModelProfileId": "model_primary",
+      "tags": [
+        "default"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "id": "room_boss",
+      "name": "老板办公室",
+      "type": "bossOffice",
+      "level": 1,
+      "x": 100,
+      "y": 70,
+      "width": 220,
+      "height": 160,
+      "occupantIds": [
+        "agent_pm"
+      ],
+      "unlocked": true,
+      "visualPreset": "retro"
+    },
+    {
+      "id": "room_work",
+      "name": "工位区",
+      "type": "workstation",
+      "level": 1,
+      "x": 350,
+      "y": 100,
+      "width": 430,
+      "height": 230,
+      "occupantIds": [
+        "agent_dev",
+        "agent_qa"
+      ],
+      "unlocked": true,
+      "visualPreset": "retro"
+    },
+    {
+      "id": "room_meeting",
+      "name": "会议室",
+      "type": "meetingRoom",
+      "level": 1,
+      "x": 320,
+      "y": 350,
+      "width": 260,
+      "height": 180,
+      "occupantIds": [],
+      "unlocked": true,
+      "visualPreset": "retro"
+    },
+    {
+      "id": "room_lounge",
+      "name": "休憩区",
+      "type": "lounge",
+      "level": 1,
+      "x": 120,
+      "y": 330,
+      "width": 170,
+      "height": 140,
+      "occupantIds": [],
+      "unlocked": true,
+      "visualPreset": "retro"
+    },
+    {
+      "id": "room_archive",
+      "name": "文档中心",
+      "type": "archive",
+      "level": 1,
+      "x": 720,
+      "y": 260,
+      "width": 180,
+      "height": 150,
+      "occupantIds": [],
+      "unlocked": true,
+      "visualPreset": "retro"
+    },
+    {
+      "id": "room_b1",
+      "name": "扩容楼层 B1",
+      "type": "expansionRoom",
+      "level": 2,
+      "x": 690,
+      "y": 470,
+      "width": 220,
+      "height": 160,
+      "occupantIds": [],
+      "unlocked": true,
+      "visualPreset": "retro"
+    }
+  ],
+  "agents": [
+    {
+      "id": "agent_pm",
+      "name": "PM-01",
+      "roleTemplate": "pm",
+      "modelProfileId": "model_primary",
+      "seatId": "room_boss",
+      "status": "Thinking",
+      "appearancePresetId": "pm_base",
+      "teamId": "team_alpha",
+      "leaderFlag": true,
+      "animationPackId": "default",
+      "skinId": "default"
+    },
+    {
+      "id": "agent_dev",
+      "name": "Dev-02",
+      "roleTemplate": "developer",
+      "modelProfileId": "model_primary",
+      "seatId": "room_work",
+      "status": "Working",
+      "appearancePresetId": "dev_base",
+      "teamId": "team_alpha",
+      "leaderFlag": false,
+      "animationPackId": "default",
+      "skinId": "default"
+    },
+    {
+      "id": "agent_qa",
+      "name": "QA-01",
+      "roleTemplate": "tester",
+      "modelProfileId": "model_local",
+      "seatId": "room_work",
+      "status": "Idle",
+      "appearancePresetId": "qa_base",
+      "teamId": "team_alpha",
+      "leaderFlag": false,
+      "animationPackId": "default",
+      "skinId": "default"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_roadmap",
+      "title": "整理 MVP 路线",
+      "description": "把 Sprint 0 和 Phase 1 的实施项拆成可执行任务。",
+      "status": "in_progress",
+      "priority": "high",
+      "assigneeIds": [
+        "agent_pm"
+      ],
+      "sourceType": "manual",
+      "dueAt": null,
+      "parentTaskId": null
+    },
+    {
+      "id": "task_canvas",
+      "title": "落地 2.5D 办公画布",
+      "description": "完成默认办公室画布、镜头和路径高亮。",
+      "status": "todo",
+      "priority": "high",
+      "assigneeIds": [
+        "agent_dev"
+      ],
+      "sourceType": "manual",
+      "dueAt": null,
+      "parentTaskId": null
+    },
+    {
+      "id": "task_tests",
+      "title": "补齐核心测试",
+      "description": "覆盖状态机、API 和页面冒烟验证。",
+      "status": "todo",
+      "priority": "medium",
+      "assigneeIds": [
+        "agent_qa"
+      ],
+      "sourceType": "manual",
+      "dueAt": null,
+      "parentTaskId": null
+    }
+  ],
+  "meetings": [
+    {
+      "id": "meeting_e0848374",
+      "title": "评审会",
+      "mode": "group",
+      "roomId": "room_meeting",
+      "participants": [
+        "agent_pm"
+      ],
+      "moderatorId": null,
+      "roundsLimit": 3,
+      "summary": "已收束。",
+      "status": "closed",
+      "linkedTaskIds": [],
+      "linkedDocIds": []
+    },
+    {
+      "id": "meeting_phase2",
+      "title": "Phase 2 设计评审",
+      "mode": "group",
+      "roomId": "room_meeting",
+      "participants": [
+        "agent_pm",
+        "agent_dev",
+        "agent_qa"
+      ],
+      "moderatorId": "agent_pm",
+      "roundsLimit": 3,
+      "summary": "确认会议、扩容和动效的交互边界。",
+      "status": "active",
+      "linkedTaskIds": [
+        "task_roadmap"
+      ],
+      "linkedDocIds": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc_6bb5c6c0",
+      "category": "meeting-notes",
+      "title": "评审会 会议纪要",
+      "content": "已收束。",
+      "sourceRef": "meeting_e0848374",
+      "version": "v1.0",
+      "linkedTaskIds": [],
+      "linkedMeetingIds": [
+        "meeting_e0848374"
+      ],
+      "visibilityScope": "team",
+      "createdAt": "2026-09-08T10:20:57+00:00"
+    },
+    {
+      "id": "doc_spec",
+      "category": "architecture",
+      "title": "Phase 2-4 实施说明",
+      "content": "围绕 2.5D 办公画布、会议流、文档中心和桌面打包的实现说明。",
+      "sourceRef": "meeting_phase2",
+      "version": "v1.0",
+      "linkedTaskIds": [
+        "task_roadmap"
+      ],
+      "linkedMeetingIds": [
+        "meeting_phase2"
+      ],
+      "visibilityScope": "team",
+      "createdAt": "[2026-09-08T10:20:56+00:00] phase-2-4 doc seeded"
+    }
+  ],
+  "memoryItems": [
+    {
+      "id": "memory_703f8bd3",
+      "scope": "team",
+      "sourceType": "meeting",
+      "text": "已收束。",
+      "embeddingRef": "local://doc_6bb5c6c0",
+      "confidence": 0.75,
+      "approvedByHuman": true,
+      "linkedDocs": [
+        "doc_6bb5c6c0"
+      ]
+    },
+    {
+      "id": "memory_1",
+      "scope": "team",
+      "sourceType": "meeting",
+      "text": "默认主题为像素经营桌面外壳 + 2.5D 游戏化办公室画布。",
+      "embeddingRef": "local://memory_1",
+      "confidence": 0.75,
+      "approvedByHuman": true,
+      "linkedDocs": [
+        "doc_spec"
+      ]
+    }
+  ],
+  "modelProfiles": [
+    {
+      "id": "model_primary",
+      "name": "gpt-4.1",
+      "provider": "OpenAI",
+      "contextWindow": 128000,
+      "capabilityTags": [
+        "planning",
+        "coding",
+        "analysis"
+      ],
+      "costLabel": "balanced"
+    },
+    {
+      "id": "model_local",
+      "name": "local-ollama",
+      "provider": "Local",
+      "contextWindow": 32000,
+      "capabilityTags": [
+        "offline",
+        "fast"
+      ],
+      "costLabel": "low"
+    }
+  ],
+  "events": [
+    "[2026-09-08T10:20:58+00:00] 解锁房间：扩容楼层 B1",
+    "[2026-09-08T10:20:57+00:00] 解锁房间：扩容楼层 B1",
+    "[2026-09-08T10:20:57+00:00] 会议 评审会 已归档为文档",
+    "[2026-09-08T10:20:57+00:00] 创建会议：评审会",
+    "[2026-09-08T10:20:56+00:00] Sprint 0: 需求冻结与架构预研就绪",
+    "[2026-09-08T10:20:56+00:00] Phase 1: 初始三人组已部署",
+    "[2026-09-08T10:20:56+00:00] 默认主题：像素经营桌面 + 2.5D 办公画布"
+  ],
+  "lastSavedAt": "2026-09-08T10:20:58+00:00"
+}

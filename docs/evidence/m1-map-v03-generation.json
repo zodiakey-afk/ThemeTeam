@@ -1,0 +1,24 @@
+{
+  "result": "passed",
+  "date": "2026-09-22T06:09:52.992Z",
+  "command": "node tests/generate_m1_map_v03.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "map": {
+    "path": "frontend\\public\\assets\\office\\office-map.v0.3.json",
+    "sha256": "af9c38d31943f2512578f59589ad6423308fef93040c529c15d5ed82ce3f6852",
+    "revision": "office-v0.3-r1",
+    "workSeats": 20,
+    "meetingSeats": 6,
+    "spawns": 20
+  },
+  "oracle": {
+    "path": "frontend\\tests\\fixtures\\m1\\collision-oracle.v0.3.json",
+    "sha256": "b22d3a825cd2a699eb5571678638df0bb9a4068dc3f0f5e90176336bd24f7607"
+  },
+  "roomCells": {
+    "boss": 60,
+    "meeting": 114,
+    "work": 360,
+    "coffee": 75
+  }
+}

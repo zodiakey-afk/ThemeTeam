@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThemeTeam</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar pixel-frame">
+      <div>
+        <div class="eyebrow">Sprint 0 + Phase 2-4</div>
+        <h1>Agent Office</h1>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="ghost-btn">切换现代主题</button>
+        <div id="themeBadge" class="badge">默认：像素经营桌面 + 2.5D 办公画布</div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <aside class="sidebar pixel-frame">
+        <section>
+          <h2>房间导航</h2>
+          <div id="roomList" class="stack"></div>
+        </section>
+        <section>
+          <h2>团队</h2>
+          <div id="teamList" class="stack"></div>
+        </section>
+      </aside>
+
+      <section class="canvas-panel pixel-frame">
+        <div class="panel-head">
+          <div>
+            <h2>办公室画布</h2>
+            <p>默认是更有游戏性的 2.5D 空间，拖拽、聚焦、路径和层级都已经预留。</p>
+          </div>
+          <div id="canvasStats" class="stats"></div>
+        </div>
+        <div id="officeCanvas" class="office-canvas"></div>
+      </section>
+
+      <aside class="sidebar right pixel-frame">
+        <section>
+          <h2>选中对象</h2>
+          <div id="selectionCard" class="detail-card"></div>
+        </section>
+        <section>
+          <h2>创建 Agent</h2>
+          <form id="agentForm" class="stack form-grid">
+            <input name="name" placeholder="新 Agent 名称" required>
+            <select name="roleTemplate">
+              <option value="pm">PM</option>
+              <option value="developer">Developer</option>
+              <option value="tester">Tester</option>
+            </select>
+            <select name="modelProfileId" id="modelProfiles"></select>
+            <button type="submit" class="primary-btn">创建并落位</button>
+          </form>
+        </section>
+        <section>
+          <h2>阶段动作</h2>
+          <div class="stack">
+            <button id="saveWorkspace" class="ghost-btn">保存工作区</button>
+            <button id="reloadWorkspace" class="ghost-btn">重新加载</button>
+            <button id="createMeeting" class="ghost-btn">创建会议</button>
+            <button id="archiveMeeting" class="ghost-btn">归档会议</button>
+            <button id="expandOffice" class="ghost-btn">解锁 B1</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="bottom-grid">
+      <article class="board-panel pixel-frame">
+        <div class="panel-head compact">
+          <div>
+            <h2>任务看板</h2>
+            <p>Phase 1 的最小闭环已经起步。</p>
+          </div>
+        </div>
+        <div id="taskBoard" class="task-board"></div>
+      </article>
+
+      <article class="feed-panel pixel-frame">
+        <div class="panel-head compact">
+          <div>
+            <h2>会议 / 文档</h2>
+            <p>Phase 2 到 Phase 4 的收束、归档与记忆入口。</p>
+          </div>
+        </div>
+        <div id="phasePanel" class="feed"></div>
+      </article>
+    </section>
+
+    <section class="bottom-grid lower-grid">
+      <article class="feed-panel pixel-frame">
+        <div class="panel-head compact">
+          <div>
+            <h2>文档中心</h2>
+            <p>Phase 3 的归档内容和关联链路。</p>
+          </div>
+        </div>
+        <div id="documentList" class="feed"></div>
+      </article>
+
+      <article class="feed-panel pixel-frame">
+        <div class="panel-head compact">
+          <div>
+            <h2>记忆库</h2>
+            <p>抽取、审批和回写的最小展示。</p>
+          </div>
+        </div>
+        <div id="memoryList" class="feed"></div>
+      </article>
+    </section>
+
+    <section class="bottom-grid lower-grid">
+      <article class="feed-panel pixel-frame">
+        <div class="panel-head compact">
+          <div>
+            <h2>运行事件</h2>
+            <p>用于 Sprint 0 的冻结记录与 Phase 2-4 的状态回显。</p>
+          </div>
+        </div>
+        <div id="eventFeed" class="feed"></div>
+      </article>
+
+      <article class="feed-panel pixel-frame">
+        <div class="panel-head compact">
+          <div>
+            <h2>扩容状态</h2>
+            <p>锁定 / 解锁与楼层推进。</p>
+          </div>
+        </div>
+        <div id="expansionList" class="feed"></div>
+      </article>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

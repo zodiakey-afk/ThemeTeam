@@ -1,0 +1,48 @@
+{
+  "result": "passed",
+  "date": "2026-09-23T09:39:08.280Z",
+  "command": "node tests/m1_contracts.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "runtime": "v22.23.0",
+  "exitCode": 0,
+  "log": "docs/evidence/m1-contracts.log",
+  "structural": {
+    "accepted": 6,
+    "rejected": 16
+  },
+  "semantic": {
+    "accepted": 6,
+    "rejected": 13,
+    "packagingBlockedWithoutRightsApproval": true,
+    "runtimeCandidateApprovedForPackaging": true
+  },
+  "runtimeCandidates": {
+    "map": {
+      "path": "frontend/public/assets/office/office-map.v0.3.json",
+      "sha256": "af9c38d31943f2512578f59589ad6423308fef93040c529c15d5ed82ce3f6852"
+    },
+    "assets": {
+      "path": "frontend/public/assets/office/office-assets.v0.3.json",
+      "sha256": "b34946f2290517f992e8026f847cf4e7dca0d32527c5be16d849f8a13f2cda87"
+    },
+    "oracle": {
+      "path": "frontend/tests/fixtures/m1/collision-oracle.v0.3.json",
+      "sha256": "b22d3a825cd2a699eb5571678638df0bb9a4068dc3f0f5e90176336bd24f7607"
+    }
+  },
+  "hashes": [
+    {
+      "name": "m1-v0.4.json",
+      "sha256": "c43e3c2e92c351d00cb9668a5eff01c8a7f5e78ce910fb9200e67d18e1676f1a"
+    },
+    {
+      "name": "m1-map-v0.3.schema.json",
+      "sha256": "24a56e5740ac736034bf892fd7959078e57b3ef453ea7211b1263e49381ce9a8"
+    },
+    {
+      "name": "m1-assets-v0.3.schema.json",
+      "sha256": "fecd13e3b8f74a81f47c7c81bc305f6ee8ecb518b0d87a7cdebc35eb3b6e4b3a"
+    }
+  ],
+  "scope": "Design-contract and candidate map/atlas-manifest validation only; PNG pixel quality, full Phaser runtime, performance and M1 acceptance are separate."
+}

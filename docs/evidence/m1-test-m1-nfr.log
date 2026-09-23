@@ -1,0 +1,85 @@
+
+> themeteam-frontend@0.1.0 test:m1:nfr
+> node tests/m1-nfr.cjs
+
+{
+  "result": "smoke_passed",
+  "frameRuns": [
+    {
+      "dpr": 1,
+      "run": 1,
+      "p95": 16.800000000000182,
+      "p99": 16.900000000000546,
+      "passed": true
+    },
+    {
+      "dpr": 2,
+      "run": 1,
+      "p95": 16.800000000000182,
+      "p99": 16.900000000000546,
+      "passed": true
+    }
+  ],
+  "responseRuns": [
+    {
+      "width": 390,
+      "selectionP95": 45.02779999999984,
+      "zoomP95": 66.61200000000099,
+      "panelP95": 66.08169999999882,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "selectionP95": 42.424199999997654,
+      "zoomP95": 66.77950000000055,
+      "panelP95": 64.84319999999934,
+      "passed": true
+    },
+    {
+      "width": 1366,
+      "selectionP95": 42.12999999999738,
+      "zoomP95": 67.53409999999712,
+      "panelP95": 65.07229999999981,
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "selectionP95": 42.29559999999765,
+      "zoomP95": 66.9623999999967,
+      "panelP95": 64.73270000000048,
+      "passed": true
+    }
+  ],
+  "command": {
+    "networkP95": 38.152900000000955,
+    "userP95": 67.80259999999544,
+    "passed": true
+  },
+  "coldLoads": [
+    {
+      "run": 1,
+      "elapsed": 367.8000000715256,
+      "externalRequests": 0,
+      "serviceWorkers": 0,
+      "passed": true
+    },
+    {
+      "run": 2,
+      "elapsed": 365.7999999523163,
+      "externalRequests": 0,
+      "serviceWorkers": 0,
+      "passed": true
+    },
+    {
+      "run": 3,
+      "elapsed": 372.5,
+      "externalRequests": 0,
+      "serviceWorkers": 0,
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Smoke timings do not satisfy the frozen 30s warmup, 60s sample, three-run evidence shape.",
+    "Playwright trace captures the tested production interaction timeline; raw rAF samples and variance are embedded separately in frameRuns."
+  ]
+}

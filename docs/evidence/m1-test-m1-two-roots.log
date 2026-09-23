@@ -1,0 +1,63 @@
+
+> themeteam-frontend@0.1.0 test:m1:two-roots
+> node tests/m1-two-roots.cjs
+
+{
+  "result": "passed",
+  "build": "production",
+  "fixture": "temporary Store",
+  "roots": 2,
+  "independentSelection": true,
+  "independentCamera": true,
+  "rootADestroyed": true,
+  "rootBContinuedMovement": true,
+  "posts": 0,
+  "externalRequests": 0,
+  "pageErrors": [],
+  "cspViolations": [],
+  "source": {
+    "frontend/dist-two-roots/assets/office/office-agents.v0.2.png": "de3cc2e922337b0144809a5a07bd60af34a9ad2e79d4f3cbd41b6980966fa088",
+    "frontend/dist-two-roots/assets/office/office-agents.v0.3.png": "58bfc049aa5916f4abce2813f41b41941edb324b482033febb20ea0ccfcad232",
+    "frontend/dist-two-roots/assets/office/office-assets.v0.2.json": "2fca7407695142b5bfafaef3895c6f67fa44a55ba3a9adbb10a035b535aa0c26",
+    "frontend/dist-two-roots/assets/office/office-assets.v0.3.json": "b34946f2290517f992e8026f847cf4e7dca0d32527c5be16d849f8a13f2cda87",
+    "frontend/dist-two-roots/assets/office/office-map.v0.2.json": "13997cae10a3664ce502b0c683328101852c760d7cb0301edde15abd6f9c36d3",
+    "frontend/dist-two-roots/assets/office/office-map.v0.3.json": "af9c38d31943f2512578f59589ad6423308fef93040c529c15d5ed82ce3f6852",
+    "frontend/dist-two-roots/assets/office/office-props.v0.2.png": "3d6024bbd92de6c7bef785da56440de7876dbabc54c7ab8df343ec30abe07351",
+    "frontend/dist-two-roots/assets/office/office-props.v0.3.png": "5b6b2293f0a915ba232a3c72e7929231d3ee8081a6f885ed52e0da4421be0f0d",
+    "frontend/dist-two-roots/assets/two-roots-BUb5tfsl.css": "d78ceb0a37335f10a05dc018f9f6c47ee30bedbaf43c1c65591e348e1f7b824a",
+    "frontend/dist-two-roots/assets/two-roots-CLbQ-L7A.js": "940d3794ae80f9556a890aea97aa8fcd1250eb3ede0441562b31af58ea44883f",
+    "frontend/dist-two-roots/office-reference.png": "ae39afb0f7547452a331f4aa20685756911659b98f658b34dddf64088ce5d446",
+    "frontend/dist-two-roots/tests/two-roots.html": "6dbaca90aed8c1395ad14c90111519840d107e250e841f3a4ec66d48994f714d",
+    "frontend/src/App.tsx": "014e17c933c2fa91cbcc2461fcad498e55ec84b3bdcaf7732eb5d5dc0bf0878f",
+    "frontend/src/easystarjs.d.ts": "8162776f7b8fd4c9011a8f57bccbdf492181e306590372f16b20a497ec7bd6a9",
+    "frontend/src/error-schema.json": "c79310424ce4c71088dd6d07c008ca3f841cba05cfe149ac16b1ad4d6510a363",
+    "frontend/src/main.tsx": "a842b8f068cf8b60b34ce07c6220f737798d6736c43b4387a0a84ea1f100316f",
+    "frontend/src/office/OfficeCanvas.tsx": "81b2c46e12249f561bc88e2c0a09e803e9756836a6ba67158700804910f17975",
+    "frontend/src/office/RootLocalGame.ts": "dbf7547d3b68f39aa1f503407814672f1c60909952bd415c63216aebf6e4b6fe",
+    "frontend/src/office/domain.ts": "ed269a0d5295acaad2cf3f5197f68841dff3dcd46abbc5d1bc45768368780a86",
+    "frontend/src/office/sceneAdapter.ts": "178d69a7fa293a0140384c483c3bc0b2faebcc8ec19dd796061bd1e22ce1d5b0",
+    "frontend/src/office/types.ts": "aaaee5866c047ea7b3abec21499581f31f386745b5521fb53d7d00fa2f5e74c0",
+    "frontend/src/sceneBridge.ts": "4bb2c5498875fb25e961f58b4ec57900afe0efaaa4b499bbe6f7cf11c155d056",
+    "frontend/src/styles.css": "5cdb93f6add64178e9b77dad0575972e32c710f1db266ff8c4d92cb27ef9696a",
+    "frontend/src/types.ts": "1b163ebd7b8245186191c99e7435d9ec64d4d1ab7f468fcd0d0b10debbaaa69b",
+    "frontend/src/validators.d.mts": "118bed5bf07c48cb5fca78f9e78d71461d38ad7b0f4da877af9fcdec5d9d24ba",
+    "frontend/src/validators.mjs": "24182152ec0c41097491dba6dcc07d7533f1c72b3f03d120319b6e994e99653e",
+    "frontend/src/workspace-schema.json": "ad876cc87e66aa74930a8d1d048b41dede67ff699bff2ec39a1c94623406c6f0",
+    "frontend/src/workspace.ts": "a81daa73b961130ac442660b5a90168a022f6c9583bd81f15e4050725cab1a13",
+    "frontend/tests/two-roots.tsx": "06b5c538f2f86ed876a5dc979d0e341cf96f61b33efc5e3ad8d5f9c2705a048a",
+    "frontend/tests/two-roots.html": "17c4367b8f1bfaab02045412af5008c7882079146a81a9335c330a6ee5945b94",
+    "frontend/tests/build-two-roots.mjs": "981fd4c359551838c713792f9b398b7c963275c74376997709df72a27adae95e",
+    "frontend/tests/m1-two-roots.cjs": "20c53e06790de925c4f9325f20b515c05f2c66f809f516cb2a37e496264f15a4",
+    "frontend/tests/m1-evidence.cjs": "0bb1aba6e8321b4f0609381d05f00897fc1503a90b327dda6fe4067094c51a9a",
+    "frontend/vite.config.ts": "40173caf644e64cc493ba2faadf4b7e4c2a222f688a7db6ffa772d2e1a142db1",
+    "tests/browser_fixture.py": "cd40be3a9bc0d33e1726ad38a2a77435b748d97c900443d9d7e45102a3bde2b9"
+  },
+  "sourceUnchanged": true,
+  "browser": "153.0.4234.32",
+  "date": "2026-09-23T09:39:20.738Z",
+  "command": "npm run test:m1:two-roots",
+  "cwd": "C:\\repos\\ThemeTeam\\frontend",
+  "limitations": [
+    "Targeted same-page production lifecycle regression; not full BB-M1-19 or G5 acceptance."
+  ]
+}

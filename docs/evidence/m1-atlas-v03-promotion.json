@@ -1,0 +1,36 @@
+{
+  "result": "promoted",
+  "date": "2026-09-22T13:10:34.331Z",
+  "approval": {
+    "approver": "User",
+    "role": "Project owner and requirement owner",
+    "source": "User explicitly requested replacing the new atlas and continuing M1 to completion on 2026-09-22",
+    "scope": "v0.3 character/furniture atlas, runtime scale/origin/placement integration and M1 verification"
+  },
+  "candidateManifest": "output/m1-visual-candidate-v0.3/candidate-manifest.json",
+  "validation": "output/m1-visual-candidate-v0.3/validation-report.json",
+  "backup": "output/m1-runtime-backup-before-atlas-v0.3",
+  "retainedRollbackAssets": [
+    "office-agents.v0.2.png",
+    "office-props.v0.2.png",
+    "office-assets.v0.2.json"
+  ],
+  "runtime": [
+    {
+      "path": "frontend/public/assets/office/office-agents.v0.3.png",
+      "sha256": "58bfc049aa5916f4abce2813f41b41941edb324b482033febb20ea0ccfcad232",
+      "width": 640,
+      "height": 576
+    },
+    {
+      "path": "frontend/public/assets/office/office-props.v0.3.png",
+      "sha256": "5b6b2293f0a915ba232a3c72e7929231d3ee8081a6f885ed52e0da4421be0f0d",
+      "width": 960,
+      "height": 512
+    },
+    {
+      "path": "frontend/public/assets/office/office-assets.v0.3.json",
+      "sha256": "b34946f2290517f992e8026f847cf4e7dca0d32527c5be16d849f8a13f2cda87"
+    }
+  ]
+}

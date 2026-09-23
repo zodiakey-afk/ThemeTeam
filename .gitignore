@@ -1,0 +1,12 @@
+__pycache__/
+.cache/
+.themeteam-artifacts/
+themeteam/core/settings.json
+frontend/node_modules/
+frontend/dist/
+frontend/dist-two-roots/
+frontend/.vite/
+output/
+*.tsbuildinfo
+docs/evidence/*trace.zip
+docs/evidence/*.webm

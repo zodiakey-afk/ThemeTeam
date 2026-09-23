@@ -1,0 +1,575 @@
+{
+  "result": "passed",
+  "command": "node tests/visual_mobile.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "runtime": "v22.23.0",
+  "browser": "153.0.4234.32",
+  "generatedAt": "2026-09-15T01:03:40.266Z",
+  "cases": [
+    {
+      "width": 390,
+      "height": 844,
+      "result": "passed",
+      "before": {
+        "x": -147,
+        "y": 100,
+        "width": 684,
+        "height": 684
+      },
+      "person": {
+        "x": 147.109375,
+        "y": 271,
+        "width": 95.75,
+        "height": 136.796875
+      },
+      "panel": {
+        "x": 0,
+        "y": 442,
+        "width": 390,
+        "height": 342
+      },
+      "snapshots": [
+        {
+          "state": "closed",
+          "file": "docs/evidence/w00v-mobile-390-closed.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 147.109375,
+              "y": 271,
+              "width": 95.75,
+              "height": 136.796875
+            },
+            {
+              "name": "成员详情",
+              "x": 258,
+              "y": 792.5,
+              "width": 118,
+              "height": 44
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 95.75,
+              "visibleHeight": 136.796875,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": -147,
+            "y": 100,
+            "width": 684,
+            "height": 684
+          },
+          "person": {
+            "x": 147.109375,
+            "y": 271,
+            "width": 95.75,
+            "height": 136.796875
+          }
+        },
+        {
+          "state": "open",
+          "file": "docs/evidence/w00v-mobile-390-open.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 147.109375,
+              "y": 271,
+              "width": 95.75,
+              "height": 136.796875
+            },
+            {
+              "name": "成员详情",
+              "x": 258,
+              "y": 792.5,
+              "width": 118,
+              "height": 44
+            },
+            {
+              "name": "关闭详情",
+              "x": 334,
+              "y": 451,
+              "width": 44,
+              "height": 44
+            },
+            {
+              "name": "实现办公室画布与周边模块交互",
+              "x": 18,
+              "y": 692.5,
+              "width": 354,
+              "height": 48
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 95.75,
+              "visibleHeight": 136.796875,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "关闭详情",
+              "visibleWidth": 44,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "实现办公室画布与周边模块交互",
+              "visibleWidth": 354,
+              "visibleHeight": 48,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": -147,
+            "y": 100,
+            "width": 684,
+            "height": 684
+          },
+          "person": {
+            "x": 147.109375,
+            "y": 271,
+            "width": 95.75,
+            "height": 136.796875
+          }
+        },
+        {
+          "state": "task",
+          "file": "docs/evidence/w00v-mobile-390-task.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 147.109375,
+              "y": 271,
+              "width": 95.75,
+              "height": 136.796875
+            },
+            {
+              "name": "成员详情",
+              "x": 258,
+              "y": 792.5,
+              "width": 118,
+              "height": 44
+            },
+            {
+              "name": "返回 Dev",
+              "x": 12,
+              "y": 451,
+              "width": 44,
+              "height": 44
+            },
+            {
+              "name": "关闭详情",
+              "x": 334,
+              "y": 451,
+              "width": 44,
+              "height": 44
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 95.75,
+              "visibleHeight": 136.796875,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "返回 Dev",
+              "visibleWidth": 44,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "关闭详情",
+              "visibleWidth": 44,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": -147,
+            "y": 100,
+            "width": 684,
+            "height": 684
+          },
+          "person": {
+            "x": 147.109375,
+            "y": 271,
+            "width": 95.75,
+            "height": 136.796875
+          }
+        },
+        {
+          "state": "returned",
+          "file": "docs/evidence/w00v-mobile-390-returned.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 147.109375,
+              "y": 271,
+              "width": 95.75,
+              "height": 136.796875
+            },
+            {
+              "name": "成员详情",
+              "x": 258,
+              "y": 792.5,
+              "width": 118,
+              "height": 44
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 95.75,
+              "visibleHeight": 136.796875,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": -147,
+            "y": 100,
+            "width": 684,
+            "height": 684
+          },
+          "person": {
+            "x": 147.109375,
+            "y": 271,
+            "width": 95.75,
+            "height": 136.796875
+          }
+        }
+      ],
+      "errors": [],
+      "external": [],
+      "ids": [
+        "BB-V04-01",
+        "BB-V04-02",
+        "BB-V04-03",
+        "BB-V04-04",
+        "BB-V04-05"
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "result": "passed",
+      "before": {
+        "x": 208,
+        "y": 100,
+        "width": 608,
+        "height": 608
+      },
+      "person": {
+        "x": 469.4375,
+        "y": 252,
+        "width": 85.109375,
+        "height": 121.59375
+      },
+      "panel": {
+        "x": 272,
+        "y": 404,
+        "width": 480,
+        "height": 304
+      },
+      "snapshots": [
+        {
+          "state": "closed",
+          "file": "docs/evidence/w00v-mobile-1024-closed.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 469.4375,
+              "y": 252,
+              "width": 85.109375,
+              "height": 121.59375
+            },
+            {
+              "name": "成员详情",
+              "x": 620,
+              "y": 716.5,
+              "width": 118,
+              "height": 44
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 85.109375,
+              "visibleHeight": 121.59375,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": 208,
+            "y": 100,
+            "width": 608,
+            "height": 608
+          },
+          "person": {
+            "x": 469.4375,
+            "y": 252,
+            "width": 85.109375,
+            "height": 121.59375
+          }
+        },
+        {
+          "state": "open",
+          "file": "docs/evidence/w00v-mobile-1024-open.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 469.4375,
+              "y": 252,
+              "width": 85.109375,
+              "height": 121.59375
+            },
+            {
+              "name": "成员详情",
+              "x": 620,
+              "y": 716.5,
+              "width": 118,
+              "height": 44
+            },
+            {
+              "name": "关闭详情",
+              "x": 696,
+              "y": 413,
+              "width": 44,
+              "height": 44
+            },
+            {
+              "name": "实现办公室画布与周边模块交互",
+              "x": 290,
+              "y": 654.5,
+              "width": 444,
+              "height": 48
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 85.109375,
+              "visibleHeight": 121.59375,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "关闭详情",
+              "visibleWidth": 44,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "实现办公室画布与周边模块交互",
+              "visibleWidth": 444,
+              "visibleHeight": 48,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": 208,
+            "y": 100,
+            "width": 608,
+            "height": 608
+          },
+          "person": {
+            "x": 469.4375,
+            "y": 252,
+            "width": 85.109375,
+            "height": 121.59375
+          }
+        },
+        {
+          "state": "task",
+          "file": "docs/evidence/w00v-mobile-1024-task.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 469.4375,
+              "y": 252,
+              "width": 85.109375,
+              "height": 121.59375
+            },
+            {
+              "name": "成员详情",
+              "x": 620,
+              "y": 716.5,
+              "width": 118,
+              "height": 44
+            },
+            {
+              "name": "返回 Dev",
+              "x": 284,
+              "y": 413,
+              "width": 44,
+              "height": 44
+            },
+            {
+              "name": "关闭详情",
+              "x": 696,
+              "y": 413,
+              "width": 44,
+              "height": 44
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 85.109375,
+              "visibleHeight": 121.59375,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "返回 Dev",
+              "visibleWidth": 44,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "关闭详情",
+              "visibleWidth": 44,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": 208,
+            "y": 100,
+            "width": 608,
+            "height": 608
+          },
+          "person": {
+            "x": 469.4375,
+            "y": 252,
+            "width": 85.109375,
+            "height": 121.59375
+          }
+        },
+        {
+          "state": "returned",
+          "file": "docs/evidence/w00v-mobile-1024-returned.png",
+          "controls": [
+            {
+              "name": "查看 Dev",
+              "x": 469.4375,
+              "y": 252,
+              "width": 85.109375,
+              "height": 121.59375
+            },
+            {
+              "name": "成员详情",
+              "x": 620,
+              "y": 716.5,
+              "width": 118,
+              "height": 44
+            }
+          ],
+          "visibility": [
+            {
+              "name": "查看 Dev",
+              "visibleWidth": 85.109375,
+              "visibleHeight": 121.59375,
+              "unclipped": true,
+              "hit": true
+            },
+            {
+              "name": "成员详情",
+              "visibleWidth": 118,
+              "visibleHeight": 44,
+              "unclipped": true,
+              "hit": true
+            }
+          ],
+          "bitmap": {
+            "x": 208,
+            "y": 100,
+            "width": 608,
+            "height": 608
+          },
+          "person": {
+            "x": 469.4375,
+            "y": 252,
+            "width": 85.109375,
+            "height": 121.59375
+          }
+        }
+      ],
+      "errors": [],
+      "external": [],
+      "ids": [
+        "BB-V04-01",
+        "BB-V04-02",
+        "BB-V04-03",
+        "BB-V04-04",
+        "BB-V04-05"
+      ]
+    }
+  ],
+  "scope": "Static bitmap layout study only, not actual camera/motion or complete accessibility/M1 acceptance."
+}

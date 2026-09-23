@@ -1,0 +1,33 @@
+{
+  "result": "passed",
+  "command": "node tests/test_bazi_project.cjs",
+  "url": "http://127.0.0.1:4173/",
+  "generatedProject": "projects/bazi-prediction-demo",
+  "checkedAt": "2026-09-23T03:57:44.302Z",
+  "results": [
+    {
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "pillars": 4,
+      "external": 0,
+      "pageErrors": 0,
+      "screenshot": "C:\\repos\\ThemeTeam\\docs\\evidence\\bazi-project-1440x900-dpr1.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "pillars": 4,
+      "external": 0,
+      "pageErrors": 0,
+      "screenshot": "C:\\repos\\ThemeTeam\\docs\\evidence\\bazi-project-390x844-dpr2.png"
+    }
+  ],
+  "safety": {
+    "traditionalCultureDisclaimer": true,
+    "externalRequests": 0,
+    "secretUse": false,
+    "runtime": "controlled mock runtime"
+  }
+}

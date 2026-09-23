@@ -1,0 +1,20 @@
+
+> themeteam-frontend@0.1.0 test:m1:stability
+> node tests/m1-stability.cjs
+
+{
+  "result": "smoke_passed",
+  "runs": [
+    {
+      "dpr": 1,
+      "growth": 0.023059675300889988,
+      "passed": true,
+      "listenerStable": true,
+      "lifecyclePassed": true
+    }
+  ],
+  "limitations": [
+    "Smoke duration/DPR set does not satisfy the frozen two-by-30-minute stability evidence shape.",
+    "Two-root isolation remains a separate required test; this report does not close G5."
+  ]
+}

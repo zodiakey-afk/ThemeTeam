@@ -1,0 +1,576 @@
+[
+  {
+    "packagePath": "node_modules/@jridgewell/resolve-uri",
+    "version": "3.1.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@jridgewell/sourcemap-codec",
+    "version": "1.6.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@jridgewell/trace-mapping",
+    "version": "0.3.31",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@oxc-project/types",
+    "version": "0.149.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-android-arm-eabi",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-android-arm64",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-darwin-arm64",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-darwin-x64",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-freebsd-x64",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-arm-gnueabihf",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-arm64-gnu",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-arm64-musl",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-ppc64-gnu",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-s390x-gnu",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-x64-gnu",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-linux-x64-musl",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-openharmony-arm64",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-win32-arm64-msvc",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/@rolldown/binding-win32-x64-msvc",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@rolldown/pluginutils",
+    "version": "1.0.1",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@types/chai",
+    "version": "5.2.3",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@types/deep-eql",
+    "version": "4.0.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@types/estree",
+    "version": "1.0.9",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@types/node",
+    "version": "22.20.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@types/react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@types/react-dom",
+    "version": "19.3.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@vitest/mocker",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/@vitest/spy",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/ajv",
+    "version": "8.20.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/assertion-error",
+    "version": "2.0.1",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/chai",
+    "version": "6.2.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/csstype",
+    "version": "3.2.3",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/detect-libc",
+    "version": "2.1.2",
+    "license": "Apache-2.0",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/easystarjs",
+    "version": "0.4.4",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/es-module-lexer",
+    "version": "2.3.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/estree-walker",
+    "version": "3.0.3",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/eventemitter3",
+    "version": "5.0.4",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/expect-type",
+    "version": "1.4.0",
+    "license": "Apache-2.0",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/fast-deep-equal",
+    "version": "3.1.3",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/fast-uri",
+    "version": "3.1.7",
+    "license": "BSD-3-Clause",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/fdir",
+    "version": "6.5.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/fsevents",
+    "version": "2.3.3",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/heap",
+    "version": "0.2.6",
+    "license": "PSF",
+    "licenseSource": "installed-package-legacy",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/json-schema-traverse",
+    "version": "1.0.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/lightningcss",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/lightningcss-android-arm64",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-darwin-arm64",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-darwin-x64",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-freebsd-x64",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-linux-arm-gnueabihf",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-linux-arm64-gnu",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-linux-arm64-musl",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-linux-x64-gnu",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-linux-x64-musl",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-win32-arm64-msvc",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": false
+  },
+  {
+    "packagePath": "node_modules/lightningcss-win32-x64-msvc",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/lucide-react",
+    "version": "1.43.0",
+    "license": "ISC",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/magic-string",
+    "version": "1.2.3",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/nanoid",
+    "version": "3.3.18",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/obug",
+    "version": "2.2.1",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/phaser",
+    "version": "3.90.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/picomatch",
+    "version": "4.0.7",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/postcss",
+    "version": "8.5.28",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/react",
+    "version": "19.3.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/react-dom",
+    "version": "19.3.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/require-from-string",
+    "version": "2.0.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/rolldown",
+    "version": "1.2.8",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/scheduler",
+    "version": "0.28.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/siginfo",
+    "version": "2.0.0",
+    "license": "ISC",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/source-map-js",
+    "version": "1.2.1",
+    "license": "BSD-3-Clause",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/stackback",
+    "version": "0.0.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/std-env",
+    "version": "4.2.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/tinybench",
+    "version": "6.1.4",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/tinyexec",
+    "version": "1.3.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/tinyglobby",
+    "version": "0.2.17",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/typescript",
+    "version": "5.9.3",
+    "license": "Apache-2.0",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/undici-types",
+    "version": "6.21.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/vite",
+    "version": "8.2.2",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/vitest",
+    "version": "5.0.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/why-is-node-running",
+    "version": "2.3.0",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  },
+  {
+    "packagePath": "node_modules/zustand",
+    "version": "5.0.15",
+    "license": "MIT",
+    "licenseSource": "package-lock",
+    "installed": true
+  }
+]

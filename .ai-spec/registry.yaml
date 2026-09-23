@@ -1,0 +1,8 @@
+version: 1
+runs:
+  - id: ITER-2026-001
+    mode: feature
+    status: pending
+    stage: design
+    path: .ai-spec/iterations/ITER-2026-001
+    summary: First-batch G1 approved; W01 scoped design review and visual tooling preparation

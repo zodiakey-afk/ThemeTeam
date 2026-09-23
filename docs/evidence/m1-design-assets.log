@@ -1,0 +1,58 @@
+{
+  "result": "passed",
+  "date": "2026-09-15T00:37:27.997Z",
+  "command": "node tests/generate_m1_design_assets.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "runtime": "v22.23.0",
+  "exitCode": 0,
+  "map": {
+    "revision": "office-v0.2-r1",
+    "dimensions": {
+      "columns": 32,
+      "rows": 24,
+      "tileWidth": 64,
+      "tileHeight": 32
+    },
+    "workSeats": 8,
+    "meetingSeats": 6,
+    "spawns": 20
+  },
+  "atlases": {
+    "agentFrames": 60,
+    "propFrames": 17,
+    "animations": 84
+  },
+  "files": [
+    {
+      "path": "frontend/public/assets/office/office-agents.v0.2.png",
+      "bytes": 9963,
+      "sha256": "07cf53079fff7ebc969cb6bcb6109d18d8ee2c95119a30db5e12a14a7980dbe4"
+    },
+    {
+      "path": "frontend/public/assets/office/office-props.v0.2.png",
+      "bytes": 10634,
+      "sha256": "3025eabc9810dc62391a6e1acaa68c09de36e31f7af6a9d2d6f935b139a05656"
+    },
+    {
+      "path": "frontend/public/assets/office/office-map.v0.2.json",
+      "bytes": 52125,
+      "sha256": "13997cae10a3664ce502b0c683328101852c760d7cb0301edde15abd6f9c36d3"
+    },
+    {
+      "path": "frontend/public/assets/office/office-assets.v0.2.json",
+      "bytes": 35563,
+      "sha256": "5f0beb3ae9894914e95b3e2a7bd2a0701f9b909b8ef9dee62417633826083adf"
+    },
+    {
+      "path": "frontend/tests/fixtures/m1/collision-oracle.v0.2.json",
+      "bytes": 3479,
+      "sha256": "645827840deb9e2f1503abc077e15348f2e2d2417a92c0a8c7a4ee51280eb2ae"
+    },
+    {
+      "path": "tests/generate_m1_design_assets.cjs",
+      "bytes": 17658,
+      "sha256": "24519070723faa900dcec0d653691066784fd9f9012d831b8fa6098f9c4ff568"
+    }
+  ],
+  "scope": "Deterministic original design/runtime candidate assets and collision oracle; not Phaser runtime, rights approval, visual acceptance or M1 completion."
+}

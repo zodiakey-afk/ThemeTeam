@@ -1,0 +1,74 @@
+{
+  "result": "passed",
+  "command": "node tests/visual_engineering.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "generatedAt": "2026-09-15T01:03:38.377Z",
+  "runtime": "v22.23.0",
+  "browser": "153.0.4234.32",
+  "evidence": {
+    "worldTile": [
+      64,
+      32
+    ],
+    "diagramTile": [
+      128,
+      64
+    ],
+    "pivot": [
+      16,
+      48
+    ],
+    "frames": 4,
+    "routeFrames": 5,
+    "route": [
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "doorCell": [
+      3,
+      3
+    ],
+    "fourAdjacent": true,
+    "runtime": false,
+    "artworkUnmodified": true
+  },
+  "tile": {
+    "width": 128,
+    "height": 64
+  },
+  "screenshots": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "file": "docs/evidence/w00v-engineering-1440.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "file": "docs/evidence/w00v-engineering-390.png"
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "scope": "Deterministic design diagram only, not rendered sprite accuracy, pathfinding engine or M1 acceptance."
+}

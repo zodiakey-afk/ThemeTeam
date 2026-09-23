@@ -1,0 +1,22 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "rounds": [
+    {
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "before": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+  "after": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+  "denied_accesses": 0,
+  "leaked_threads": []
+}

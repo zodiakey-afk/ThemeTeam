@@ -1,0 +1,11 @@
+{
+  "version": "1.1",
+  "supersedes": "w03.json where conflicting; unchanged schema/API/bridge rules retained",
+  "snapshot": "workspace-snapshot-v1.json",
+  "requestContract": "w02-routes-v1.2.json",
+  "additionalClientState": {"uncertain": "boolean, initially false", "inspectorOpen": "boolean, initially false"},
+  "queue": {"timeout": "10000ms starting at dispatch, not enqueue", "order": "FIFO for acknowledged or definitively rejected operations only", "retries": 0, "outcomeUnknown": "abort/network/invalid response after write dispatch sets uncertain true, dirty true, retains last good snapshot, cancels queued writes/save/reload with false outcome; GET view refresh allowed but does not clear uncertainty", "recovery": "No automatic in-session write recovery. Operator must independently establish backend quiescence/restart before explicitly opening a new browser session; GET does not prove completion. UI exposes uncertainty and keeps writes disabled. No M2 cancellation/idempotency claim.", "definitiveRejection": "known structured 4xx error; storage_error500 on save/reload only; otherwise dispatched-write failure is uncertain", "dispose": "client-only: abort active, invalidate publication, cancel queued tasks; backend accepted writes may still commit"},
+  "selectionTransitions": {"initial": "null, previous null, inspector closed; ignore backend snapshot.selection always", "selectSame": "reopen inspector, no history change", "selectDifferent": "validate id exists, previous=current, current=target, inspector open", "close": "inspector false; selection/history retained; focus invoking entity button when present", "back": "current=existing previous or null, previous=null; inspector open only when current nonnull; focus resulting entity button when present", "snapshot": "prune missing current/previous by kind/id. Missing current becomes null and inspector closes. Never resurrect from backend selection. Existing current survives reload.", "bridge": "receives current selection including while inspector closed; Back/pruning updates propagate; no visibility-based deselection"},
+  "formOutcome": "success|rejected|unknown|disposed; form resets/closes only success, unknown retains input but disables resubmission",
+  "scope": "W03 foundation; no M1 visual/scene waiver, no backend changes, no persistent selection or credentials"
+}

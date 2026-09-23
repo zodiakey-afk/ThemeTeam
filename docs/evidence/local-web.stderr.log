@@ -1,0 +1,21 @@
+node:fs:2430
+    return binding.writeFileUtf8(
+                   ^
+
+Error: EPERM: operation not permitted, open 'C:\repos\ThemeTeam\frontend\src\validators.mjs'
+    at Object.writeFileSync (node:fs:2430:20)
+    at Object.<anonymous> (C:\repos\ThemeTeam\frontend\scripts\generate-validators.cjs:18:6)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\repos\\ThemeTeam\\frontend\\src\\validators.mjs'
+}
+
+Node.js v22.23.0

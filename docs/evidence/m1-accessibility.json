@@ -1,0 +1,493 @@
+{
+  "result": "passed",
+  "command": "node tests/m1-accessibility.cjs",
+  "cwd": "C:\\repos\\ThemeTeam\\frontend",
+  "fixture": "temporary Store long-text profile",
+  "longText": {
+    "documentWidth": 390,
+    "viewport": 390,
+    "title": {
+      "scrollWidth": 346,
+      "clientWidth": 346
+    },
+    "entity": {
+      "scrollWidth": 346,
+      "clientWidth": 346
+    }
+  },
+  "keyboardOnly": true,
+  "targets": [
+    {
+      "label": "移动到当前目标",
+      "width": 148,
+      "height": 44
+    },
+    {
+      "label": "聚焦成员",
+      "width": 106,
+      "height": 44
+    },
+    {
+      "label": "关闭场景操作",
+      "width": 44,
+      "height": 44
+    }
+  ],
+  "occlusion": {
+    "agent": {
+      "id": "agent_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_identifier_",
+      "phase": "seated",
+      "target": null,
+      "occupied": "work-3",
+      "cell": {
+        "col": 11,
+        "row": 11
+      },
+      "replanAttempts": 0,
+      "frame": "developer-work-NE",
+      "tint": 16777215,
+      "spriteDepth": 424,
+      "frontOccluderDepth": 496,
+      "homeOccluderDepth": 496,
+      "screen": {
+        "x": 724,
+        "y": 498
+      },
+      "hit": {
+        "x": 724,
+        "y": 415.05600000000004
+      }
+    },
+    "colors": 5260,
+    "hash": "e621e389"
+  },
+  "contrast": {
+    "desktop": [
+      {
+        "text": "工作区",
+        "ratio": 7.567628884399176,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          36,
+          94,
+          74
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "text": "演示",
+        "ratio": 6.135166846364555,
+        "color": "rgb(83, 102, 92)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "text": "目标",
+        "ratio": 4.941182411958438,
+        "color": "rgb(95, 113, 103)",
+        "background": [
+          247,
+          250,
+          248
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "新增员工",
+        "ratio": 6.956562624862449,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          20,
+          102,
+          70
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "text": "缩放 200%",
+        "ratio": 7.202220933691873,
+        "color": "rgb(67, 89, 77)",
+        "background": [
+          247,
+          250,
+          248
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "选中对象",
+        "ratio": 5.260304316762251,
+        "color": "rgb(95, 112, 101)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "AGENT",
+        "ratio": 6.314099391468717,
+        "color": "rgb(82, 100, 89)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "超长中文成员名称用于验证办公室详情与目录在窄屏下仍然完整换行且所有按钮保持可达超长中文成员名称用于验证办公室详情与目录在窄屏下仍然完整换行且所有按钮保持可达",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "20px"
+      },
+      {
+        "text": "agent_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_ident",
+        "ratio": 4.587834844765969,
+        "color": "rgb(106, 121, 111)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "角色",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "developer",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "记录状态",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "Working",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "模型配置",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "gpt-4.1",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "房间",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "老板办公室",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "关联任务",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "13px"
+      },
+      {
+        "text": "整理 MVP 路线",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      }
+    ],
+    "mobile": [
+      {
+        "text": "工作区",
+        "ratio": 7.567628884399176,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          36,
+          94,
+          74
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "text": "演示",
+        "ratio": 6.135166846364555,
+        "color": "rgb(83, 102, 92)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "text": "目标",
+        "ratio": 4.941182411958438,
+        "color": "rgb(95, 113, 103)",
+        "background": [
+          247,
+          250,
+          248
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "新增员工",
+        "ratio": 6.956562624862449,
+        "color": "rgb(255, 255, 255)",
+        "background": [
+          20,
+          102,
+          70
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "text": "办公室场景已就绪",
+        "ratio": 7.202220933691873,
+        "color": "rgb(67, 89, 77)",
+        "background": [
+          247,
+          250,
+          248
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "选中对象",
+        "ratio": 5.260304316762251,
+        "color": "rgb(95, 112, 101)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "AGENT",
+        "ratio": 6.314099391468717,
+        "color": "rgb(82, 100, 89)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "超长中文成员名称用于验证办公室详情与目录在窄屏下仍然完整换行且所有按钮保持可达超长中文成员名称用于验证办公室详情与目录在窄屏下仍然完整换行且所有按钮保持可达",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "20px"
+      },
+      {
+        "text": "agent_unbroken_identifier_unbroken_identifier_unbroken_identifier_unbroken_ident",
+        "ratio": 4.587834844765969,
+        "color": "rgb(106, 121, 111)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "11px"
+      },
+      {
+        "text": "角色",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "developer",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "记录状态",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "Working",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "模型配置",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "gpt-4.1",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "房间",
+        "ratio": 4.518631992264945,
+        "color": "rgb(107, 122, 113)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "老板办公室",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      },
+      {
+        "text": "关联任务",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "13px"
+      },
+      {
+        "text": "整理 MVP 路线",
+        "ratio": 14.152836583889302,
+        "color": "rgb(36, 45, 42)",
+        "background": [
+          255,
+          255,
+          255
+        ],
+        "fontSize": "12px"
+      }
+    ]
+  },
+  "sourceUnchanged": true,
+  "artifacts": [
+    "docs/evidence/m1-occlusion-work-seated.png",
+    "docs/evidence/m1-long-text-mobile.png"
+  ]
+}

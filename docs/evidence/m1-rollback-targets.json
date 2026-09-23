@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "createdAt": "2026-09-15T09:35:56.2107805+08:00",
+  "phase": "before-first-M1-product-change",
+  "workspace": "C:\\repos\\ThemeTeam",
+  "featureFlagBefore": "M1 office scene absent",
+  "rollbackScope": [
+    "frontend package/lock dependency edits",
+    "frontend source and tests listed below",
+    "new M1 files removed by exact manifest"
+  ],
+  "persistentDataMigration": false,
+  "workspaceStateSha256": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+  "files": [
+    {
+      "path": "frontend/package.json",
+      "bytes": 726,
+      "sha256": "5356a21bfa7c7304e464c98650001521cb5f53a0002475423eaae28e4cceccb9"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "bytes": 42483,
+      "sha256": "5a80c6f4fe61d16dbdd415828c89c1742ce125f722bc6abe8f2cad35c43d0da0"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "bytes": 17388,
+      "sha256": "1d8b87f71a146b9a14d4c4ea0a8de69be75b72219cc803e9ae6583764954cc84"
+    },
+    {
+      "path": "frontend/src/error-schema.json",
+      "bytes": 420,
+      "sha256": "c79310424ce4c71088dd6d07c008ca3f841cba05cfe149ac16b1ad4d6510a363"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "bytes": 291,
+      "sha256": "a842b8f068cf8b60b34ce07c6220f737798d6736c43b4387a0a84ea1f100316f"
+    },
+    {
+      "path": "frontend/src/sceneBridge.ts",
+      "bytes": 871,
+      "sha256": "377e800116500f25bf5d054cf81e6e4ea0a7cae48e161bdb2d40a7bf2bc198f8"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "bytes": 10413,
+      "sha256": "c8593d582164be9a67c18016e27f7b46eaca1be709d23f9cbca1060f4776f4f8"
+    },
+    {
+      "path": "frontend/src/types.ts",
+      "bytes": 2261,
+      "sha256": "7218882d70b193d1d68014652cd0f1380f690dd7210cf4fcddc2ddedfb08dc9a"
+    },
+    {
+      "path": "frontend/src/workspace-schema.json",
+      "bytes": 9674,
+      "sha256": "24affd9d845e9febc8a4320ba5426ac8bd9c258b3511048e79fc7ed5421394f1"
+    },
+    {
+      "path": "frontend/src/workspace.ts",
+      "bytes": 6220,
+      "sha256": "5ff55b70190f5cc63e6675b9a529aec1bc48eed26e3026d9b27285d355bc8914"
+    },
+    {
+      "path": "frontend/tests/e2e.cjs",
+      "bytes": 14885,
+      "sha256": "189eaa9d3af34a5fee209bd7b971ac7aef9bc8b0f1258436f535ff242faf5c63"
+    },
+    {
+      "path": "frontend/tests/two-roots.html",
+      "bytes": 680,
+      "sha256": "d45a24ba4d15989e00f7cb8bdb309918c476cddda4d8b7e74c00391c5761bc50"
+    },
+    {
+      "path": "frontend/tests/verify.cjs",
+      "bytes": 3809,
+      "sha256": "2a787cb2d293b2c8f72df218f529cf69b0b2b695111a09e4da4142711458de4c"
+    },
+    {
+      "path": "frontend/tests/workspace.test.ts",
+      "bytes": 11752,
+      "sha256": "2a5f86692deb384d31768c87199dfbb1e87aa515b42287be45122f90b7436bfe"
+    },
+    {
+      "path": "frontend/tests/fixtures/m1/collision-oracle.v0.2.json",
+      "bytes": 3479,
+      "sha256": "645827840deb9e2f1503abc077e15348f2e2d2417a92c0a8c7a4ee51280eb2ae"
+    }
+  ]
+}

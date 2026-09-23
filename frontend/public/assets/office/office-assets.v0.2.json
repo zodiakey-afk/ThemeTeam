@@ -1,0 +1,1748 @@
+{
+  "version": "0.2",
+  "rightsReview": {
+    "status": "approved",
+    "reviewer": "Codex independent asset-source and geometry auditor (ITER-2026-001 / M1)",
+    "reviewedAt": "2026-09-21T09:26:45.5390753+08:00",
+    "distributionScope": "ThemeTeam project runtime packaging only"
+  },
+  "atlases": [
+    {
+      "id": "agents",
+      "image": "/assets/office/office-agents.v0.2.png",
+      "sha256": "de3cc2e922337b0144809a5a07bd60af34a9ad2e79d4f3cbd41b6980966fa088",
+      "width": 320,
+      "height": 288,
+      "source": "tests/generate_m1_design_assets.cjs Canvas primitives; no imported bitmap or game asset",
+      "author": "ThemeTeam project generator",
+      "license": "Project-local original; independently approved for ThemeTeam runtime packaging",
+      "frames": [
+        {
+          "id": "pm-idle-NE",
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk1-NE",
+          "x": 32,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk2-NE",
+          "x": 64,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-sit-NE",
+          "x": 96,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-work-NE",
+          "x": 128,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-idle-SE",
+          "x": 160,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk1-SE",
+          "x": 192,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk2-SE",
+          "x": 224,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-sit-SE",
+          "x": 256,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-work-SE",
+          "x": 288,
+          "y": 0,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-idle-SW",
+          "x": 0,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk1-SW",
+          "x": 32,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk2-SW",
+          "x": 64,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-sit-SW",
+          "x": 96,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-work-SW",
+          "x": 128,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-idle-NW",
+          "x": 160,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk1-NW",
+          "x": 192,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-walk2-NW",
+          "x": 224,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-sit-NW",
+          "x": 256,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "pm-work-NW",
+          "x": 288,
+          "y": 48,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-idle-NE",
+          "x": 0,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk1-NE",
+          "x": 32,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk2-NE",
+          "x": 64,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-sit-NE",
+          "x": 96,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-work-NE",
+          "x": 128,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-idle-SE",
+          "x": 160,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk1-SE",
+          "x": 192,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk2-SE",
+          "x": 224,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-sit-SE",
+          "x": 256,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-work-SE",
+          "x": 288,
+          "y": 96,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-idle-SW",
+          "x": 0,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk1-SW",
+          "x": 32,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk2-SW",
+          "x": 64,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-sit-SW",
+          "x": 96,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-work-SW",
+          "x": 128,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-idle-NW",
+          "x": 160,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk1-NW",
+          "x": 192,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-walk2-NW",
+          "x": 224,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-sit-NW",
+          "x": 256,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "developer-work-NW",
+          "x": 288,
+          "y": 144,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-idle-NE",
+          "x": 0,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk1-NE",
+          "x": 32,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk2-NE",
+          "x": 64,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-sit-NE",
+          "x": 96,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-work-NE",
+          "x": 128,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-idle-SE",
+          "x": 160,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk1-SE",
+          "x": 192,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk2-SE",
+          "x": 224,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-sit-SE",
+          "x": 256,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-work-SE",
+          "x": 288,
+          "y": 192,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-idle-SW",
+          "x": 0,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk1-SW",
+          "x": 32,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk2-SW",
+          "x": 64,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-sit-SW",
+          "x": 96,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-work-SW",
+          "x": 128,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-idle-NW",
+          "x": 160,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk1-NW",
+          "x": 192,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-walk2-NW",
+          "x": 224,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-sit-NW",
+          "x": 256,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        },
+        {
+          "id": "tester-work-NW",
+          "x": 288,
+          "y": 240,
+          "width": 32,
+          "height": 48,
+          "pivotX": 16,
+          "pivotY": 48,
+          "kind": "agent"
+        }
+      ]
+    },
+    {
+      "id": "props",
+      "image": "/assets/office/office-props.v0.2.png",
+      "sha256": "3d6024bbd92de6c7bef785da56440de7876dbabc54c7ab8df343ec30abe07351",
+      "width": 512,
+      "height": 256,
+      "source": "tests/generate_m1_design_assets.cjs Canvas primitives; no imported bitmap or game asset",
+      "author": "ThemeTeam project generator",
+      "license": "Project-local original; independently approved for ThemeTeam runtime packaging",
+      "frames": [
+        {
+          "id": "floor-mint",
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "tile"
+        },
+        {
+          "id": "floor-blue",
+          "x": 64,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "tile"
+        },
+        {
+          "id": "wall-nw",
+          "x": 128,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propFront"
+        },
+        {
+          "id": "wall-ne",
+          "x": 192,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propFront"
+        },
+        {
+          "id": "desk",
+          "x": 256,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "chair",
+          "x": 320,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propFront"
+        },
+        {
+          "id": "crt",
+          "x": 384,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "meeting-table",
+          "x": 448,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "whiteboard",
+          "x": 0,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "boss-console",
+          "x": 64,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "coffee-counter",
+          "x": 128,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "water-cooler",
+          "x": 192,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        },
+        {
+          "id": "plant",
+          "x": 256,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propFront"
+        },
+        {
+          "id": "selection",
+          "x": 320,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "effect"
+        },
+        {
+          "id": "error-target",
+          "x": 384,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "effect"
+        },
+        {
+          "id": "path-dot",
+          "x": 448,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "effect"
+        },
+        {
+          "id": "door-open",
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "pivotX": 32,
+          "pivotY": 64,
+          "kind": "propBack"
+        }
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "id": "pm-idle-NE",
+      "role": "pm",
+      "activity": "idle",
+      "direction": "NE",
+      "frameIds": [
+        "pm-idle-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-walk-NE",
+      "role": "pm",
+      "activity": "walk",
+      "direction": "NE",
+      "frameIds": [
+        "pm-walk1-NE",
+        "pm-walk2-NE"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "pm-dock-NE",
+      "role": "pm",
+      "activity": "dock",
+      "direction": "NE",
+      "frameIds": [
+        "pm-idle-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-sit-NE",
+      "role": "pm",
+      "activity": "sit",
+      "direction": "NE",
+      "frameIds": [
+        "pm-sit-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-work-NE",
+      "role": "pm",
+      "activity": "work",
+      "direction": "NE",
+      "frameIds": [
+        "pm-work-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-think-NE",
+      "role": "pm",
+      "activity": "think",
+      "direction": "NE",
+      "frameIds": [
+        "pm-idle-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-blocked-NE",
+      "role": "pm",
+      "activity": "blocked",
+      "direction": "NE",
+      "frameIds": [
+        "pm-idle-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-idle-SE",
+      "role": "pm",
+      "activity": "idle",
+      "direction": "SE",
+      "frameIds": [
+        "pm-idle-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-walk-SE",
+      "role": "pm",
+      "activity": "walk",
+      "direction": "SE",
+      "frameIds": [
+        "pm-walk1-SE",
+        "pm-walk2-SE"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "pm-dock-SE",
+      "role": "pm",
+      "activity": "dock",
+      "direction": "SE",
+      "frameIds": [
+        "pm-idle-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-sit-SE",
+      "role": "pm",
+      "activity": "sit",
+      "direction": "SE",
+      "frameIds": [
+        "pm-sit-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-work-SE",
+      "role": "pm",
+      "activity": "work",
+      "direction": "SE",
+      "frameIds": [
+        "pm-work-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-think-SE",
+      "role": "pm",
+      "activity": "think",
+      "direction": "SE",
+      "frameIds": [
+        "pm-idle-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-blocked-SE",
+      "role": "pm",
+      "activity": "blocked",
+      "direction": "SE",
+      "frameIds": [
+        "pm-idle-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-idle-SW",
+      "role": "pm",
+      "activity": "idle",
+      "direction": "SW",
+      "frameIds": [
+        "pm-idle-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-walk-SW",
+      "role": "pm",
+      "activity": "walk",
+      "direction": "SW",
+      "frameIds": [
+        "pm-walk1-SW",
+        "pm-walk2-SW"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "pm-dock-SW",
+      "role": "pm",
+      "activity": "dock",
+      "direction": "SW",
+      "frameIds": [
+        "pm-idle-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-sit-SW",
+      "role": "pm",
+      "activity": "sit",
+      "direction": "SW",
+      "frameIds": [
+        "pm-sit-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-work-SW",
+      "role": "pm",
+      "activity": "work",
+      "direction": "SW",
+      "frameIds": [
+        "pm-work-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-think-SW",
+      "role": "pm",
+      "activity": "think",
+      "direction": "SW",
+      "frameIds": [
+        "pm-idle-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-blocked-SW",
+      "role": "pm",
+      "activity": "blocked",
+      "direction": "SW",
+      "frameIds": [
+        "pm-idle-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-idle-NW",
+      "role": "pm",
+      "activity": "idle",
+      "direction": "NW",
+      "frameIds": [
+        "pm-idle-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-walk-NW",
+      "role": "pm",
+      "activity": "walk",
+      "direction": "NW",
+      "frameIds": [
+        "pm-walk1-NW",
+        "pm-walk2-NW"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "pm-dock-NW",
+      "role": "pm",
+      "activity": "dock",
+      "direction": "NW",
+      "frameIds": [
+        "pm-idle-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-sit-NW",
+      "role": "pm",
+      "activity": "sit",
+      "direction": "NW",
+      "frameIds": [
+        "pm-sit-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "pm-work-NW",
+      "role": "pm",
+      "activity": "work",
+      "direction": "NW",
+      "frameIds": [
+        "pm-work-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-think-NW",
+      "role": "pm",
+      "activity": "think",
+      "direction": "NW",
+      "frameIds": [
+        "pm-idle-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "pm-blocked-NW",
+      "role": "pm",
+      "activity": "blocked",
+      "direction": "NW",
+      "frameIds": [
+        "pm-idle-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-idle-NE",
+      "role": "developer",
+      "activity": "idle",
+      "direction": "NE",
+      "frameIds": [
+        "developer-idle-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-walk-NE",
+      "role": "developer",
+      "activity": "walk",
+      "direction": "NE",
+      "frameIds": [
+        "developer-walk1-NE",
+        "developer-walk2-NE"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "developer-dock-NE",
+      "role": "developer",
+      "activity": "dock",
+      "direction": "NE",
+      "frameIds": [
+        "developer-idle-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-sit-NE",
+      "role": "developer",
+      "activity": "sit",
+      "direction": "NE",
+      "frameIds": [
+        "developer-sit-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-work-NE",
+      "role": "developer",
+      "activity": "work",
+      "direction": "NE",
+      "frameIds": [
+        "developer-work-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-think-NE",
+      "role": "developer",
+      "activity": "think",
+      "direction": "NE",
+      "frameIds": [
+        "developer-idle-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-blocked-NE",
+      "role": "developer",
+      "activity": "blocked",
+      "direction": "NE",
+      "frameIds": [
+        "developer-idle-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-idle-SE",
+      "role": "developer",
+      "activity": "idle",
+      "direction": "SE",
+      "frameIds": [
+        "developer-idle-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-walk-SE",
+      "role": "developer",
+      "activity": "walk",
+      "direction": "SE",
+      "frameIds": [
+        "developer-walk1-SE",
+        "developer-walk2-SE"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "developer-dock-SE",
+      "role": "developer",
+      "activity": "dock",
+      "direction": "SE",
+      "frameIds": [
+        "developer-idle-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-sit-SE",
+      "role": "developer",
+      "activity": "sit",
+      "direction": "SE",
+      "frameIds": [
+        "developer-sit-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-work-SE",
+      "role": "developer",
+      "activity": "work",
+      "direction": "SE",
+      "frameIds": [
+        "developer-work-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-think-SE",
+      "role": "developer",
+      "activity": "think",
+      "direction": "SE",
+      "frameIds": [
+        "developer-idle-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-blocked-SE",
+      "role": "developer",
+      "activity": "blocked",
+      "direction": "SE",
+      "frameIds": [
+        "developer-idle-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-idle-SW",
+      "role": "developer",
+      "activity": "idle",
+      "direction": "SW",
+      "frameIds": [
+        "developer-idle-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-walk-SW",
+      "role": "developer",
+      "activity": "walk",
+      "direction": "SW",
+      "frameIds": [
+        "developer-walk1-SW",
+        "developer-walk2-SW"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "developer-dock-SW",
+      "role": "developer",
+      "activity": "dock",
+      "direction": "SW",
+      "frameIds": [
+        "developer-idle-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-sit-SW",
+      "role": "developer",
+      "activity": "sit",
+      "direction": "SW",
+      "frameIds": [
+        "developer-sit-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-work-SW",
+      "role": "developer",
+      "activity": "work",
+      "direction": "SW",
+      "frameIds": [
+        "developer-work-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-think-SW",
+      "role": "developer",
+      "activity": "think",
+      "direction": "SW",
+      "frameIds": [
+        "developer-idle-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-blocked-SW",
+      "role": "developer",
+      "activity": "blocked",
+      "direction": "SW",
+      "frameIds": [
+        "developer-idle-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-idle-NW",
+      "role": "developer",
+      "activity": "idle",
+      "direction": "NW",
+      "frameIds": [
+        "developer-idle-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-walk-NW",
+      "role": "developer",
+      "activity": "walk",
+      "direction": "NW",
+      "frameIds": [
+        "developer-walk1-NW",
+        "developer-walk2-NW"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "developer-dock-NW",
+      "role": "developer",
+      "activity": "dock",
+      "direction": "NW",
+      "frameIds": [
+        "developer-idle-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-sit-NW",
+      "role": "developer",
+      "activity": "sit",
+      "direction": "NW",
+      "frameIds": [
+        "developer-sit-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "developer-work-NW",
+      "role": "developer",
+      "activity": "work",
+      "direction": "NW",
+      "frameIds": [
+        "developer-work-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-think-NW",
+      "role": "developer",
+      "activity": "think",
+      "direction": "NW",
+      "frameIds": [
+        "developer-idle-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "developer-blocked-NW",
+      "role": "developer",
+      "activity": "blocked",
+      "direction": "NW",
+      "frameIds": [
+        "developer-idle-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-idle-NE",
+      "role": "tester",
+      "activity": "idle",
+      "direction": "NE",
+      "frameIds": [
+        "tester-idle-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-walk-NE",
+      "role": "tester",
+      "activity": "walk",
+      "direction": "NE",
+      "frameIds": [
+        "tester-walk1-NE",
+        "tester-walk2-NE"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "tester-dock-NE",
+      "role": "tester",
+      "activity": "dock",
+      "direction": "NE",
+      "frameIds": [
+        "tester-idle-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-sit-NE",
+      "role": "tester",
+      "activity": "sit",
+      "direction": "NE",
+      "frameIds": [
+        "tester-sit-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-work-NE",
+      "role": "tester",
+      "activity": "work",
+      "direction": "NE",
+      "frameIds": [
+        "tester-work-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-think-NE",
+      "role": "tester",
+      "activity": "think",
+      "direction": "NE",
+      "frameIds": [
+        "tester-idle-NE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-blocked-NE",
+      "role": "tester",
+      "activity": "blocked",
+      "direction": "NE",
+      "frameIds": [
+        "tester-idle-NE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-idle-SE",
+      "role": "tester",
+      "activity": "idle",
+      "direction": "SE",
+      "frameIds": [
+        "tester-idle-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-walk-SE",
+      "role": "tester",
+      "activity": "walk",
+      "direction": "SE",
+      "frameIds": [
+        "tester-walk1-SE",
+        "tester-walk2-SE"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "tester-dock-SE",
+      "role": "tester",
+      "activity": "dock",
+      "direction": "SE",
+      "frameIds": [
+        "tester-idle-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-sit-SE",
+      "role": "tester",
+      "activity": "sit",
+      "direction": "SE",
+      "frameIds": [
+        "tester-sit-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-work-SE",
+      "role": "tester",
+      "activity": "work",
+      "direction": "SE",
+      "frameIds": [
+        "tester-work-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-think-SE",
+      "role": "tester",
+      "activity": "think",
+      "direction": "SE",
+      "frameIds": [
+        "tester-idle-SE"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-blocked-SE",
+      "role": "tester",
+      "activity": "blocked",
+      "direction": "SE",
+      "frameIds": [
+        "tester-idle-SE"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-idle-SW",
+      "role": "tester",
+      "activity": "idle",
+      "direction": "SW",
+      "frameIds": [
+        "tester-idle-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-walk-SW",
+      "role": "tester",
+      "activity": "walk",
+      "direction": "SW",
+      "frameIds": [
+        "tester-walk1-SW",
+        "tester-walk2-SW"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "tester-dock-SW",
+      "role": "tester",
+      "activity": "dock",
+      "direction": "SW",
+      "frameIds": [
+        "tester-idle-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-sit-SW",
+      "role": "tester",
+      "activity": "sit",
+      "direction": "SW",
+      "frameIds": [
+        "tester-sit-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-work-SW",
+      "role": "tester",
+      "activity": "work",
+      "direction": "SW",
+      "frameIds": [
+        "tester-work-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-think-SW",
+      "role": "tester",
+      "activity": "think",
+      "direction": "SW",
+      "frameIds": [
+        "tester-idle-SW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-blocked-SW",
+      "role": "tester",
+      "activity": "blocked",
+      "direction": "SW",
+      "frameIds": [
+        "tester-idle-SW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-idle-NW",
+      "role": "tester",
+      "activity": "idle",
+      "direction": "NW",
+      "frameIds": [
+        "tester-idle-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-walk-NW",
+      "role": "tester",
+      "activity": "walk",
+      "direction": "NW",
+      "frameIds": [
+        "tester-walk1-NW",
+        "tester-walk2-NW"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "id": "tester-dock-NW",
+      "role": "tester",
+      "activity": "dock",
+      "direction": "NW",
+      "frameIds": [
+        "tester-idle-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-sit-NW",
+      "role": "tester",
+      "activity": "sit",
+      "direction": "NW",
+      "frameIds": [
+        "tester-sit-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    },
+    {
+      "id": "tester-work-NW",
+      "role": "tester",
+      "activity": "work",
+      "direction": "NW",
+      "frameIds": [
+        "tester-work-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-think-NW",
+      "role": "tester",
+      "activity": "think",
+      "direction": "NW",
+      "frameIds": [
+        "tester-idle-NW"
+      ],
+      "fps": 4,
+      "loop": true
+    },
+    {
+      "id": "tester-blocked-NW",
+      "role": "tester",
+      "activity": "blocked",
+      "direction": "NW",
+      "frameIds": [
+        "tester-idle-NW"
+      ],
+      "fps": 4,
+      "loop": false
+    }
+  ],
+  "fallbacks": {
+    "unknownRole": "developer-idle-SE",
+    "unknownActivity": "developer-idle-SE",
+    "missingFrame": "selection"
+  }
+}

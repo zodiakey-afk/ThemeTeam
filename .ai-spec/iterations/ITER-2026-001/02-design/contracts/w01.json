@@ -1,0 +1,22 @@
+{
+  "id": "W01-SERVER-1",
+  "version": 1,
+  "status": "frozen-under-approved-W01-downgraded-review",
+  "scope": ["B01-01", "B01-02", "B01-03"],
+  "factory": {
+    "module": "themeteam.web.server",
+    "name": "create_server",
+    "positional": {"host": "127.0.0.1", "port": 8000},
+    "keyword_only": {"store": "WorkspaceStore | None = None"},
+    "returns": "ThreadingHTTPServer-compatible instance",
+    "starts_thread": false,
+    "port_zero": "bind OS-assigned port available through server_address",
+    "default_store": "created only during factory invocation when store is None",
+    "provided_store": "all requests use exactly the supplied instance",
+    "ownership": "distinct supplied stores remain independent; explicit sharing is allowed"
+  },
+  "import": {"opens_workspace": false, "starts_server": false},
+  "http": {"routes": "unchanged", "success_responses": "unchanged", "json_schema": "unchanged"},
+  "lifecycle": {"binding_failure": "closes new socket only", "store_load_failure": "no socket created", "shutdown": "caller controlled"},
+  "test_policy": {"default_workspace_read": false, "default_workspace_write": false, "fixture": "fresh temporary store per case", "cleanup": "only owned files, connections, threads and listeners"}
+}

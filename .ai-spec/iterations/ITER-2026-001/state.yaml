@@ -1,0 +1,55 @@
+run_id: ITER-2026-001
+mode: feature
+mode_reason: User now requests W01, W00V, W02 and M1 implementation; feature workflow continues with first-batch scope, NFR and interface confirmation before formal design and implementation.
+risk: M
+risk_reason: Future change affects rendering, shared state, storage and security; implementation risk must be reassessed after scope confirmation.
+current_stage: testing
+status: pending
+work_package_status:
+  W01: independent_review_passed_68_test_executions_pending_final_confirmation
+  W00V: design_accepted_TH01_TH06_closed_independent_review_passed_runtime_evidence_out_of_scope
+  W02: implemented_independent_review_passed_192_tests_passed_pending_release_confirmation
+  W03: implemented_24_tests_passed_independent_review_R01_R03_closed_pending_QA_release
+  M1: v03_atlas_and_20_seat_layout_promoted_v04_spec_refrozen_p0_machine_complete_independent_review_pending
+  P1_P5_M2: p4_dispatcher_settings_codex_task_boundary_parallel_isolation_and_p5_overflow_assignment_verified_map_reflow_and_real_claude_opencode_smoke_deferred
+confirmed_requirements:
+  - User replied confirm on 2026-09-08 approving docs/first-batch.md v1.0 scope, B01 acceptance, applicable NFR and interface boundaries.
+  - User confirmed Theme Hospital as the office canvas UI, interaction and design reference on 2026-09-08; approval is limited to this direction, not all NFR or visual deliverables.
+  - User authorized proceeding with W01, W00V, W02 and M1 on 2026-09-08 and requested first-batch scope, metrics and interface confirmation first.
+gates:
+  G1:
+    status: passed
+    evidence: gate-manifest.yaml#G1
+  G2:
+    status: passed
+    evidence: gate-manifest.yaml#G2
+  G3:
+    status: passed
+    evidence: gate-manifest.yaml#G3
+  G4:
+    status: pending
+    evidence: gate-manifest.yaml#G4
+  G5:
+    status: pending
+    evidence: gate-manifest.yaml#G5
+pending_human_review:
+  - W01 and W02 independent code reviews passed; QA/release and final report confirmation pending.
+  - W03 scoped independent code review complete with R01-R03 closed; QA/release and final report confirmation pending.
+  - VIS-06 preserves approved identities and closes the meeting-to-workstation return chain; independent W00V v3 review passed TH-01 through TH-06 at design level. M1 runtime evidence remains separate.
+  - M1 scoped G2 and project-owner G3 passed. M1 v0.4 was re-frozen after CHG-M1-004; current m1-spec.md SHA-256 is 0777ba0a3a61647b76fa025c5d701dbb685e84740af270c57ceb4b6d7cb81e42.
+  - Unified post-M1 roadmap adds ProjectDirectoryProfile to P1-P5 and maps P1-P4 to original M2 / Phase 1 MVP, while P5 maps to the M3 / Phase 2 capacity-expansion prerequisite; project-owner confirmation of the merged plan is pending.
+  - Pre-G2 Phaser/EasyStar PoC passed exact versions, Vite/TS, offline lock, audit=0, lifecycle/context-loss and EasyStar cancellation/stale-result checks.
+  - Candidate 32x24 map, 60-frame agent atlas, 17-frame prop atlas, 84 animations and collision oracle are generated and contract-validated; independent source audit approved project-runtime packaging. They are not runtime acceptance evidence.
+  - User approved runtime promotion of the v0.3 visual atlas and subsequently approved CHG-M1-004: 20 workstations and reduced boss/break-room footprints. The current default overview is now 100%; the earlier 0.65 evidence is historical and must be superseded by a current-build rerun. The final props-atlas source-region fix is promoted with hash 5b6b2293f0a915ba232a3c72e7929231d3ee8081a6f885ed52e0da4421be0f0d. G4/G5/G6/G7 remain pending.
+  - P1-P5/M2 baseline plus P4/P5 engineering closure is implemented and verified on 2026-09-23: runtime/project-directory profiles, settings UI, Agent creation bindings, controlled Mock Runtime, independent settings store, dispatcher lifecycle, Codex task boundary, shared Claude/OpenCode adapter contract, parallel project isolation, and overflow-room assignment.
+  - Codex read-only adapter slice completed on 2026-09-23: ProcessSupervisor, ProjectDirectoryGuard, CodexCliAdapter, settings probe route, redacted evidence, and 57/57 x 2 backend plus 48/48 frontend regression.
+  - P4/P5 implementation completed on 2026-09-23: independent settings store, dispatcher lifecycle, Codex workspace-write task boundary, artifact isolation, retry/recovery, shared Claude/OpenCode adapter contract, parallel project isolation, task-page run entry, and overflow-room assignment with Unplaced status. Evidence: .ai-spec/iterations/ITER-2026-001/05-testing/p4-p5-implementation-report.md.
+  - Real Codex business-task smoke was attempted on 2026-09-23 and blocked by Windows ACL inherited from the elevated temporary-directory test fixture: Codex started and received the artifact --add-dir, but child writes returned Access Denied. This remains an environment-blocked verification item, not a passing business-task acceptance.
+assumptions:
+  - Latest user request authorizes development; prior documentation-only scope is superseded, but staged approvals and tool permissions remain required.
+  - First-batch requirements are approved; implementation remains gated by the scoped design and plan review.
+  - W01/W02 implementation and independent review passed. W03 React19.3.0 foundation implemented; no full-iteration completion inferred.
+  - Phaser3.90.0 and easystarjs0.4.4 are integrated and pinned following scoped G2/G3 approval and QA freeze; current-build formal evidence and independent acceptance remain pending.
+  - Independent W01 reviewer Nash assigned on 2026-09-09; agent 01a083ff-3a0f-7292-b678-728a3c238443.
+  - User-confirmed third-party HTTPS API generated VIS-01 through VIS-04; historical missing credential checks are superseded. Only design prompts/generated references may be transmitted. No secrets persisted.
+last_updated: 2026-09-23

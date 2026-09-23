@@ -1,0 +1,13 @@
+
+> themeteam-frontend@0.1.0 test:unit
+> vitest run
+
+
+ RUN  v5.0.0 C:/repos/ThemeTeam/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  24 passed (24)
+   Start at  09:03:14
+   Duration  780ms (import 66%, transform 18%, tests 10%, worker 7%)
+

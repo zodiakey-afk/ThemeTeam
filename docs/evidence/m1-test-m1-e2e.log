@@ -1,0 +1,298 @@
+
+> themeteam-frontend@0.1.0 test:m1:e2e
+> node tests/m1-e2e.cjs
+
+{
+  "result": "passed",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 1,
+      "canvas": {
+        "cssWidth": 390,
+        "cssHeight": 360,
+        "width": 390,
+        "height": 360,
+        "ratioX": 1,
+        "ratioY": 1,
+        "devicePixelRatio": 1,
+        "expectedDpr": 1,
+        "opaque": 4096,
+        "colors": 2145
+      },
+      "layout": {
+        "documentWidth": 390,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "dpr": 1,
+      "canvas": {
+        "cssWidth": 854,
+        "cssHeight": 521,
+        "width": 854,
+        "height": 521,
+        "ratioX": 1,
+        "ratioY": 1,
+        "devicePixelRatio": 1,
+        "expectedDpr": 1,
+        "opaque": 4096,
+        "colors": 2022
+      },
+      "layout": {
+        "documentWidth": 1024,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 1,
+      "canvas": {
+        "cssWidth": 1174,
+        "cssHeight": 521,
+        "width": 1174,
+        "height": 521,
+        "ratioX": 1,
+        "ratioY": 1,
+        "devicePixelRatio": 1,
+        "expectedDpr": 1,
+        "opaque": 4096,
+        "colors": 1952
+      },
+      "layout": {
+        "documentWidth": 1366,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1,
+      "canvas": {
+        "cssWidth": 1728,
+        "cssHeight": 833,
+        "width": 1728,
+        "height": 833,
+        "ratioX": 1,
+        "ratioY": 1,
+        "devicePixelRatio": 1,
+        "expectedDpr": 1,
+        "opaque": 4096,
+        "colors": 1188
+      },
+      "layout": {
+        "documentWidth": 1920,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "canvas": {
+        "cssWidth": 390,
+        "cssHeight": 360,
+        "width": 780,
+        "height": 720,
+        "ratioX": 2,
+        "ratioY": 2,
+        "devicePixelRatio": 2,
+        "expectedDpr": 2,
+        "opaque": 4096,
+        "colors": 2046
+      },
+      "layout": {
+        "documentWidth": 390,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "dpr": 2,
+      "canvas": {
+        "cssWidth": 854,
+        "cssHeight": 521,
+        "width": 1708,
+        "height": 1042,
+        "ratioX": 2,
+        "ratioY": 2,
+        "devicePixelRatio": 2,
+        "expectedDpr": 2,
+        "opaque": 4096,
+        "colors": 1907
+      },
+      "layout": {
+        "documentWidth": 1024,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "dpr": 2,
+      "canvas": {
+        "cssWidth": 1174,
+        "cssHeight": 521,
+        "width": 2348,
+        "height": 1042,
+        "ratioX": 2,
+        "ratioY": 2,
+        "devicePixelRatio": 2,
+        "expectedDpr": 2,
+        "opaque": 4096,
+        "colors": 1828
+      },
+      "layout": {
+        "documentWidth": 1366,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 2,
+      "canvas": {
+        "cssWidth": 1728,
+        "cssHeight": 833,
+        "width": 3456,
+        "height": 1666,
+        "ratioX": 2,
+        "ratioY": 2,
+        "devicePixelRatio": 2,
+        "expectedDpr": 2,
+        "opaque": 4096,
+        "colors": 1178
+      },
+      "layout": {
+        "documentWidth": 1920,
+        "outside": []
+      },
+      "posts": 0,
+      "external": 0,
+      "pageErrors": 0
+    },
+    {
+      "recovery": "map-load-retry",
+      "canvases": 1,
+      "posts": 0
+    },
+    {
+      "recovery": "context-loss-retry",
+      "canvases": 1,
+      "oldCanvasConnected": false,
+      "previewSynchronized": true,
+      "posts": 0
+    },
+    {
+      "concurrency": "first-wins-invalid-preserves-latest-wins",
+      "reservations": 0,
+      "posts": 0
+    },
+    {
+      "gesture": "pinch-pointercancel",
+      "beforeZoom": 1,
+      "afterZoom": 2,
+      "activeTouches": 0,
+      "movementPhase": "walking",
+      "mobileMenuInside": true,
+      "posts": 0
+    },
+    {
+      "movement": "dynamic-block-two-replans",
+      "replanAttempts": 2,
+      "elapsed": 6068,
+      "reservations": 0,
+      "posts": 0
+    },
+    {
+      "movement": "undock-retains-seat-preview-restores",
+      "seat": "work-1",
+      "posts": 0
+    },
+    {
+      "movement": "locked-target-preserves-intent",
+      "target": "work-8",
+      "posts": 0
+    },
+    {
+      "recovery": "texture-integrity-retry",
+      "canvases": 1,
+      "posts": 0
+    },
+    {
+      "gesture": "context-drag-cancel",
+      "rightClickSelected": true,
+      "menuInside": true,
+      "keyboardMenu": true,
+      "focusRestored": true,
+      "dragSuppressed": true,
+      "cancelSuppressed": true
+    },
+    {
+      "navigation": "close-restores-camera",
+      "before": {
+        "x": 565,
+        "y": 267
+      },
+      "after": {
+        "x": 565,
+        "y": 267
+      }
+    },
+    {
+      "navigation": "mobile-follow-and-blank-clear",
+      "selectedScreen": {
+        "x": 163,
+        "y": 254
+      },
+      "safeRect": {
+        "left": 0,
+        "top": 0,
+        "right": 390,
+        "bottom": 360
+      },
+      "sceneAboveDetails": true,
+      "cleared": true
+    },
+    {
+      "fallback": "unknown-role-activity",
+      "frame": "developer-idle-SE",
+      "tint": 14700392
+    }
+  ],
+  "movementRuns": 10,
+  "recoveryRuns": 3,
+  "concurrencyRuns": 1,
+  "gestureRuns": 2,
+  "dynamicBlockRuns": 1,
+  "navigationRuns": 2,
+  "fallbackRuns": 1,
+  "scenePosts": 0,
+  "externalRequests": 0
+}

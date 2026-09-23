@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "viewport": "1440x900",
+  "maliciousSurfaces": 10,
+  "injectedElements": 0,
+  "foreignRequests": [],
+  "pageErrors": [],
+  "positiveFlows": [
+    "load",
+    "theme",
+    "select",
+    "move",
+    "save"
+  ]
+}

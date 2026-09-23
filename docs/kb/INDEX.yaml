@@ -1,0 +1,110 @@
+version: 1
+entries:
+  - id: KB-ARCH-0003
+    title: Agent CLI runtime boundaries and Codex read-only probe
+    domain: architecture
+    status: active
+    version: 1
+    updated: 2026-09-23
+    source: .ai-spec/iterations/ITER-2026-001/05-testing/cli-adapter-report.md
+    path: docs/kb/architecture/agent-cli-runtime-boundaries.md
+    tags: [agent-cli, codex, process-supervisor, project-directory, security]
+  - id: KB-OPS-0001
+    title: M1 rollback rehearsal scope and partial archive boundary
+    domain: ops
+    status: active
+    version: 1
+    updated: 2026-09-22
+    source: docs/evidence/m1-rollback-rehearsal.json
+    path: .ai-spec/iterations/ITER-2026-001/06-release/rollback-plan.md
+    tags: [m1, rollback, archive, isolation, release]
+  - id: KB-TST-0005
+    title: Stable random-camera selection probes for office canvas divergence tests
+    domain: testing
+    status: active
+    version: 1
+    updated: 2026-09-22
+    source: docs/evidence/m1-divergence.json
+    path: .ai-spec/iterations/ITER-2026-001/05-testing/kb-updates.md
+    tags: [m1, divergence, camera, canvas, hit-test]
+  - id: KB-TST-0004
+    title: Current-build binding for M1 formal performance and stability evidence
+    domain: testing
+    status: active
+    version: 1
+    updated: 2026-09-22
+    source: docs/evidence/m1-nfr-formal.json
+    path: .ai-spec/iterations/ITER-2026-001/05-testing/kb-updates.md
+    tags: [m1, performance, stability, dpr, hashes]
+  - id: KB-ARCH-0002
+    title: M1 root-local scene boundaries and generated runtime asset provenance
+    domain: architecture
+    status: active
+    version: 1
+    updated: 2026-09-15
+    source: docs/evidence/m1-design-review-v2.md
+    path: docs/kb/architecture/m1-scene-boundaries.md
+    tags: [phaser, root-local, scene, lifecycle, assets, provenance]
+  - id: KB-TST-0003
+    title: Visual design evidence must include clipped bounds and actual control hit area
+    domain: testing
+    status: active
+    version: 1
+    updated: 2026-09-14
+    source: docs/evidence/w00v-visual-review.md
+    path: docs/evidence/w00v-review-resolution.md
+    tags: [responsive, clipping, viewport, hit-test, visual-review, design-not-runtime]
+  - id: KB-TST-0002
+    title: Frontend malformed-error barrier, preview authority and root-local focus
+    domain: testing
+    status: active
+    version: 1
+    updated: 2026-09-10
+    source: .ai-spec/iterations/ITER-2026-001/07-summary/w03-change-report.md
+    path: docs/evidence/w03-tests.md
+    tags: [react, queue, timeout, keyboard, isolation, preview, error-schema]
+  - id: KB-SEC-0001
+    title: Local prototype hardening and atomic persistence validation
+    domain: testing
+    status: active
+    version: 1
+    updated: 2026-09-10
+    source: .ai-spec/iterations/ITER-2026-001/07-summary/w02-change-report.md
+    path: docs/evidence/w02-tests.md
+    tags: [security, atomic-save, archive, windows, browser]
+  - id: KB-ARCH-0001
+    title: ThemeTeam Pre-MVP baseline and office iteration constraints
+    domain: architecture
+    status: active
+    version: 2
+    updated: 2026-09-08
+    source: docs/evidence/audit-20260908.md
+    path: docs/progress-assessment.md
+    tags: [baseline, prototype, office, state, tests]
+  - id: KB-PRODUCT-0001
+    title: Confirmed Theme Hospital office reference and visual acceptance requirements
+    domain: product
+    status: active
+    version: 1
+    updated: 2026-09-08
+    source: .ai-spec/iterations/ITER-2026-001/01-requirements/requirement-confirmation.md
+    path: docs/office-canvas.md
+    tags: [theme-hospital, visual-reference, interaction, acceptance]
+  - id: KB-PRODUCT-0002
+    title: Approved first-batch scope and interface boundaries
+    domain: product
+    status: active
+    version: 1
+    updated: 2026-09-08
+    source: .ai-spec/iterations/ITER-2026-001/01-requirements/requirement-confirmation.md
+    path: docs/first-batch.md
+    tags: [first-batch, scope, acceptance, approved]
+  - id: KB-TST-0001
+    title: Isolated server stores and guarded repeatable test runs
+    domain: testing
+    status: active
+    version: 2
+    updated: 2026-09-09
+    source: docs/evidence/w01-independent-review.md
+    path: docs/evidence/w01-independent-review.md
+    tags: [isolation, windows, lifecycle, regression]

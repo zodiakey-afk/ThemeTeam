@@ -1,0 +1,67 @@
+{
+  "result": "passed",
+  "date": "2026-09-15T02:01:47.844Z",
+  "command": "node tests/m1_poc.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "runtime": "v22.23.0",
+  "exitCode": 0,
+  "log": "docs/evidence/m1-poc.log",
+  "dependencies": {
+    "packages": [
+      {
+        "name": "phaser",
+        "version": "3.90.0",
+        "license": "MIT",
+        "packageHash": "2761e48ade77d19cbe2560cbec3cc2c52a4c666fdaae7fe39d6949f7e1738993"
+      },
+      {
+        "name": "easystarjs",
+        "version": "0.4.4",
+        "license": "MIT",
+        "packageHash": "2a04a4063e7c03f5ef1db09901b7bcf371554e134e53b9d6eb8fc479c8218679"
+      },
+      {
+        "name": "eventemitter3",
+        "version": "5.0.4",
+        "license": "MIT",
+        "packageHash": "0dd9bc32a77be8238fad41d58aa5b24ccdfee79d8bcf4cbee85f16e3d15c1658"
+      },
+      {
+        "name": "heap",
+        "version": "0.2.6",
+        "license": "PSF",
+        "packageHash": "15cc14f9fe03470fc2b520a4b00ae5a4d9a04bdb5ead29c866561919b82ca191"
+      }
+    ],
+    "offlinePackageLock": true,
+    "auditVulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "auditExitCode": 0
+  },
+  "build": {
+    "typeDiagnostics": 0,
+    "viteOutputFiles": 1
+  },
+  "easyStar": {
+    "fourNeighborPathNodes": 7,
+    "staleGenerationDiscarded": true,
+    "cancelPathSuppressedCallback": true,
+    "iterationsPerCalculation": 1
+  },
+  "phaser": {
+    "creates": 4,
+    "destroys": 4,
+    "contextLost": true,
+    "errors": [],
+    "canvasCount": 0,
+    "contextLossSupported": true,
+    "finalCanvasCount": 0
+  },
+  "scope": "Pre-G2 dependency and lifecycle/path-selection PoC only; no product scene implementation or M1 acceptance."
+}

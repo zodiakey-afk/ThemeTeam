@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "compatibility": "Successful existing routes and JSON fields preserved. Invalid input and unsafe requests now rejected.",
+  "errors": {"400": "invalid_payload", "403": "forbidden", "404": "not_found", "409": "conflict", "413": "payload_too_large", "500": "storage_error"},
+  "errorShape": {"error": {"code": "string", "message": "string"}},
+  "limits": {"bodyBytes": 1048576, "string": 512, "text": 65536, "idList": 256, "roundsLimit": [1, 100], "confidence": [0, 1]},
+  "enums": {"themeMode": ["retro", "modern"], "taskStatus": ["todo", "in_progress", "in_review", "done"], "priority": ["low", "medium", "high"], "agentStatus": ["Idle", "Walking", "Working", "Thinking", "Speaking", "Blocked", "Error", "Offline"], "meetingStatus": ["draft", "active", "closed"], "mode": ["group", "private"], "scope": ["agent", "team", "global"]},
+  "validation": "Known fields strict types; booleans are not numbers. Unknown fields rejected. Optional omitted fields retain legacy defaults; optional moderatorId accepts null. Entity lists contain unique strings and existing references. Destination exists and is unlocked before detaching. approvedByHuman accepts only false; true is forbidden.",
+  "references": {"agents": ["seatId:rooms", "modelProfileId:modelProfiles"], "tasks": ["assigneeIds:agents"], "meetings": ["roomId:rooms", "participants:agents", "moderatorId:agents", "linkedTaskIds:tasks", "linkedDocIds:documents"], "documents": ["linkedTaskIds:tasks", "linkedMeetingIds:meetings"], "memory": ["linkedDocs:documents"]},
+  "archive": "same summary replay returns unchanged existing bundle; changed summary 409; new doc linked both ways; memory unapproved",
+  "save": "unique sibling temporary file, flush/fsync/replace, commit metadata only after success; old state preserved on failure",
+  "selection": "workspace,team,room,agent,task,meeting,document,memory; existing id required except workspace legacy alias workspace"
+}

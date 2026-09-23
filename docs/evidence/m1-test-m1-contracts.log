@@ -1,0 +1,5 @@
+
+> themeteam-frontend@0.1.0 test:m1:contracts
+> node ../tests/m1_contracts.cjs
+
+M1 v0.4 contract with v0.3 map/assets: 6 structural and 6 semantic fixtures accepted, 29 malformed cases rejected; unapproved fixture blocked and approved runtime candidate accepted.

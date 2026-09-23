@@ -1,0 +1,509 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Unchanged legacy WorkspaceState snapshot v1",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "themeMode": {
+      "type": "string"
+    },
+    "activeTeamId": {
+      "type": "string"
+    },
+    "selection": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lastSavedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/team"
+      }
+    },
+    "rooms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/room"
+      }
+    },
+    "agents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/agent"
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/task"
+      }
+    },
+    "meetings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/meeting"
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/document"
+      }
+    },
+    "memoryItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/memory"
+      }
+    },
+    "modelProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/modelProfile"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "themeMode",
+    "activeTeamId",
+    "selection",
+    "events",
+    "lastSavedAt",
+    "teams",
+    "rooms",
+    "agents",
+    "tasks",
+    "meetings",
+    "documents",
+    "memoryItems",
+    "modelProfiles"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "modelProfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "contextWindow": {
+          "type": "integer"
+        },
+        "capabilityTags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "costLabel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "provider",
+        "contextWindow",
+        "capabilityTags",
+        "costLabel"
+      ],
+      "additionalProperties": false
+    },
+    "room": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "occupantIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unlocked": {
+          "type": "boolean"
+        },
+        "visualPreset": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "level",
+        "x",
+        "y",
+        "width",
+        "height",
+        "occupantIds",
+        "unlocked",
+        "visualPreset"
+      ],
+      "additionalProperties": false
+    },
+    "agent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "roleTemplate": {
+          "type": "string"
+        },
+        "modelProfileId": {
+          "type": "string"
+        },
+        "seatId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "appearancePresetId": {
+          "type": "string"
+        },
+        "teamId": {
+          "type": "string"
+        },
+        "leaderFlag": {
+          "type": "boolean"
+        },
+        "animationPackId": {
+          "type": "string"
+        },
+        "skinId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "roleTemplate",
+        "modelProfileId",
+        "seatId",
+        "status",
+        "appearancePresetId",
+        "teamId",
+        "leaderFlag",
+        "animationPackId",
+        "skinId"
+      ],
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "assigneeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceType": {
+          "type": "string"
+        },
+        "dueAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentTaskId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "status",
+        "priority",
+        "assigneeIds",
+        "sourceType",
+        "dueAt",
+        "parentTaskId"
+      ],
+      "additionalProperties": false
+    },
+    "meeting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "roomId": {
+          "type": "string"
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "moderatorId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "roundsLimit": {
+          "type": "integer"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "linkedTaskIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linkedDocIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "mode",
+        "roomId",
+        "participants",
+        "moderatorId",
+        "roundsLimit",
+        "summary",
+        "status",
+        "linkedTaskIds",
+        "linkedDocIds"
+      ],
+      "additionalProperties": false
+    },
+    "document": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "sourceRef": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "linkedTaskIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "linkedMeetingIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "visibilityScope": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "category",
+        "title",
+        "content",
+        "sourceRef",
+        "version",
+        "linkedTaskIds",
+        "linkedMeetingIds",
+        "visibilityScope",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "memory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "embeddingRef": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "approvedByHuman": {
+          "type": "boolean"
+        },
+        "linkedDocs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "scope",
+        "sourceType",
+        "text",
+        "embeddingRef",
+        "confidence",
+        "approvedByHuman",
+        "linkedDocs"
+      ],
+      "additionalProperties": false
+    },
+    "team": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "leaderAgentId": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "integer"
+        },
+        "defaultModelProfileId": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "leaderAgentId",
+        "capacity",
+        "defaultModelProfileId",
+        "tags"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

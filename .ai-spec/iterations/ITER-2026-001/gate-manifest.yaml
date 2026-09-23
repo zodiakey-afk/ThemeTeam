@@ -1,0 +1,196 @@
+run_id: ITER-2026-001
+G1:
+  status: passed
+  inputs:
+    - docs/first-batch.md
+    - docs/progress-assessment.md
+    - docs/requirements.md#10
+    - docs/office-canvas.md
+    - .ai-spec/iterations/ITER-2026-001/01-requirements/requirement-confirmation.md
+  evidence:
+    assessment: docs/evidence/audit-20260908.md
+    tests: "9 passed, 0 failed; isolated-copy baseline only, not frozen acceptance tests"
+    javascript: "node --check passed; syntax only"
+  pending: []
+  approval:
+    approver: User
+    role: Requirement owner and project requester
+    date: 2026-09-08
+    decision: approved
+    source: User replied confirm directly to the first-batch confirmation request.
+    scope: docs/first-batch.md v1.0 including scope, B01 acceptance, applicable NFR, interface boundaries and deferred capabilities.
+  partial_human_confirmation:
+    approver: User
+    role: Requirement owner
+    date: 2026-09-08
+    decision: Confirmed Theme Hospital as office canvas UI and interaction reference; requested documentation update.
+    scope: Visual and interaction direction only; no complete G1 approval or finished visual artifact approval inferred.
+    source: Current task user messages confirming the game reference and requesting the design and remaining-plan update.
+  development_authorization:
+    approver: User
+    role: Requirement owner and project requester
+    date: 2026-09-08
+    decision: Proceed with latest-design W01, W00V, W02 and M1 after first-batch scope, metrics and interface confirmation.
+    source: Latest user request listing the four development steps.
+    limitation: Does not approve unpresented detail, waive gates, or provide independent review.
+  knowledge:
+    retrieval: Initial cold start created INDEX.yaml; resumed requirement update retrieved KB-ARCH-0001 and the baseline assessment; no organization knowledge assumed.
+    writeback: Non-Git workspace; local assessment linked in docs/kb/INDEX.yaml; no commit claimed.
+G2:
+  status: passed
+  reason: W01/W02/W03 scoped reviews passed; W00V TH-01..06 design acceptance passed; M1 B01-B05 independent remediation review and asset source audit passed. Runtime acceptance remains G4/G5.
+  artifacts:
+    - .ai-spec/iterations/ITER-2026-001/02-design/w01-design.md
+    - .ai-spec/iterations/ITER-2026-001/02-design/contracts/w01.json
+    - .ai-spec/iterations/ITER-2026-001/02-design/review-log.md
+  historical_review_attempt: Initial launch rejected validation; superseded for W01/W02/W03 by scoped reviews below.
+G3:
+  status: passed
+  reason: User approved M1 v0.4 W04-W06 scope, 7.5-12 engineering days, 1-2 asset days, roles, risks and rollback conditions on 2026-09-15. QA BB freeze remains a separate pre-implementation condition.
+  approval:
+    approver: User
+    role: Project owner
+    date: 2026-09-15
+    decision: approved
+    scope: M1 v0.4 W04-W06, budget, role ownership, risks and rollback conditions
+    source: User replied approved to the scoped G3 confirmation request.
+    record: .ai-spec/iterations/ITER-2026-001/03-plan/approval.md
+work_packages:
+  W00V:
+    status: passed
+    register: docs/evidence/w00v-assets.md
+    artifacts: docs/evidence/w00v-artifact-manifest.json
+    independent_review: docs/evidence/w00v-visual-review.md
+    resolution: docs/evidence/w00v-review-resolution.md
+    local_checks:
+      mobile: docs/evidence/w00v-mobile.json
+      engineering: docs/evidence/w00v-engineering.json
+    continuation: output/imagegen/vis05-continuation-board-v1.png
+    final_continuation: output/imagegen/vis06-meeting-return-v1.png
+    current_manifest: docs/evidence/w00v-artifact-manifest.json
+    final_independent_review: docs/evidence/w00v-visual-review-final-v3.md
+    review_result: TH-03 closed; combined independent reviews close TH-01 through TH-06 at design level. This does not claim Phaser runtime acceptance.
+    remaining: M1 runtime implementation, screenshots, recordings and interaction evidence remain out of W00V scope.
+  M1:
+    G2: passed
+    G3: passed
+    G4: pending
+    design: .ai-spec/iterations/ITER-2026-001/02-design/m1-design.md
+    independent_design_review: docs/evidence/m1-design-review.md
+    independent_design_review_result: failed; superseded by v2 remediation review
+    independent_remediation_review: docs/evidence/m1-design-review-v2.md
+    independent_remediation_review_result: passed M1-G2-B01 through B05; generated candidate runtime assets approved for project packaging; runtime implementation not reviewed
+    contract_draft: .ai-spec/iterations/ITER-2026-001/02-design/contracts/m1-v0.2.json
+    map_contract_draft: .ai-spec/iterations/ITER-2026-001/02-design/contracts/m1-map-v0.2.schema.json
+    asset_contract_draft: .ai-spec/iterations/ITER-2026-001/02-design/contracts/m1-assets-v0.2.schema.json
+    contract_validation: docs/evidence/m1-contracts.json
+    contract_validation_result: 6 structural and 6 semantic positive fixtures accepted; 29 malformed fixtures rejected; unapproved fixture packaging remains blocked and the approved runtime candidate is accepted.
+    pre_g2_poc: docs/evidence/m1-poc.json
+    pre_g2_poc_result: exact Phaser/EasyStar versions, TypeScript/Vite/offline lock, zero audit vulnerabilities, EasyStar cancellation/stale-result, Phaser create/destroy/context-loss passed.
+    candidate_assets: docs/evidence/m1-design-assets.json
+    candidate_assets_result: 32x24 map, 8 work/6 meeting anchors, 20 spawns, 60 agent frames, 17 prop frames, 84 animation mappings and collision oracle generated; independent source audit approved project-runtime packaging.
+    plan: .ai-spec/iterations/ITER-2026-001/03-plan/m1-plan.md
+    tests_frozen: .ai-spec/iterations/ITER-2026-001/05-testing/m1-spec.md
+    qa_freeze: docs/evidence/m1-qa-freeze.md
+    qa_freeze_result: passed before implementation; final SHA-256 2ca7b60f5efb148229ee8b417ee67f95306b6cba5f417ef922f0ad2350d1ce9e
+    visual_candidate_v03: output/m1-visual-candidate-v0.3/candidate-manifest.json
+    visual_candidate_validation: output/m1-visual-candidate-v0.3/validation-report.json
+    visual_candidate_result: 60 high-quality agent frames, 17 furniture frames and four previews passed 361 candidate-only assertions; public runtime v0.2 hashes remain unchanged pending explicit user approval.
+    remaining: Obtain user approval for v0.3 visuals; only then promote the approved contract/assets and complete current-build BB/WB/formal NFR evidence, independent re-review and QA execution sign-off.
+  W03:
+    G2: passed
+    G3: passed
+    G4: passed
+    G5: pending
+    verification: docs/evidence/w03-tests.md
+    command_evidence: docs/evidence/w03-verification.json
+    machine_tests: 24 unit cases passed; browser workflows/root focus/forms at three widths; dev/preview proxy boundaries; typecheck/build passed
+    independent_code_review: docs/evidence/w03-code-review.md
+    review_resolution: .ai-spec/iterations/ITER-2026-001/04-implementation/w03-review-resolution.md
+    code_review_approval: Gauss 2026-09-10 14:35 +08:00; R01-R03 closed after independent re-review of current source; historical findings retained.
+    knowledge_writeback: docs/kb/INDEX.yaml KB-TST-0002; non-Git workspace, no commit claimed.
+    remaining: QA/release and final confirmation; no W01-only waiver applied; no M1 acceptance claimed.
+    technical_review: docs/evidence/w03-design-review.md
+    contract: .ai-spec/iterations/ITER-2026-001/02-design/contracts/w03-v1.1.json
+    plan: .ai-spec/iterations/ITER-2026-001/03-plan/w03-plan.md
+    authorization: User explicitly approved completing W03 and repeatedly requested continuation; no visual waiver or release approval inferred.
+  W02:
+    G2: passed
+    G3: passed
+    G4: passed
+    G5: pending
+    independent_code_review: docs/evidence/w02-code-review.md
+    verification: docs/evidence/w02-tests.md
+    machine_tests: 48 distinct cases; 192 repeated executions; zero failures/errors/skips/default access/leaked threads
+    remaining: QA/release and final human confirmation; no full-iteration completion claimed.
+    technical_review: docs/evidence/w02-design-review.md
+    contract: .ai-spec/iterations/ITER-2026-001/02-design/contracts/w02-routes-v1.2.json
+    plan: .ai-spec/iterations/ITER-2026-001/03-plan/w02-plan.md
+    authorization: User approved first-batch sequence and requested completing unfinished development; no scope expansion.
+    tests_frozen: .ai-spec/iterations/ITER-2026-001/05-testing/w02-spec-v1.1.md
+  W01:
+    G2: passed
+    G3: passed
+    G4: passed
+    implementation: completed
+    verification:
+      distinct_tests: 17
+      repeated_executions: 68
+      failures: 0
+      default_file_accesses: 0
+      leaked_threads: 0
+      report: docs/evidence/w01-tests.md
+      coverage: not_measured
+    independent_review: docs/evidence/w01-independent-review.md#independent-re-review-2026-09-09
+    remaining: Release approval and final user confirmation; no full-iteration gate claimed.
+    approval:
+      approver: User
+      date: 2026-09-08
+      source: User approved W01-only downgraded review and requested completion with tests.
+      scope: W01 design self-review, frozen contract/test specification and previously submitted implementation sequence.
+      compensation: default file access guard, two service isolation, error cleanup, four repeated runs, independent review before release
+    self_review: Reviewed instance ownership, explicit None, bind/load failure lifecycle and no schema/dependency changes; no unresolved W01 design issue.
+    artifacts:
+      - .ai-spec/iterations/ITER-2026-001/02-design/w01-design.md
+      - .ai-spec/iterations/ITER-2026-001/02-design/contracts/w01.json
+      - .ai-spec/iterations/ITER-2026-001/05-testing/w01-spec.md
+G4:
+  status: pending
+  reason: Current M1 v0.4 implementation, full regression, formal NFR and double-DPR stability evidence passed on 2026-09-23; independent re-review and QA signature remain pending.
+  evidence:
+    verification: docs/evidence/m1-verification.json
+    test_report: .ai-spec/iterations/ITER-2026-001/05-testing/test-report.md
+    source_hash_bound_formal_nfr: docs/evidence/m1-nfr-formal.json
+    source_hash_bound_formal_stability: docs/evidence/m1-stability-formal.json
+    rollback_rehearsal: docs/evidence/m1-rollback-rehearsal.json
+G5:
+  status: pending
+  reason: Machine acceptance, formal performance/stability and final current-build independent re-review passed against final props atlas hash 5b6b2293f0a915ba232a3c72e7929231d3ee8081a6f885ed52e0da4421be0f0d; QA signature and complete BB/WB matrix closure remain pending.
+  evidence:
+    test_report: .ai-spec/iterations/ITER-2026-001/05-testing/test-report.md
+    defects: .ai-spec/iterations/ITER-2026-001/05-testing/defects.md
+    independent_review: docs/evidence/m1-independent-rereview-v04-final.md
+P1_P5_M2:
+  status: passed
+  reason: P4/P5 engineering closure is implemented and machine-verified: independent settings store, dispatcher lifecycle, Codex task execution boundary, shared Claude/OpenCode adapter contract, parallel project isolation, and automatic overflow-room assignment. Real Claude/OpenCode executable smoke, full map reflow and M1 human gates remain pending.
+  evidence:
+    report: .ai-spec/iterations/ITER-2026-001/05-testing/p1-p5-m2-report.md
+    p4_p5_report: .ai-spec/iterations/ITER-2026-001/05-testing/p4-p5-implementation-report.md
+    p4_p5_spec: .ai-spec/iterations/ITER-2026-001/05-testing/p4-p5-cli-spec.md
+    cli_adapter_report: .ai-spec/iterations/ITER-2026-001/05-testing/cli-adapter-report.md
+    codex_smoke: docs/evidence/codex-cli-smoke.json
+    backend_regression: tests/run_isolated.py --rounds 2
+    frontend_unit: npm run test:unit
+    frontend_build: npm run build
+    bazi: docs/evidence/bazi-project-verification.json
+    architecture: docs/agent-cli-architecture.md
+G6:
+  status: pending
+  reason: Release and rollback artifacts are prepared and rollback was rehearsed in isolation; project-owner release approval is pending.
+  evidence:
+    release_plan: .ai-spec/iterations/ITER-2026-001/06-release/release-plan.md
+    rollback_plan: .ai-spec/iterations/ITER-2026-001/06-release/rollback-plan.md
+    checklist: .ai-spec/iterations/ITER-2026-001/06-release/release-checklist.md
+G7:
+  status: pending
+  reason: Documentation change report submitted; final human confirmation absent.

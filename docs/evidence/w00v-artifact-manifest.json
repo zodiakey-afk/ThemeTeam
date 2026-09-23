@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-15T01:03:37.359Z",
+  "command": "node tests/visual_artifacts.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "runtime": "v22.23.0",
+  "result": "passed",
+  "generationChannels": [
+    "user-confirmed compatible image API via bundled CLI",
+    "Codex built-in image_gen"
+  ],
+  "register": "docs/evidence/w00v-assets.md",
+  "entries": [
+    {
+      "path": "output/imagegen/vis01-overview-v1.png",
+      "bytes": 2106726,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "ae39afb0f7547452a331f4aa20685756911659b98f658b34dddf64088ce5d446",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis01-overview-v2.png",
+      "bytes": 2032863,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "8bf32ed83e602c206bfece14f915d0bfb71b400be6814f2df0691d8a048e91cd",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis02-closeups-v1.png",
+      "bytes": 1630127,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "56784cbab7bef767c4205f6414c0c7d65922388ab28a5026f8ce36ea923137e7",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v1.png",
+      "bytes": 2619748,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "65c69689d282435d2b3ccdf7c0f5e28bda1a1ea411b85dde419141dbbe1ded16",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v2.png",
+      "bytes": 2150838,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d3affb7dc743eb547fc571d9250f488c8d932983d64fde71d2009f0204e13a03",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v3.png",
+      "bytes": 2162428,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "f83323f71a142ba633e89b5e038c0cd6b5b61b4a084d2caf8ac6a8a2b933e55a",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v4.png",
+      "bytes": 2345072,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "ee2496fb3c4d335fe0b87c9589382fd7e90f8ea2b0d0f29c55ebc3cdb5344c4d",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v5.png",
+      "bytes": 2254968,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "4d5c8208ed79dbae4f2583cb498c68b43ec9e75a424b6c84994c7f9d78f4f1f7",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v6.png",
+      "bytes": 2251555,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "923c1897ccb6c07ceca0567918b15d457c2bcce4ea734ca6fdf339bec45391c3",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis03-storyboard-v7.png",
+      "bytes": 1809845,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6f766ad5e271991d3f18c5cb038277e2dcd1aa7bbdf199e7296b5a4ac0c14f88",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis04-mobile-scene-v1.png",
+      "bytes": 2217245,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "03aaad6bfb14152446263458d44296d0535ebcf900715b4f87782661c765975d",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis04-responsive-v1.png",
+      "bytes": 1827627,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "c4ed8fa8c1e237a5545e09c0c305270fd69e8be0f48e05dd6816a53872473d9c",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis04-responsive-v2.png",
+      "bytes": 1733498,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "4f70f9463c680081b031efe37589a4393ccb26f58982a271bd10cbf0e4839986",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis04-responsive-v3.png",
+      "bytes": 1809600,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d96e099166de04ce25ba8e057447c605b147195a058e2ed799704c2f33a8b484",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis04-responsive-v4.png",
+      "bytes": 1803974,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "2b6f581012d78643f97ccdfc2f18011ce1221b962423a5f686b8b2edc6379309",
+      "generator": "user-confirmed compatible image API via bundled CLI",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis05-continuation-board-v1.png",
+      "bytes": 2938524,
+      "width": 1774,
+      "height": 887,
+      "sha256": "55adda4b94e49771d4d65c085da38f97d5c330921ccfddbf2c9a9fac6324d997",
+      "generator": "Codex built-in image_gen",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    },
+    {
+      "path": "output/imagegen/vis06-meeting-return-v1.png",
+      "bytes": 2658257,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "302eb93715709fedd45e75aaf5c8719d292beb254f26776a216951e47a671c7d",
+      "generator": "Codex built-in image_gen",
+      "type": "generated-design-reference",
+      "rights": "third-party output terms not independently audited; no runtime redistribution approval"
+    }
+  ],
+  "engineering": [
+    {
+      "path": "docs/assets/office-engineering.html",
+      "bytes": 8732,
+      "sha256": "6222706d2f1ddb65b0597e56fca936951f23b820d98540d8480fb7d22c226a83",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "tests/visual_engineering.cjs",
+      "bytes": 3004,
+      "sha256": "d2b688eab915f880e5731cc8cfc26a53ff9573291ef35dcc545004f487be41fe",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-engineering.json",
+      "bytes": 1231,
+      "sha256": "180cbde2d52a45af4010ffe74ba55d52ce08a6f37fb4e01b1432ee78d20961b6",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-engineering-1440.png",
+      "bytes": 755335,
+      "sha256": "5fb2b9500545cf3260f0c7e3af3e66900cd0c8dd62060f6a05f30f93ee10ab5d",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-engineering-390.png",
+      "bytes": 333481,
+      "sha256": "e5b57a428e3c2b9aac7927c524f2cb66ccd086ca164adcab70af0a99ab7d8884",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/assets/office-mobile-study.html",
+      "bytes": 7878,
+      "sha256": "c36aed81403230743d9a35f0375c00937d569bb2b26a1bf8609e01e47f2531ce",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "tests/visual_mobile.cjs",
+      "bytes": 6320,
+      "sha256": "db68d1384e64f67eb708b67ae6118e42c372fc59a0d5e74fa78c014f51d5d2f8",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile.json",
+      "bytes": 14371,
+      "sha256": "74cecae9d2c59ddbe496e4deed2a31d7e5411443351980e57391441713d7d434",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-1024-closed.png",
+      "bytes": 498224,
+      "sha256": "0c695cc87395941fbd43b440882796b396c92311032cfd9ab37e73ef5fb21cb5",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-1024-open.png",
+      "bytes": 265485,
+      "sha256": "5c4d01a347db0b347fbb51d8d0e98aa8585a723b9072e42fc83be33bd5113004",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-1024-returned.png",
+      "bytes": 498224,
+      "sha256": "0c695cc87395941fbd43b440882796b396c92311032cfd9ab37e73ef5fb21cb5",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-1024-task.png",
+      "bytes": 269230,
+      "sha256": "78b57e199f4627d12033e51b8335813c49582c1e51bf70deaac8a0ac3817814d",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-390-closed.png",
+      "bytes": 436439,
+      "sha256": "b5e7fcbb36bc911d6505a2a4fb33ce0ac7cdee3f1ff7fcccd7b164b4d74f7f60",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-390-open.png",
+      "bytes": 226221,
+      "sha256": "a46ba39b4273f0e009a446970509dbf844e8b362d999c03e3ec578a46c29c3cb",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-390-returned.png",
+      "bytes": 436439,
+      "sha256": "b5e7fcbb36bc911d6505a2a4fb33ce0ac7cdee3f1ff7fcccd7b164b4d74f7f60",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": "docs/evidence/w00v-mobile-390-task.png",
+      "bytes": 230063,
+      "sha256": "fbbbe36de46e5b3ab0ef3932a6790f7af5188be577bf16ab7fd3c593b5f65f23",
+      "type": "project-native-design-evidence"
+    },
+    {
+      "path": ".ai-spec/iterations/ITER-2026-001/05-testing/w00v-mobile-spec.md",
+      "bytes": 1504,
+      "sha256": "55efe689a24b3382c24bf0f7ad134208472de1edff4e377f598fb0c34c4be41e",
+      "type": "project-native-design-evidence"
+    }
+  ],
+  "scope": "Local inventory and hashes only; not independent visual approval or provider attestation."
+}

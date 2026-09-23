@@ -1,0 +1,207 @@
+:root {
+  --bg: #c7bb98;
+  --shell: #e8d9b2;
+  --panel: #f4e9d1;
+  --panel-alt: #e5dac0;
+  --border: #5f4b2a;
+  --border-dark: #20170f;
+  --text: #2f2516;
+  --muted: #5c4b31;
+  --accent: #4a84e8;
+  --accent-2: #4fb36f;
+  --shadow: #755b35;
+  --modern-bg: #eef3f8;
+  --modern-panel: #ffffff;
+  --modern-border: #c8d1dc;
+  --modern-text: #0f172a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg), #b9a46b);
+}
+
+body[data-theme="modern"] {
+  background: linear-gradient(180deg, #f8fbff, #e8edf5);
+  color: var(--modern-text);
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.pixel-frame {
+  border: 4px solid var(--border);
+  box-shadow: 0 6px 0 rgba(47, 37, 22, 0.22);
+  background: var(--shell);
+}
+
+body[data-theme="modern"] .pixel-frame {
+  background: var(--modern-panel);
+  border-color: var(--modern-border);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.topbar {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1, h2, p { margin: 0; }
+
+h1 { font-size: 28px; }
+h2 { font-size: 16px; margin-bottom: 8px; }
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge, .ghost-btn, .primary-btn, input, select {
+  border: 3px solid var(--border);
+  background: #f8f0da;
+  color: inherit;
+  font: inherit;
+}
+
+.badge {
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.ghost-btn, .primary-btn {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #dbeafe;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 280px;
+  gap: 12px;
+  align-items: start;
+}
+
+.sidebar, .canvas-panel, .board-panel, .feed-panel {
+  padding: 12px;
+}
+
+.sidebar section + section { margin-top: 18px; }
+
+.stack { display: grid; gap: 8px; }
+
+.room-btn, .team-btn, .task-card, .detail-card, .event-item {
+  border: 3px solid var(--border);
+  background: #f7ecd1;
+  padding: 10px;
+  text-align: left;
+}
+
+.room-btn.active, .team-btn.active { background: #d8e4c0; }
+
+.canvas-panel { min-height: 540px; }
+
+.panel-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.panel-head p, .detail-card .muted, .panel-head.compact p { color: var(--muted); font-size: 12px; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 6px; justify-content: end; }
+.stat-chip { border: 3px solid var(--border); padding: 6px 8px; background: #eef4dc; font-size: 12px; }
+
+.office-canvas {
+  min-height: 520px;
+  border: 3px solid var(--border-dark);
+  background: linear-gradient(180deg, #cec08f, #bfa97a);
+  overflow: hidden;
+}
+
+.office-canvas svg { width: 100%; height: 100%; display: block; }
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+}
+
+.task-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.task-column {
+  border: 3px solid var(--border);
+  background: #efe2c2;
+  padding: 8px;
+  min-height: 330px;
+}
+
+.task-column h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.task-card {
+  margin-bottom: 8px;
+  cursor: grab;
+}
+
+.task-card.dragging { opacity: 0.55; }
+
+.form-grid { grid-template-columns: 1fr; }
+
+input, select {
+  width: 100%;
+  padding: 9px 10px;
+}
+
+.feed { display: grid; gap: 8px; }
+
+.event-item { background: #ece2cf; font-size: 12px; }
+
+body[data-theme="modern"] .badge,
+body[data-theme="modern"] .ghost-btn,
+body[data-theme="modern"] .primary-btn,
+body[data-theme="modern"] input,
+body[data-theme="modern"] select,
+body[data-theme="modern"] .room-btn,
+body[data-theme="modern"] .team-btn,
+body[data-theme="modern"] .task-card,
+body[data-theme="modern"] .detail-card,
+body[data-theme="modern"] .event-item,
+body[data-theme="modern"] .stat-chip,
+body[data-theme="modern"] .task-column {
+  background: #fff;
+  border-color: var(--modern-border);
+}
+
+body[data-theme="modern"] .task-column {
+  background: #f8fafc;
+}
+

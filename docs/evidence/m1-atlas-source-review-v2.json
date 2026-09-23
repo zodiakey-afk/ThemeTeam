@@ -1,0 +1,47 @@
+{
+  "decision": "approved",
+  "reviewer": "Codex independent asset-source and geometry auditor (ITER-2026-001 / M1)",
+  "reviewedAt": "2026-09-21T09:26:45.5390753+08:00",
+  "scope": "ThemeTeam project-runtime packaging only: candidate atlas provenance, SHA-256 integrity, frame ID/geometry compatibility, and candidate-only write isolation",
+  "generatorSha256": "994c6681b836395d8ab171afed1205fbfe3bc974a5925464a66a8337fd6905f9",
+  "frozenSpecSha256": "2ca7b60f5efb148229ee8b417ee67f95306b6cba5f417ef922f0ad2350d1ce9e",
+  "geometryUnchanged": true,
+  "candidateOnlySafe": true,
+  "files": [
+    {
+      "name": "office-agents.v0.2.png",
+      "sha256": "de3cc2e922337b0144809a5a07bd60af34a9ad2e79d4f3cbd41b6980966fa088",
+      "width": 320,
+      "height": 288
+    },
+    {
+      "name": "office-props.v0.2.png",
+      "sha256": "3d6024bbd92de6c7bef785da56440de7876dbabc54c7ab8df343ec30abe07351",
+      "width": 512,
+      "height": 256
+    }
+  ],
+  "frameChecks": {
+    "agents": {
+      "candidateCount": 60,
+      "runtimeCount": 60,
+      "frameWidth": 32,
+      "frameHeight": 48,
+      "idAndGeometryDifferences": 0
+    },
+    "props": {
+      "candidateCount": 17,
+      "runtimeCount": 17,
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "idAndGeometryDifferences": 0
+    }
+  },
+  "limitations": [
+    "No visual-quality review or W00V style acceptance.",
+    "No M1 functional, interaction, accessibility, occlusion, performance, stability, release, G4, or G5 acceptance.",
+    "No trademark clearance or third-party legal opinion.",
+    "The current runtime manifest's prior rights approval is not treated as visual approval for the candidate; this decision is limited to project-runtime packaging of the exact candidate hashes listed here.",
+    "Any change to the candidate files, generator, or frame manifest invalidates this decision and requires re-audit."
+  ]
+}

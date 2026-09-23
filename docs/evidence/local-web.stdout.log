@@ -1,0 +1,8 @@
+
+> themeteam-frontend@0.1.0 predev
+> npm run generate:validators
+
+
+> themeteam-frontend@0.1.0 generate:validators
+> node scripts/generate-validators.cjs
+

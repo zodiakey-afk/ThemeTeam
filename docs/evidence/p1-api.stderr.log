@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "C:\repos\ThemeTeam\run.py", line 31, in <module>
+    main()
+  File "C:\repos\ThemeTeam\run.py", line 17, in main
+    server = create_server(args.host, args.port)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repos\ThemeTeam\themeteam\web\server.py", line 297, in create_server
+    return ThemeTeamServer((host, port), WorkspaceStore() if store is None else store)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repos\ThemeTeam\themeteam\web\server.py", line 289, in __init__
+    super().__init__(address, ThemeTeamHandler)
+  File "C:\Users\z00654528\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "C:\Users\z00654528\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\server.py", line 140, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "C:\Users\z00654528\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [WinError 10048] \u901a\u5e38\u6bcf\u4e2a\u5957\u63a5\u5b57\u5730\u5740(\u534f\u8bae/\u7f51\u7edc\u5730\u5740/\u7aef\u53e3)\u53ea\u5141\u8bb8\u4f7f\u7528\u4e00\u6b21\u3002

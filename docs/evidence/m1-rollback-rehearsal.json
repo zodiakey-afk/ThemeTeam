@@ -1,0 +1,39 @@
+{
+  "result": "passed",
+  "command": "node tests/rehearse_m1_rollback.cjs",
+  "cwd": "C:\\repos\\ThemeTeam",
+  "startedAt": "2026-09-22T10:41:50.238Z",
+  "finishedAt": "2026-09-22T10:41:52.985Z",
+  "temporary": "C:\\Users\\Z00654~1\\AppData\\Local\\Temp\\themeteam-rollback-nNewaq",
+  "archiveSha256": "b0ec807332b30b0839c9a8d56901864c02d98bb22051861a9455b160ca85f881",
+  "restored": [
+    "frontend/package.json",
+    "frontend/package-lock.json",
+    "frontend/src/App.tsx",
+    "frontend/src/error-schema.json",
+    "frontend/src/main.tsx",
+    "frontend/src/sceneBridge.ts",
+    "frontend/src/styles.css",
+    "frontend/src/types.ts",
+    "frontend/src/workspace-schema.json",
+    "frontend/src/workspace.ts",
+    "frontend/tests/e2e.cjs",
+    "frontend/tests/two-roots.html",
+    "frontend/tests/verify.cjs",
+    "frontend/tests/workspace.test.ts",
+    "frontend/tests/fixtures/m1/collision-oracle.v0.2.json"
+  ],
+  "browser": "153.0.4234.32",
+  "phases": [
+    "current-v03-ready",
+    "archived-pre-M1-files-restored-in-isolation",
+    "current-v03-restored-ready"
+  ],
+  "scope": "Isolated archive integrity and current-runtime restoration; the partial historical archive is not treated as a complete runnable legacy M1 build",
+  "dependencyLockUsed": "6afa473de82c15f1077e4814662a33745cf717a0138b5aa71373296ccce24a04",
+  "snapshotsUnchanged": true,
+  "sourceUnchanged": true,
+  "posts": [],
+  "external": [],
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "name": "themeteam-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "generate:validators": "node scripts/generate-validators.cjs",
+    "predev": "npm run generate:validators",
+    "pretypecheck": "node scripts/generate-validators.cjs --check",
+    "prebuild": "npm run generate:validators",
+    "pretest:unit": "node scripts/generate-validators.cjs --check",
+    "dev": "vite --host 127.0.0.1 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "test:unit": "vitest run",
+    "test:e2e": "node tests/e2e.cjs",
+    "test:m1:e2e": "node tests/m1-e2e.cjs",
+    "test:m1:motion": "node tests/m1-motion-evidence.cjs",
+    "test:m1:contracts": "node ../tests/m1_contracts.cjs",
+    "test:m1:nfr": "node tests/m1-nfr.cjs",
+    "test:m1:nfr:formal": "node tests/m1-nfr.cjs --formal",
+    "test:m1:stability": "node tests/m1-stability.cjs",
+    "test:m1:stability:formal": "node tests/m1-stability.cjs --formal",
+    "test:m1:two-roots": "node tests/m1-two-roots.cjs",
+    "test:m1:divergence": "node tests/m1-divergence.cjs",
+    "test:m1:accessibility": "node tests/m1-accessibility.cjs",
+    "verify": "node tests/verify.cjs"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "easystarjs": "0.4.4",
+    "lucide-react": "1.43.0",
+    "phaser": "3.90.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zustand": "5.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.9.3",
+    "vite": "8.2.2",
+    "vitest": "5.0.0"
+  }
+}

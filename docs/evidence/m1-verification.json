@@ -1,0 +1,110 @@
+{
+  "result": "passed",
+  "date": "2026-09-23T09:44:33.547Z",
+  "node": "v22.23.0",
+  "platform": "win32/x64",
+  "commands": [
+    {
+      "command": "npm --offline run typecheck",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-typecheck.log",
+      "sha256": "d7813e8143f2dcf04b9d74698825ca14be0d554bd12845a9523adc55138d8910"
+    },
+    {
+      "command": "npm --offline run test:unit",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-unit.log",
+      "sha256": "f9861e5123bd06a1645543ad725e23e1992b3f62ae5713b48492139c179cb023"
+    },
+    {
+      "command": "npm --offline run test:m1:contracts",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-contracts.log",
+      "sha256": "485c92c2acf80c2154e3b1df3b1de079d6ebcf713a75e775e3b67d1930980283"
+    },
+    {
+      "command": "npm --offline run build",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-build.log",
+      "sha256": "76320d510796dab1f2e438f26e53cca70383c845919d14519206a7637f19f7e6"
+    },
+    {
+      "command": "npm --offline run test:m1:two-roots",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-two-roots.log",
+      "sha256": "eb4a5a0beca06f978dd6960be1794ba9435304b8ad3adf611dad1ad15aab69ed"
+    },
+    {
+      "command": "npm --offline run test:m1:e2e",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-e2e.log",
+      "sha256": "1e2c4e38332df10888975b43b8d5cac0df636b8666207eb588b278cccfbcace8"
+    },
+    {
+      "command": "npm --offline run test:m1:motion",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-motion.log",
+      "sha256": "3ac2f1f037de551c002985316a091c5c31f1e958a7fa89a47d16020714e87a39"
+    },
+    {
+      "command": "npm --offline run test:m1:nfr",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-nfr.log",
+      "sha256": "84ee29f75381ebe52c980e9cedcec9ec2b734b8308efc23e16b6ad27475a322d"
+    },
+    {
+      "command": "npm --offline run test:m1:divergence",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-divergence.log",
+      "sha256": "e5b008bf0e5c0aebacf3578c0177ec006e58a08f3dbed141d71926388029f8f7"
+    },
+    {
+      "command": "npm --offline run test:m1:accessibility",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-accessibility.log",
+      "sha256": "e802f1dfa8130b2166487bc1b1fc2b2bc65399dd9ab4b7b36e149af69484be75"
+    },
+    {
+      "command": "npm --offline run test:m1:stability",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-m1-stability.log",
+      "sha256": "059ba30181a50d35dc5d50f30a7e1450811c83d9329e95998ff0b9b18b86baa3"
+    },
+    {
+      "command": "npm --offline run test:e2e",
+      "cwd": "C:\\repos\\ThemeTeam\\frontend",
+      "exitCode": 0,
+      "log": "docs\\evidence\\m1-test-e2e.log",
+      "sha256": "27e51ecba31304065b782f2de6a8fb8159d6025cf517d1ec9c46a68d67c80968"
+    }
+  ],
+  "lockSha256": "6afa473de82c15f1077e4814662a33745cf717a0138b5aa71373296ccce24a04",
+  "licenses": {
+    "count": 82,
+    "missing": [],
+    "report": "docs/evidence/m1-licenses.json",
+    "sha256": "0723315b85ed3969e79fac99ac992ed00539f491701bbf2a94a3a5f4d1998652"
+  },
+  "secretScan": {
+    "scannedFiles": 237,
+    "findings": [],
+    "limitation": "Heuristic credential scan, not a comprehensive PII or secret audit; generated output and dependencies excluded."
+  },
+  "workspaceIntegrity": {
+    "before": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+    "after": "106f669a107c9b7900387574879e25ee0b094bc82e71a22a787e7ec2e8f14190",
+    "unchanged": true
+  },
+  "offline": "npm offline mode with already-installed locked dependencies; not a network-isolated install or OS egress proof."
+}

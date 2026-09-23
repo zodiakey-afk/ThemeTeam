@@ -1,0 +1,135 @@
+{
+  "version": "0.3",
+  "date": "2026-09-22",
+  "status": "approved-v0.3-visual-contract-change",
+  "relatedContracts": ["m1-map-v0.2.schema.json", "m1-assets-v0.3.schema.json"],
+  "scope": "Root-local M1 scene only; no backend schema or API change",
+  "compatibility": {
+    "base": "w03-v1.1.json",
+    "adapterUpdate": "update(snapshot: Snapshot|null, selection: Selection|null): void",
+    "adapterDestroy": "destroy(): void, idempotent",
+    "adapterNavigation": "navigate(transition: RootNavigationTransition): void; additive M1 method, root-local only",
+    "initialUpdate": "Immediate; asynchronous construction retains latest input pair only",
+    "selectionOwner": "W03 controller; scene only calls injected root-local select callback",
+    "navigationOrdering": "Controller calls navigate(transition) before committing the matching selection change; the subsequent update carries the resulting current selection",
+    "writes": "Scene intents issue zero HTTP writes; never modify snapshot, seatId or task/meeting status",
+    "persistence": "None: no localStorage/sessionStorage/BroadcastChannel",
+    "unknownWrite": "W03 uncertain barrier unchanged; scene retry cannot unlock or replay writes"
+  },
+  "navigationTransition": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "M1 root-local navigation transition",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["sequence", "reason", "from", "to", "cameraAction"],
+    "properties": {
+      "sequence": {"type": "integer", "minimum": 1},
+      "reason": {"enum": ["select-different", "select-same", "close", "back", "prune", "deleted"]},
+      "from": {"type": ["object", "null"]},
+      "to": {"type": ["object", "null"]},
+      "cameraAction": {"enum": ["capture", "keep", "restore", "drop"]}
+    },
+    "x-transitionTable": [
+      {"reason": "select-different", "selection": "replace current and previous selection", "cameraAction": "capture", "camera": "replace one previousCamera bookmark with the pre-transition camera"},
+      {"reason": "select-same", "selection": "keep current and previous selection", "cameraAction": "keep", "camera": "do not add history or move camera"},
+      {"reason": "close", "selection": "retain current selection and previous selection", "cameraAction": "keep", "camera": "restore only a temporary safe-rect adjustment, then retain selection"},
+      {"reason": "back", "selection": "consume previousSelection into current", "cameraAction": "restore", "camera": "consume the matching previousCamera once"},
+      {"reason": "prune", "selection": "remove invalid current/previous references", "cameraAction": "drop", "camera": "discard bookmarks owned by removed references; never focus another entity"},
+      {"reason": "deleted", "selection": "same deterministic pruning as prune", "cameraAction": "drop", "camera": "discard removed trigger/bookmark and focus the root heading if needed"}
+    ],
+    "x-isolation": "sequence and camera bookmarks are owned by one root session; never serialized or shared"
+  },
+  "dependencies": {
+    "phaser": "3.90.0",
+    "easystarjs": "0.4.4",
+    "productInstalled": false,
+    "preG2Evidence": "Required before scoped G2 freeze: exact-version temporary install, license/vulnerability/offline-build audit and lifecycle/path cancellation PoC"
+  },
+  "geometry": {
+    "columns": 32,
+    "rows": 24,
+    "tileWidth": 64,
+    "tileHeight": 32,
+    "projection": "x=originX+(col-row)*32; y=originY+(col+row)*16",
+    "candidateActorFrame": {"width": 64, "height": 96, "pivotX": 32, "pivotY": 94, "displayScale": 0.9},
+    "candidatePropFrame": {"width": 192, "height": 128, "pivotX": 96, "pivotY": 124, "displayScale": "frame-specific 0.35 through 1.2"},
+    "directions": {"col+1": "SE", "row+1": "SW", "col-1": "NW", "row-1": "NE"},
+    "workSeats": 8,
+    "meetingSeats": 6,
+    "roomKeys": ["boss", "work", "meeting", "coffee"],
+    "roomMapping": "Each map room binding contains one explicit existing snapshot roomId and a movementEnabled flag; missing roomId or false movementEnabled rejects movement without replacing prior intent",
+    "navigation": "EasyStar four-neighbor, no diagonals, unit cell cost",
+    "assetBaseline": "Project-owner-approved v0.3 atlases derived from VIS-01/VIS-02/VIS-06; no original Theme Hospital assets imported"
+  },
+  "camera": {
+    "minZoom": 0.5,
+    "maxZoom": 2,
+    "stops": [0.5, 0.75, 1, 1.5, 2],
+    "dragThresholdCssPx": 6,
+    "rightTap": "Movement <=6 CSS px and released on same target opens local menu; >6 pans with no menu or command",
+    "safeRect": "Actual drawable viewport excluding visible panels; selected target and marker remain visible when details open",
+    "close": "Retain selection; restore only the pre-panel camera adjustment when one was captured",
+    "emptySafeRect": "Pause scene interaction, preserve camera, show DOM entry; never divide by zero",
+    "dpr": "Backing-buffer density only, not a second multiplier for pointer coordinates"
+  },
+  "motion": {
+    "phases": ["standing", "planning", "walking", "waiting", "docking", "seated", "undocking", "obstructed", "removed"],
+    "cellsPerSecond": 4,
+    "dockMs": 300,
+    "undockMs": 300,
+    "planningTimeoutForegroundMs": 1000,
+    "waitBeforeReplanForegroundMs": 2000,
+    "maxReplans": 2,
+    "maxPendingPaths": 20,
+    "maxSearchIterationsPerFrame": 200,
+    "maxDeltaMs": 50,
+    "completionBoundForegroundMs": "pathEdges*250+600+3*2000+1000",
+    "tokens": ["rootGeneration", "motionId", "mapRevision"],
+    "reservationRules": [
+      "Validate shape/entity/map/lock/reachability before replacing old intent",
+      "Path result mapRevision must equal the currently loaded map mapRevision",
+      "One target reservation owner, one cell owner, no opposite edge swap",
+      "Reserve new destination before undocking; move to anchor stand before releasing old seat",
+      "Move from stand to approach, then validate reservation ownership before docking to sit",
+      "Selecting same agent and unrelated snapshots never restart/cancel motion",
+      "Timeout/replacement/deletion/map-change/dispose releases only owned reservations",
+      "Hidden state pauses foreground clocks; reduced motion still honors path/occupancy legality"
+    ],
+    "outcomes": ["accepted", "occupied", "unreachable", "locked", "unknown-target", "busy", "obstructed", "disposed"],
+    "source": "All movement/activity feedback explicitly demo; no model execution inferred"
+  },
+  "intentSchema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "M1 root-local intent",
+    "oneOf": [
+      {"type": "object", "additionalProperties": false, "required": ["type", "agentId", "anchorId", "mapRevision"], "properties": {"type": {"const": "demo-move"}, "agentId": {"type": "string", "minLength": 1, "maxLength": 512}, "anchorId": {"type": "string", "minLength": 1, "maxLength": 128}, "mapRevision": {"type": "string", "minLength": 1, "maxLength": 128}}},
+      {"type": "object", "additionalProperties": false, "required": ["type", "agentId"], "properties": {"type": {"enum": ["focus-agent", "follow-agent", "demo-return-home"]}, "agentId": {"type": "string", "minLength": 1, "maxLength": 512}}},
+      {"type": "object", "additionalProperties": false, "required": ["type", "zoom"], "properties": {"type": {"const": "zoom"}, "zoom": {"type": "number", "minimum": 0.5, "maximum": 2}}},
+      {"type": "object", "additionalProperties": false, "required": ["type"], "properties": {"type": {"enum": ["overview", "stop-follow", "enter-demo", "leave-demo"]}}}
+    ]
+  },
+  "runtimeAssetChecks": [
+    "Local allowlisted PNG/atlas; no data-controlled URLs or path construction",
+    "Unique frame and anchor IDs; finite coordinates; rectangles inside PNG bounds",
+    "Every animation frame resolves and every direction has an identifiable fallback",
+    "One declared ground pivot per frame; standing/walking/docking/seated align with chair",
+    "Map dimensions and collision matrix agree; stand and approach points are reachable from legal spawns",
+    "Exactly 8 work and 6 meeting anchors; doors remain passable; no overlapping footprints",
+    "Missing/unknown resources fail safely with DOM access; never accept blank canvas",
+    "Record author/source/terms/hash independently; no unreviewed redistribution rights inferred"
+  ],
+  "freezeOrder": [
+    "pre-G2 dependency and lifecycle/path PoC evidence",
+    "scoped G2 design and machine-contract independent approval",
+    "scoped G3 plan and rollback approval",
+    "QA-reviewed BB fixture/oracle version and implementation-before hash freeze",
+    "W04-W06 implementation"
+  ],
+  "remainingBeforeFreeze": [
+    "Independent W00V and scoped G2 technical re-review",
+    "Pre-G2 dependency PoC and audit evidence",
+    "Project-owner scoped G3 approval and QA BB sign-off",
+    "Versioned runtime map/atlas fixture and collision oracle hashes",
+    "Complete first-batch NFR measurement environment; no metrics waived"
+  ]
+}
