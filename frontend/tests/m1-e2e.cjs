@@ -405,6 +405,19 @@ async function main() {
       await page.mouse.up({ button: 'left' });
       assert.equal(await page.evaluate(() => window.__THEMETEAM_OFFICE_TEST__.snapshot().selectedId), agents[0].id,
         'A drag beyond 6 CSS pixels must suppress selection');
+      const beforeBlankPan = await page.evaluate(() => window.__THEMETEAM_OFFICE_TEST__.snapshot().cameraScroll);
+      await page.mouse.move(box.x + 12, box.y + 12);
+      await page.mouse.down({ button: 'left' });
+      await page.mouse.move(box.x + 72, box.y + 36);
+      await page.mouse.up({ button: 'left' });
+      const afterBlankPan = await page.evaluate(() => window.__THEMETEAM_OFFICE_TEST__.snapshot().cameraScroll);
+      assert.ok(Math.abs(afterBlankPan.x - beforeBlankPan.x) > 1 || Math.abs(afterBlankPan.y - beforeBlankPan.y) > 1,
+        `Blank-area drag must pan the camera: ${JSON.stringify({ beforeBlankPan, afterBlankPan })}`);
+      await page.mouse.click(box.x + 12, box.y + 12);
+      await page.waitForFunction(() => window.__THEMETEAM_OFFICE_TEST__.snapshot().selectedId === null);
+      await page.mouse.move(first.x, first.y);
+      await page.mouse.click();
+      await page.waitForFunction(id => window.__THEMETEAM_OFFICE_TEST__.snapshot().selectedId === id, agents[0].id);
       await page.mouse.move(second.x, second.y);
       await page.mouse.down({ button: 'left' });
       await canvas.dispatchEvent('pointercancel', { pointerId: 1, pointerType: 'mouse' });
@@ -412,7 +425,23 @@ async function main() {
       assert.equal(await page.evaluate(() => window.__THEMETEAM_OFFICE_TEST__.snapshot().selectedId), agents[0].id,
         'pointercancel must suppress a pending selection');
       results.push({ gesture: 'context-drag-cancel', rightClickSelected: true, menuInside: contextBounds.inside,
-        keyboardMenu: true, focusRestored: true, dragSuppressed: true, cancelSuppressed: true });
+        keyboardMenu: true, focusRestored: true, dragSuppressed: true, blankPan: true, blankClickCleared: true, cancelSuppressed: true });
+      await context.close();
+    }
+    {
+      const context = await browser.newContext({ viewport: { width: 1366, height: 768 } });
+      const page = await context.newPage();
+      await page.goto(base);
+      await page.getByText('办公室场景已就绪', { exact: true }).waitFor();
+      const languageSwitch = page.locator('.language-switch button');
+      await languageSwitch.nth(1).click();
+      await page.getByRole('heading', { name: 'Office', exact: true }).waitFor();
+      assert.equal(await page.locator('.office-feedback').innerText().then(text => text.includes('Drag empty space to pan the canvas')), true,
+        'English office hint must be visible after switching language');
+      assert.equal(await page.locator('footer').innerText().then(text => text.includes('Local workspace')), true,
+        'English footer must be visible after switching language');
+      assert.equal(await page.evaluate(() => localStorage.getItem('themeteam-language')), 'en');
+      results.push({ language: 'en', officeHint: true, footer: true, persisted: true });
       await context.close();
     }
     {
@@ -495,7 +524,7 @@ async function main() {
       await context.close();
     }
     const report = { result: 'passed', viewports: results, movementRuns: 10, recoveryRuns: 3, concurrencyRuns: 1,
-      gestureRuns: 2, dynamicBlockRuns: 1, navigationRuns: 2, fallbackRuns: 1,
+      gestureRuns: 3, dynamicBlockRuns: 1, navigationRuns: 2, fallbackRuns: 1, languageRuns: 1,
       scenePosts: 0, externalRequests: 0 };
     fs.writeFileSync(path.join(evidence, 'm1-browser-matrix.json'), JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report, null, 2));

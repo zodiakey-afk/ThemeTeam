@@ -1,0 +1,24 @@
+{
+  "testId": "WB-M2-CAS-FK-HARDENING",
+  "date": "2026-10-07",
+  "status": "passed",
+  "checks": {
+    "m2Specialized": "19/19 passed",
+    "crossConnectionFinishCas": "one winner, one stale rejection",
+    "requiredForeignKeys": [
+      "runs.workspace_id",
+      "runs.task_id",
+      "runs.retry_of",
+      "approvals.run_id",
+      "audit_events.workspace_id",
+      "audit_events.actor_id",
+      "outbox_events.workspace_id",
+      "idempotency_keys.workspace_id"
+    ],
+    "foreignKeyCheck": 0,
+    "projectionPreservesRunReferencedTasks": true,
+    "backendRegression": "83/83 x 2 passed; one Windows symlink case skipped",
+    "defaultWorkspaceHashChanged": false
+  },
+  "scope": "M2 database concurrency and referential-integrity hardening"
+}

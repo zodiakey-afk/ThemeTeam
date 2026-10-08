@@ -2,6 +2,10 @@ __pycache__/
 .cache/
 .themeteam-artifacts/
 themeteam/core/settings.json
+themeteam/core/*.sqlite
+themeteam/core/*.sqlite-*
+themeteam/core/*.bak
+.tmp-*.sqlite
 frontend/node_modules/
 frontend/dist/
 frontend/dist-two-roots/

@@ -1,0 +1,26 @@
+{
+  "testId": "BB-M2-SERVER-START",
+  "date": "2026-09-24",
+  "command": "python run.py --m2 --host 127.0.0.1 --port 8011 --no-open --db <temporary sqlite path>",
+  "status": "passed",
+  "checks": {
+    "fastapiStartup": true,
+    "sqliteInitialization": true,
+    "snapshot": {
+      "status": 200,
+      "cursor": 0
+    },
+    "taskCreate": {
+      "status": 200,
+      "title": "Live M2 smoke"
+    },
+    "defaultWorkspaceSqliteCreated": false,
+    "temporaryDatabaseRemoved": true
+  },
+  "environment": {
+    "host": "127.0.0.1",
+    "python": "3.14.7",
+    "fastapi": "0.141.1",
+    "uvicorn": "0.52.4"
+  }
+}

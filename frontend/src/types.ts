@@ -7,15 +7,39 @@ export interface Task {
   id: string; title: string; description: string; status: string; priority: string; assigneeIds: string[];
   sourceType: string; dueAt: string | null; parentTaskId: string | null;
 }
+export interface TaskRun {
+  id?: string;
+  runId: string;
+  taskId: string;
+  runtimeProfileId: string | null;
+  projectDirectoryProfileId: string | null;
+  artifactDir: string;
+  promptHash: string;
+  status: string;
+  version?: number;
+  correlationId?: string | null;
+  approvalStatus?: string;
+  retryOf: string | null;
+  createdAt: string;
+  startedAt: string | null;
+  finishedAt: string | null;
+  exitCode: number | null;
+  stdout: string;
+  stderr: string;
+  error: string | null;
+  artifacts: string[];
+  artifactStatus?: string;
+  cancelRequested?: boolean;
+}
 export interface Room { id: string; name: string; type: string; level: number; x: number; y: number; width: number; height: number; occupantIds: string[]; unlocked: boolean; visualPreset: string }
 export interface Meeting { id: string; title: string; mode: string; roomId: string; participants: string[]; moderatorId: string | null; roundsLimit: number; summary: string; status: string; linkedTaskIds: string[]; linkedDocIds: string[] }
-export interface DocumentRecord { id: string; category: string; title: string; content: string; sourceRef: string; version: string; linkedTaskIds: string[]; linkedMeetingIds: string[]; visibilityScope: string; createdAt: string | null }
+export interface DocumentRecord { id: string; category: string; title: string; content: string; sourceRef: string; version: string; linkedTaskIds: string[]; linkedMeetingIds: string[]; visibilityScope: string; createdAt: string | null; correlationId?: string | null }
 export interface Snapshot {
   id: string; name: string; themeMode: string; activeTeamId: string; selection: { kind: string; id: string };
   teams: { id: string; name: string; leaderAgentId: string; capacity: number; defaultModelProfileId: string; tags: string[] }[];
   agents: Agent[]; rooms: Room[]; tasks: Task[]; meetings: Meeting[]; documents: DocumentRecord[];
   memoryItems: { id: string; scope: string; sourceType: string; text: string; embeddingRef: string; confidence: number; approvedByHuman: boolean; linkedDocs: string[] }[];
-  modelProfiles: { id: string; name: string; provider: string; contextWindow: number; capabilityTags: string[]; costLabel: string }[];
+  modelProfiles: { id: string; name: string; provider: string; modelName?: string; credentialRef?: string | null; contextWindow: number; capabilityTags: string[]; costLabel: string }[];
   runtimeProfiles?: { id: string; name: string; kind: string; executable: string; enabled: boolean; projectDirectoryProfileId: string | null; approvalPolicy: string; timeoutSeconds: number; capabilities: string[] }[];
   projectDirectories?: { id: string; name: string; path: string; pathKind: string; allowed: boolean; readOnly: boolean; temporaryCopyPolicy: string }[];
   events: string[]; lastSavedAt: string | null;
@@ -25,5 +49,5 @@ export type View = 'office' | 'tasks' | 'agents' | 'meetings' | 'documents' | 's
 export type Outcome = 'success' | 'rejected' | 'unknown' | 'disposed';
 export interface ClientState {
   snapshot: Snapshot | null; selection: Selection | null; previousSelection: Selection | null;
-  inspectorOpen: boolean; pending: number; error: string | null; dirty: boolean; uncertain: boolean; disposed: boolean;
+  taskRuns: TaskRun[]; inspectorOpen: boolean; pending: number; error: string | null; dirty: boolean; uncertain: boolean; disposed: boolean;
 }

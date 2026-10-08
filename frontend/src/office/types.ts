@@ -1,5 +1,6 @@
 import type { SceneAdapter } from '../sceneBridge';
 import type { Selection } from '../types';
+import type { MessageKey } from '../i18n';
 
 export interface GridPoint { col: number; row: number }
 export interface WorldPoint { worldX: number; worldY: number }
@@ -35,3 +36,4 @@ export interface OfficeSceneAdapter extends SceneAdapter {
   overview(): void; focusSelected(): void; followSelected(): void; stopFollowing(): void; zoomBy(delta: number): void;
   setPreview(enabled: boolean): void; moveSelected(anchorId: string): void;
 }
+export type OfficeTranslator = (key: MessageKey, values?: Record<string, string | number>) => string;

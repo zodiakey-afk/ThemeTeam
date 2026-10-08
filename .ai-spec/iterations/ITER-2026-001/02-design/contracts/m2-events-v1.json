@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "status": "frozen-candidate",
+  "transport": "websocket",
+  "route": "/api/v1/workspaces/{workspaceId}/events",
+  "scope": "seq is monotonically increasing per workspace and retained for the local audit retention window",
+  "event": {
+    "eventId": "string",
+    "schemaVersion": "1.0",
+    "workspaceId": "string",
+    "teamId": "string|null",
+    "seq": "integer",
+    "entityVersion": "integer",
+    "type": "subscription.ready|task.created|task.updated|run.created|run.updated|approval.updated|artifact.completed|audit.appended|resync_required",
+    "entityId": "string",
+    "correlationId": "string",
+    "occurredAt": "RFC3339 timestamp",
+    "payload": "object"
+  },
+  "subscribe": {
+    "lastSeenSeq": "integer",
+    "onGap": "resync_required",
+    "dedupeKey": "eventId",
+    "snapshotBoundary": "server returns snapshotVersion and lastSeq in one read transaction before subscription acceptance",
+    "reconnectOrder": "apply replay events after lastSeenSeq; if gap or retention loss, stop and fetch snapshot before accepting newer events"
+  },
+  "rules": [
+    "Only committed outbox events may be published.",
+    "Events never contain prompt plaintext, credentials, tokens, or internal reasoning.",
+    "A client may acknowledge a cursor only after applying the event or obtaining a snapshot.",
+    "HTTP command confirmation is authoritative for the command; event delivery is projection synchronization, not command success.",
+    "Publisher failure leaves the committed outbox row pending and retryable; it never converts a committed command into failure."
+  ]
+}

@@ -1,5 +1,14 @@
 version: 1
 entries:
+  - id: KB-PRODUCT-0003
+    title: M3 meeting collaboration and M4 document knowledge roadmap
+    domain: product
+    status: active
+    version: 1
+    updated: 2026-10-08
+    source: docs/roadmap-m3-m4.md
+    path: docs/kb/product/m3-m4-roadmap.md
+    tags: [m3, m4, meetings, documents, memory, roadmap]
   - id: KB-ARCH-0003
     title: Agent CLI runtime boundaries and Codex read-only probe
     domain: architecture
@@ -27,6 +36,15 @@ entries:
     source: docs/evidence/m1-divergence.json
     path: .ai-spec/iterations/ITER-2026-001/05-testing/kb-updates.md
     tags: [m1, divergence, camera, canvas, hit-test]
+  - id: KB-TST-0006
+    title: M2 SQLite CAS and foreign-key hardening
+    domain: testing
+    status: active
+    version: 1
+    updated: 2026-10-07
+    source: .ai-spec/iterations/ITER-2026-001/05-testing/m2-test-report.md
+    path: docs/kb/testing/m2-sqlite-cas-fk-hardening.md
+    tags: [m2, sqlite, cas, foreign-key, concurrency, persistence]
   - id: KB-TST-0004
     title: Current-build binding for M1 formal performance and stability evidence
     domain: testing

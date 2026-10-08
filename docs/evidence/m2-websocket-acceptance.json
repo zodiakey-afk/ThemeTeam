@@ -1,0 +1,18 @@
+{
+  "testId": "BB-M2-10-11-RELEASE",
+  "status": "passed",
+  "initialTypes": [
+    "task.created",
+    "subscription.ready"
+  ],
+  "replayTypes": [
+    "task.created",
+    "subscription.ready"
+  ],
+  "containsTaskCreated": true,
+  "replayedSeq": 1,
+  "gapType": "resync_required",
+  "createdTaskId": "task_0597b7ad8b73",
+  "cursorBefore": 0,
+  "cursorAfter": 1
+}

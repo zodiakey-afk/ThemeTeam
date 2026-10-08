@@ -163,6 +163,15 @@
         "provider": {
           "type": "string"
         },
+        "modelName": {
+          "type": "string"
+        },
+        "credentialRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "contextWindow": {
           "type": "integer"
         },
@@ -453,6 +462,12 @@
           "type": "string"
         },
         "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "correlationId": {
           "type": [
             "string",
             "null"

@@ -1,0 +1,11 @@
+{
+  "testId": "M2-NFR-01-RELEASE",
+  "status": "passed",
+  "writes": 50,
+  "taskCountAfterWrites": 53,
+  "taskCountAfterRestart": 53,
+  "elapsedSeconds": 0.4674,
+  "snapshotHashBeforeRestart": "b4b2930ac31d2f1610192b038b5a42a749762c95a16fece1bb1e6498ecfeab06",
+  "snapshotHashAfterRestart": "b4b2930ac31d2f1610192b038b5a42a749762c95a16fece1bb1e6498ecfeab06",
+  "restartVerified": true
+}

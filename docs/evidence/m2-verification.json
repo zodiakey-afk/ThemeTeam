@@ -1,0 +1,31 @@
+{
+  "testId": "M2-G4-MACHINE",
+  "date": "2026-10-07",
+  "status": "partial-pass",
+  "scope": "W07-W10 core slice",
+  "checks": {
+    "m2Smoke": "19/19 pass",
+    "backendRegression": "83/83 x 2 pass, 1 symlink case skipped by Windows ACL",
+    "frontendUnit": "48/48 pass",
+    "frontendTypecheck": "pass",
+    "frontendBuild": "pass",
+    "serverStartup": "pass",
+    "normalizedSqlite": "pass",
+    "websocketReplay": "pass",
+    "idempotency": "pass",
+    "approvalArtifact": "pass",
+    "workspaceIntegrity": "unchanged"
+  },
+  "pending": {
+    "browserReconnect": "passed",
+    "migrationFaultMatrix": "passed",
+    "codexWorkspaceWrite": "environment_blocked_by_windows_acl",
+    "claudeOpenCode": "environment_unavailable_or_not_smoked"
+  },
+  "evidence": {
+    "m2Smoke": "tests/test_m2_service.py",
+    "backendRegression": "tests/run_isolated.py --rounds 2",
+    "codexSmoke": "docs/evidence/codex-task-smoke.json",
+    "serverStartup": "docs/evidence/m2-server-start-smoke.json"
+  }
+}

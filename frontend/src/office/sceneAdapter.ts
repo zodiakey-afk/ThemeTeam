@@ -3,11 +3,12 @@ import EasyStar from 'easystarjs';
 import { RootLocalGame } from './RootLocalGame';
 import type { Agent, Selection, Snapshot } from '../types';
 import type { RootNavigationTransition } from '../sceneBridge';
-import type { Facing, GridPoint, OfficeAnchor, OfficeAssets, OfficeDestination, OfficeMap, OfficeSafeRect, OfficeSceneAdapter } from './types';
+import type { Facing, GridPoint, OfficeAnchor, OfficeAssets, OfficeDestination, OfficeMap, OfficeSafeRect, OfficeSceneAdapter, OfficeTranslator } from './types';
 import { canEnterGridCell, facingForStep, projectGrid, validateOfficeAssets, validateOfficeMap } from './domain';
 
 type FeedbackKind = 'info' | 'success' | 'error';
 interface Callbacks {
+  t: OfficeTranslator;
   onReady(destinations: OfficeDestination[]): void;
   onFeedback(message: string, kind: FeedbackKind): void;
   onPreviewChange(enabled: boolean): void;
@@ -106,13 +107,13 @@ function activityOf(agent: Agent): VisualActivity | null {
   if (status.includes('idle') || status.includes('offline')) return 'idle';
   return null;
 }
-async function verifyAssetFiles(assets: OfficeAssets, signal: AbortSignal) {
+async function verifyAssetFiles(assets: OfficeAssets, signal: AbortSignal, t: OfficeTranslator) {
   for (const atlas of assets.atlases) {
     const response = await fetch(atlas.image, { signal });
-    if (!response.ok) throw new Error(`办公室纹理加载失败: ${atlas.id}`);
+    if (!response.ok) throw new Error(`Asset atlas failed to load: ${atlas.id}`);
     const digest = await crypto.subtle.digest('SHA-256', await response.arrayBuffer());
     const actual = [...new Uint8Array(digest)].map(value => value.toString(16).padStart(2, '0')).join('');
-    if (actual !== atlas.sha256) throw new Error(`办公室纹理校验失败: ${atlas.id}`);
+    if (actual !== atlas.sha256) throw new Error(t('office.assetIntegrity', { id: atlas.id }));
   }
 }
 
@@ -138,7 +139,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
     event.preventDefault();
     scene?.setPreview(false);
     scene?.scene.pause();
-    callbacks.onFeedback('办公室渲染上下文已丢失，请重试场景', 'error');
+    callbacks.onFeedback(callbacks.t('office.contextLost'), 'error');
   };
 
   class OfficeScene extends Phaser.Scene {
@@ -184,7 +185,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
     create() {
       scene = this;
       if (this.assetLoadFailed) {
-        callbacks.onFeedback('办公室纹理加载失败，请重试场景', 'error');
+        callbacks.onFeedback(callbacks.t('office.textureFailed'), 'error');
         this.scene.pause();
         return;
       }
@@ -217,7 +218,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
       callbacks.onReady(this.destinationList());
       this.applyUpdate(latestSnapshot, latestSelection);
       if (pendingNavigation) this.applyNavigation(pendingNavigation);
-      callbacks.onFeedback('办公室场景已就绪', 'success');
+      callbacks.onFeedback(callbacks.t('office.ready'), 'success');
       if (testMode) testContainer.__officeTest = testWindow.__THEMETEAM_OFFICE_TEST__ = {
         owner: testHookOwner,
         setPreview: enabled => this.setPreview(enabled),
@@ -291,7 +292,12 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
     }
     private drawMap() {
       const roomColors: Record<string, number> = { boss: 0xffe6a9, meeting: 0xb8d9ee, work: 0xb9dfd0, coffee: 0xf0c5a7 };
-      const roomLabels: Record<string, string> = { boss: '老板办公室', meeting: '会议室', work: '工位区', coffee: '休息区' };
+      const roomLabels: Record<string, string> = {
+        boss: callbacks.t('office.bossOffice'),
+        meeting: callbacks.t('office.meetingRoom'),
+        work: callbacks.t('office.workArea'),
+        coffee: callbacks.t('office.lounge'),
+      };
       for (const room of this.map.roomBindings) {
         for (const cell of room.cells) {
           const p = this.project(cell);
@@ -374,6 +380,10 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         y: (event.clientY - rect.top) * this.scale.height / Math.max(1, rect.height),
       };
     }
+    private agentAt(point: { x: number; y: number }) {
+      const world = this.cameras.main.getWorldPoint(point.x, point.y);
+      return [...this.agents.values()].find(view => view.sprite.getBounds().contains(world.x, world.y)) || null;
+    }
     private touchPair() {
       const [first, second] = [...this.touchPoints.values()];
       if (!first || !second) return null;
@@ -411,7 +421,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
       try { this.game.canvas.setPointerCapture(event.pointerId); } catch { /* Synthetic or already-cancelled pointers can be uncapturable. */ }
       this.touchPoints.set(event.pointerId, point);
       if (this.touchPoints.size >= 2) this.beginPinch();
-      else {
+      else if (!this.agentAt(point)) {
         this.dragging = true;
         this.pendingBlank = { pointerId: event.pointerId, ...point };
         this.dragStart = { ...point, scrollX: this.cameras.main.scrollX, scrollY: this.cameras.main.scrollY };
@@ -456,14 +466,14 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
     private commitSelection(agentId: string) {
       const view = this.agents.get(agentId);
       if (!view) return;
-      callbacks.onFeedback(`已选中 ${view.record.name}`, 'info');
+      callbacks.onFeedback(callbacks.t('office.selected', { name: view.record.name }), 'info');
       container.focus();
       selectCallback?.({ kind: 'agent', id: agentId });
     }
     private clearSelection() {
       if (!this.selectedId) return;
       this.followingSelected = false;
-      callbacks.onFeedback('已清除成员选择', 'info');
+      callbacks.onFeedback(callbacks.t('office.clearSelection'), 'info');
       selectCallback?.(null);
     }
     private configureCameraAndInput() {
@@ -490,11 +500,14 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         const editable = active instanceof HTMLInputElement || active instanceof HTMLTextAreaElement ||
           active instanceof HTMLSelectElement || (active instanceof HTMLElement && active.isContentEditable);
         const spaceDrag = !!this.spaceKey?.isDown && !editable;
-        if (pointer.middleButtonDown() || pointer.rightButtonDown() || spaceDrag) {
+      if (pointer.middleButtonDown() || pointer.rightButtonDown() || spaceDrag) {
           this.followingSelected = false;
           this.dragging = true;
           this.dragStart = { x: pointer.x, y: pointer.y, scrollX: this.cameras.main.scrollX, scrollY: this.cameras.main.scrollY };
-        } else if (pointer.leftButtonDown()) this.pendingBlank = { pointerId: pointer.id, x: pointer.x, y: pointer.y };
+        } else if (pointer.leftButtonDown() && !this.pendingSelection && !this.pendingContext) {
+          this.pendingBlank = { pointerId: pointer.id, x: pointer.x, y: pointer.y };
+          this.dragStart = { x: pointer.x, y: pointer.y, scrollX: this.cameras.main.scrollX, scrollY: this.cameras.main.scrollY };
+        }
       });
       this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
         if (pointer.wasTouch) return;
@@ -503,7 +516,11 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         if (this.pendingContext?.pointerId === pointer.id &&
             Math.hypot(pointer.x - this.pendingContext.x, pointer.y - this.pendingContext.y) > 6) this.pendingContext = null;
         if (this.pendingBlank?.pointerId === pointer.id &&
-            Math.hypot(pointer.x - this.pendingBlank.x, pointer.y - this.pendingBlank.y) > 6) this.pendingBlank = null;
+            Math.hypot(pointer.x - this.pendingBlank.x, pointer.y - this.pendingBlank.y) > 6) {
+          this.pendingBlank = null;
+          this.followingSelected = false;
+          this.dragging = true;
+        }
         if (!this.dragging || !pointer.isDown) return;
         const camera = this.cameras.main;
         camera.stopFollow();
@@ -534,7 +551,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
     }    private destinationList(): OfficeDestination[] {
       return this.map.anchors.map(anchor => ({
         id: anchor.id,
-        label: `${anchor.kind === 'workSeat' ? '工位' : '会议席'} ${anchor.id.split('-').at(-1)}`,
+        label: `${anchor.kind === 'workSeat' ? callbacks.t('office.workSeat') : callbacks.t('office.meetingSeat')} ${anchor.id.split('-').at(-1)}`,
         kind: anchor.kind,
         roomKey: anchor.roomKey,
         occupied: [...this.agents.values()].some(agent => agent.occupiedAnchorId === anchor.id),
@@ -592,7 +609,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
       }
       callbacks.onReady(this.destinationList());
       this.enforceBubbleLimit();
-      if (ordered.length > this.map.spawns.length) callbacks.onFeedback(`${ordered.length - this.map.spawns.length} 位成员未定位，仍可在目录中访问`, 'error');
+      if (ordered.length > this.map.spawns.length) callbacks.onFeedback(callbacks.t('office.unplaced', { count: ordered.length - this.map.spawns.length }), 'error');
     }
     private setPose(view: AgentView, activity: string | null) {
       const role = roleOf(view.record);
@@ -682,7 +699,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
     }
     focusSelected(duration = preview && !reducedMotion.matches ? 220 : 0) {
       const selected = this.selectedId ? this.agents.get(this.selectedId) : null;
-      if (!selected) { callbacks.onFeedback('请先选择一位成员', 'error'); return; }
+      if (!selected) { callbacks.onFeedback(callbacks.t('office.focusRequired'), 'error'); return; }
       this.followingSelected = true;
       this.cameras.main.pan(selected.sprite.x, selected.sprite.y - 40, duration, 'Sine.easeOut');
     }
@@ -701,7 +718,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         camera.scrollX += before.x - after.x;
         camera.scrollY += before.y - after.y;
       }
-      callbacks.onFeedback(`缩放 ${Math.round(next * 100)}%`, 'info');
+      callbacks.onFeedback(callbacks.t('office.zoomed', { percent: Math.round(next * 100) }), 'info');
     }
     private stopObstructed(view: AgentView, message: string) {
       if (view.targetAnchorId) this.reservations.delete(view.targetAnchorId);
@@ -765,9 +782,9 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
           if (replan) {
             view.phase = 'waiting';
             view.waitElapsed = 0;
-            callbacks.onFeedback(`${view.record.name} 第 ${view.replanAttempts} 次重规划未找到替代路径，继续等待`, 'info');
+            callbacks.onFeedback(callbacks.t('office.replan', { name: view.record.name, attempt: view.replanAttempts }), 'info');
           } else {
-            this.stopObstructed(view, `${view.record.name} 无法到达目标`);
+            this.stopObstructed(view, callbacks.t('office.unreachableResult', { name: view.record.name }));
           }
           return;
         }
@@ -777,31 +794,33 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         view.segmentFrom = { ...start };
         view.segmentTo = view.path[0] || { ...start };
         view.phase = view.occupiedAnchorId ? 'undocking' : view.path.length ? 'walking' : 'docking';
-        callbacks.onFeedback(replan ? `${view.record.name} 第 ${view.replanAttempts} 次重规划成功` : `${view.record.name} 正在前往 ${anchorId}`, 'info');
+        callbacks.onFeedback(replan
+          ? callbacks.t('office.replanSuccess', { name: view.record.name, attempt: view.replanAttempts })
+          : callbacks.t('office.arriving', { name: view.record.name, target: anchorId }), 'info');
       });
       this.plans.set(view.record.id, { engine, requestId, motionId, anchorId, rootGeneration, mapRevision: this.map.mapRevision, elapsed: 0 });
     }
     moveSelected(anchorId: string) {
-      if (!preview) { callbacks.onFeedback('先开启演示模式，再执行本地移动', 'error'); return; }
+      if (!preview) { callbacks.onFeedback(callbacks.t('office.moveDemoFirst'), 'error'); return; }
       const view = this.selectedId ? this.agents.get(this.selectedId) : null;
       const target = this.anchors.get(anchorId);
-      if (!view || !target) { callbacks.onFeedback('请选择成员和有效目标', 'error'); return; }
+      if (!view || !target) { callbacks.onFeedback(callbacks.t('office.invalidTarget'), 'error'); return; }
       if (view.occupiedAnchorId === anchorId && view.phase === 'seated') {
-        callbacks.onFeedback(`${view.record.name} 已在该位置`, 'info'); return;
+        callbacks.onFeedback(callbacks.t('office.alreadyThere', { name: view.record.name }), 'info'); return;
       }
       const binding = this.map.roomBindings.find(room => room.key === target.roomKey);
       const snapshotRoom = binding && latestSnapshot?.rooms.find(room => room.id === binding.roomId);
       if (!binding?.movementEnabled || !snapshotRoom?.unlocked) {
-        callbacks.onFeedback('目标房间已锁定或不可用', 'error'); return;
+        callbacks.onFeedback(callbacks.t('office.roomLocked'), 'error'); return;
       }
       const routeStart = view.occupiedAnchorId ? this.anchors.get(view.occupiedAnchorId)?.stand || view.cell : view.cell;
       if (!this.isStaticReachable(routeStart, target.approach)) {
-        callbacks.onFeedback(`${view.record.name} 无法到达目标`, 'error'); return;
+        callbacks.onFeedback(callbacks.t('office.unreachable', { name: view.record.name }), 'error'); return;
       }
       const occupied = [...this.agents.values()].find(agent => agent.record.id !== view.record.id &&
         (agent.occupiedAnchorId === anchorId || agent.targetAnchorId === anchorId));
       if (occupied || (this.reservations.has(anchorId) && this.reservations.get(anchorId) !== view.record.id)) {
-        callbacks.onFeedback(`目标已被 ${occupied?.record.name || '其他成员'} 占用`, 'error'); return;
+        callbacks.onFeedback(callbacks.t('office.targetOccupied', { name: occupied?.record.name || callbacks.t('nav.agents') }), 'error'); return;
       }
       if (view.targetAnchorId) this.reservations.delete(view.targetAnchorId);
       const motionId = ++this.motionSequence;
@@ -823,7 +842,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         if (plan.elapsed > 1000) {
           plan.engine.cancelPath(plan.requestId);
           this.plans.delete(agentId);
-          this.stopObstructed(view, '路径规划超时');
+          this.stopObstructed(view, callbacks.t('office.pathTimeout'));
         } else {
           plan.engine.calculate();
         }
@@ -858,7 +877,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
                 view.waitElapsed = 0;
                 this.planRoute(view, target, view.motionId, true);
               } else {
-                this.stopObstructed(view, view.record.name + ' 通道持续受阻，已停在安全位置');
+                this.stopObstructed(view, callbacks.t('office.blockedResult', { name: view.record.name }));
               }
             }
           } else {
@@ -930,7 +949,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
       const target = view.targetAnchorId ? this.anchors.get(view.targetAnchorId) : null;
       if (!target) { view.phase = 'standing'; return; }
       if (this.reservations.get(target.id) !== view.record.id) {
-        this.stopObstructed(view, `${view.record.name} 的目标预留已失效`);
+        this.stopObstructed(view, callbacks.t('office.reservationLost', { name: view.record.name }));
         return;
       }
       view.segmentElapsed += delta;
@@ -947,7 +966,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         this.reservations.delete(target.id);
         this.setPose(view, target.kind === 'workSeat' ? 'work' : 'think');
         this.enforceBubbleLimit();
-        callbacks.onFeedback(`${view.record.name} 已入座，${target.kind === 'workSeat' ? 'WORK DEMO' : 'MEETING DEMO'}`, 'success');
+        callbacks.onFeedback(callbacks.t('office.seated', { name: view.record.name, activity: target.kind === 'workSeat' ? 'WORK DEMO' : 'MEETING DEMO' }), 'success');
         callbacks.onReady(this.destinationList());
       }
     }
@@ -986,7 +1005,7 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         callbacks.onReady(this.destinationList());
       }
       callbacks.onPreviewChange(enabled);
-      callbacks.onFeedback(enabled ? '演示模式已开启，本地移动不会写入工作区' : '已返回工作区记录视图', 'info');
+      callbacks.onFeedback(enabled ? callbacks.t('office.previewEnabled') : callbacks.t('office.returned'), 'info');
     }
     shutdownOwned() {
       delete testContainer.__officeTest;
@@ -1016,12 +1035,12 @@ export function createOfficeSceneAdapter(container: HTMLElement, callbacks: Call
         fetch(MAP_URL, { signal: abort.signal }),
         fetch(ASSET_URL, { signal: abort.signal }),
       ]);
-      if (!mapResponse.ok || !assetResponse.ok) throw new Error('办公室本地资源加载失败');
+      if (!mapResponse.ok || !assetResponse.ok) throw new Error(callbacks.t('office.mapFailed'));
       const map = validateOfficeMap(await mapResponse.json());
       const assets = validateOfficeAssets(await assetResponse.json());
       const propFrames = new Set(assets.atlases.find(atlas => atlas.id === 'props')?.frames.map(frame => frame.id) || []);
-      if (map.props.some(prop => !propFrames.has(prop.frameId))) throw new Error('办公室地图引用了未知道具帧');
-      await verifyAssetFiles(assets, abort.signal);
+      if (map.props.some(prop => !propFrames.has(prop.frameId))) throw new Error(callbacks.t('office.mapUnknownProp'));
+      await verifyAssetFiles(assets, abort.signal, callbacks.t);
       if (destroyed) return;
       const SceneClass = class extends OfficeScene { constructor() { super(map, assets); } };
       game = new RootLocalGame({

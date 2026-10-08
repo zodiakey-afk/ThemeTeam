@@ -5,6 +5,8 @@ from typing import Any, Dict, List, Optional, Union, get_args, get_origin, get_t
 import math
 from pathlib import Path
 
+from .validation import AGENT_STATUSES, TASK_STATUSES
+
 
 @dataclass
 class ModelProfile:
@@ -14,9 +16,11 @@ class ModelProfile:
     context_window: int
     capability_tags: List[str] = field(default_factory=list)
     cost_label: str = "standard"
+    model_name: Optional[str] = None
+    credential_ref: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        payload = {
             "id": self.id,
             "name": self.name,
             "provider": self.provider,
@@ -24,6 +28,11 @@ class ModelProfile:
             "capabilityTags": list(self.capability_tags),
             "costLabel": self.cost_label,
         }
+        if self.model_name is not None:
+            payload["modelName"] = self.model_name
+        if self.credential_ref is not None:
+            payload["credentialRef"] = self.credential_ref
+        return payload
 
 
 @dataclass
@@ -210,6 +219,7 @@ class Document:
     linked_meeting_ids: List[str] = field(default_factory=list)
     visibility_scope: str = "team"
     created_at: Optional[str] = None
+    correlation_id: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -223,6 +233,7 @@ class Document:
             "linkedMeetingIds": list(self.linked_meeting_ids),
             "visibilityScope": self.visibility_scope,
             "createdAt": self.created_at,
+            "correlationId": self.correlation_id,
         }
 
 
@@ -369,6 +380,17 @@ def workspace_state_from_dict(data: Dict[str, Any]) -> WorkspaceState:
     if type(data["selection"]) is not dict or set(data["selection"]) != {"kind", "id"}:
         raise ValueError("Invalid selection structure")
     _check_persisted_types(data, WorkspaceState)
+    for task in data["tasks"]:
+        if task["status"] not in TASK_STATUSES:
+            raise ValueError("Invalid task status")
+    for agent in data["agents"]:
+        if agent["status"] not in AGENT_STATUSES:
+            raise ValueError("Invalid agent status")
+    for runtime in data.get("runtimeProfiles", []):
+        if runtime["kind"] not in {"model-api", "codex-cli", "claude-cli", "opencode-cli"}:
+            raise ValueError("Invalid runtime kind")
+        if runtime["approvalPolicy"] not in {"manual", "automatic"}:
+            raise ValueError("Invalid approval policy")
     runtime_profiles = data.get("runtimeProfiles")
     if runtime_profiles is None:
         runtime_profiles = [{
@@ -488,6 +510,7 @@ def workspace_state_from_dict(data: Dict[str, Any]) -> WorkspaceState:
                 linked_meeting_ids=list(document.get("linkedMeetingIds", [])),
                 visibility_scope=document.get("visibilityScope", "team"),
                 created_at=document.get("createdAt"),
+                correlation_id=document.get("correlationId"),
             )
             for document in data.get("documents", [])
         ],
@@ -512,6 +535,8 @@ def workspace_state_from_dict(data: Dict[str, Any]) -> WorkspaceState:
                 context_window=profile.get("contextWindow", 0),
                 capability_tags=list(profile.get("capabilityTags", [])),
                 cost_label=profile.get("costLabel", "standard"),
+                model_name=profile.get("modelName"),
+                credential_ref=profile.get("credentialRef"),
             )
             for profile in data.get("modelProfiles", [])
         ],

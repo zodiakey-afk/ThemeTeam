@@ -55,6 +55,102 @@ G3:
     scope: M1 v0.4 W04-W06, budget, role ownership, risks and rollback conditions
     source: User replied approved to the scoped G3 confirmation request.
     record: .ai-spec/iterations/ITER-2026-001/03-plan/approval.md
+M2_G1:
+  status: passed
+  scope: M2 / W07-W10
+  evidence:
+    clarification: .ai-spec/iterations/ITER-2026-001/01-requirements/m2-clarification.md
+    user_stories: .ai-spec/iterations/ITER-2026-001/01-requirements/m2-user-stories.md
+    nfr: .ai-spec/iterations/ITER-2026-001/01-requirements/m2-nfr.md
+    scope: .ai-spec/iterations/ITER-2026-001/01-requirements/m2-scope.md
+    confirmation: .ai-spec/iterations/ITER-2026-001/01-requirements/m2-requirement-confirmation.md
+  approval:
+    approver: User
+    role: Requirement owner and project requester
+    date: 2026-09-24
+    decision: approved
+    source: User confirmed proceeding with initial M2 / W07-W10 and authorized supplementary requirements, contracts, tests and implementation.
+M2_G2:
+  status: passed
+  scope: M2 / W07-W10
+  reason: Initial independent review found gaps; all four remaining gaps were revised and final narrow independent re-review passed on 2026-09-24.
+  evidence:
+    requirements: .ai-spec/iterations/ITER-2026-001/01-requirements/m2-requirement-confirmation.md
+    design: .ai-spec/iterations/ITER-2026-001/02-design/m2-review-log.md
+    contracts:
+      - .ai-spec/iterations/ITER-2026-001/02-design/contracts/m2-api-v1.json
+      - .ai-spec/iterations/ITER-2026-001/02-design/contracts/m2-events-v1.json
+    final_independent_review: agent 01a0d169-2b34-7771-b4dd-cbc99035d2f8
+  approval:
+    approver: Independent technical reviewer
+    role: Independent design reviewer
+    date: 2026-09-24
+    decision: approved
+    scope: M2 API/events contracts, SQLite model/migration, authorization, runtime/artifact lifecycle, NFR test mapping
+M2_G3:
+  status: passed
+  scope: M2 / W07-W10
+  reason: Project owner approved the revised M2 WBS, milestones, risks, DoD and release boundary on 2026-09-24.
+  evidence:
+    wbs: .ai-spec/iterations/ITER-2026-001/03-plan/m2-wbs.md
+    milestones: .ai-spec/iterations/ITER-2026-001/03-plan/m2-milestones.md
+    risks: .ai-spec/iterations/ITER-2026-001/03-plan/m2-risks.md
+    dod: .ai-spec/iterations/ITER-2026-001/03-plan/m2-dod.md
+    approval: .ai-spec/iterations/ITER-2026-001/03-plan/m2-approval.md
+  approval:
+    approver: User
+    role: Project owner
+    date: 2026-09-24
+    decision: approved
+    source: User explicitly replied "批准" to the revised M2/W07-W10 plan.
+M2_G4:
+  status: pending
+  scope: M2 / W07-W10 implementation
+  reason: Machine evidence, CAS/FK hardening, correlation/restart-retry/worker shutdown, secret audit and signing packages are complete; reliable independent review of the current worktree is still pending. Real CLI environment evidence remains environment-dependent.
+  evidence:
+    human_approval_package: .ai-spec/iterations/ITER-2026-001/06-release/m2-human-approval-package.md
+    implementation_notes: .ai-spec/iterations/ITER-2026-001/04-implementation/m2-implementation-notes.md
+    impact_analysis: .ai-spec/iterations/ITER-2026-001/04-implementation/m2-impact-analysis.md
+    test_report: .ai-spec/iterations/ITER-2026-001/05-testing/m2-test-report.md
+    defects: .ai-spec/iterations/ITER-2026-001/05-testing/m2-defects.md
+    m2_tests: tests/test_m2_service.py
+    server_start_smoke: docs/evidence/m2-server-start-smoke.json
+    backend_regression: tests/run_isolated.py --rounds 2
+    frontend_unit: npm.cmd run test:unit
+    frontend_build: npm.cmd run build
+    test_count: "M2 19/19; backend 83/83 x 2; frontend 48/48"
+    release_acceptance: tests/run_m2_release_acceptance.py
+    websocket_acceptance: docs/evidence/m2-websocket-acceptance.json
+    migration_fault_matrix: .ai-spec/iterations/ITER-2026-001/05-testing/evidence/m2-migration-fault-matrix.json
+    cas_fk_hardening: .ai-spec/iterations/ITER-2026-001/05-testing/evidence/m2-cas-fk-hardening.json
+    secret_audit: docs/evidence/secret-audit-20261007.json
+    nfr_evidence:
+      persistence: .ai-spec/iterations/ITER-2026-001/05-testing/evidence/m2-persistence.json
+      latency: .ai-spec/iterations/ITER-2026-001/05-testing/evidence/m2-latency.json
+      security: .ai-spec/iterations/ITER-2026-001/05-testing/evidence/m2-security.json
+      observability: .ai-spec/iterations/ITER-2026-001/05-testing/evidence/m2-observability.json
+UI_DRAG_LANGUAGE:
+  status: pending
+  scope: Office blank-area pan, member hit protection and zh/en product UI switch
+  evidence:
+    requirements: .ai-spec/iterations/ITER-2026-001/01-requirements/office-drag-language-clarification.md
+    test_plan: .ai-spec/iterations/ITER-2026-001/05-testing/office-drag-language-test-plan.md
+    change_report: .ai-spec/iterations/ITER-2026-001/07-summary/office-drag-language-change-report.md
+    typecheck: "frontend npm.cmd run typecheck — passed 2026-10-07"
+    diff_check: "git diff --check — passed 2026-10-07"
+    browser_e2e: pending_environment
+    product_confirmation:
+      approver: User
+      role: Requirement owner / project owner
+      date: 2026-10-08
+      decision: approved
+      scope: Drag semantics, translation scope, default language and release surface
+  pending_human_review:
+    - Independent browser E2E rerun and QA review on current worktree
+M2_GATE_AUTHORITY:
+  design_gate: M2_G2
+  plan_gate: M2_G3
+  legacy_gate_policy: Legacy top-level G2/G3 are historical evidence for W01-W03/M1 only; M2 implementation must reject them as authorization.
 work_packages:
   W00V:
     status: passed
@@ -165,11 +261,14 @@ G4:
     rollback_rehearsal: docs/evidence/m1-rollback-rehearsal.json
 G5:
   status: pending
-  reason: Machine acceptance, formal performance/stability and final current-build independent re-review passed against final props atlas hash 5b6b2293f0a915ba232a3c72e7929231d3ee8081a6f885ed52e0da4421be0f0d; QA signature and complete BB/WB matrix closure remain pending.
+  reason: M2 machine acceptance, CAS/FK hardening, correlation/restart-retry/worker shutdown regressions and secret audit are complete; QA signature and reliable current-worktree independent review remain pending.
   evidence:
+    human_approval_package: .ai-spec/iterations/ITER-2026-001/06-release/m2-human-approval-package.md
     test_report: .ai-spec/iterations/ITER-2026-001/05-testing/test-report.md
     defects: .ai-spec/iterations/ITER-2026-001/05-testing/defects.md
-    independent_review: docs/evidence/m1-independent-rereview-v04-final.md
+    independent_review: pending-current-worktree-review
+    qa_signoff: .ai-spec/iterations/ITER-2026-001/05-testing/qa-signoff-m2.md
+    secret_audit: docs/evidence/secret-audit-20261007.json
 P1_P5_M2:
   status: passed
   reason: P4/P5 engineering closure is implemented and machine-verified: independent settings store, dispatcher lifecycle, Codex task execution boundary, shared Claude/OpenCode adapter contract, parallel project isolation, and automatic overflow-room assignment. Real Claude/OpenCode executable smoke, full map reflow and M1 human gates remain pending.
@@ -186,11 +285,26 @@ P1_P5_M2:
     architecture: docs/agent-cli-architecture.md
 G6:
   status: pending
-  reason: Release and rollback artifacts are prepared and rollback was rehearsed in isolation; project-owner release approval is pending.
+  reason: Project owner approved conditional repository submission and next-phase planning on 2026-10-08; production release remains gated by independent review, QA and environment exceptions.
   evidence:
+    human_approval_package: .ai-spec/iterations/ITER-2026-001/06-release/m2-human-approval-package.md
     release_plan: .ai-spec/iterations/ITER-2026-001/06-release/release-plan.md
     rollback_plan: .ai-spec/iterations/ITER-2026-001/06-release/rollback-plan.md
     checklist: .ai-spec/iterations/ITER-2026-001/06-release/release-checklist.md
+    approval_package: .ai-spec/iterations/ITER-2026-001/06-release/g6-release-approval.md
+    project_owner_approval:
+      approver: User
+      role: Requirement owner / project owner
+      date: 2026-10-08
+      decision: conditional_go_for_repository_submission
 G7:
   status: pending
-  reason: Documentation change report submitted; final human confirmation absent.
+  reason: Requirement/project owner accepted the M2 change report with conditions on 2026-10-08; independent review and QA conditions remain open for production release.
+  evidence: .ai-spec/iterations/ITER-2026-001/07-summary/m2-change-report.md
+  final_confirmation: .ai-spec/iterations/ITER-2026-001/07-summary/final-confirmation-m2.md
+  human_approval_package: .ai-spec/iterations/ITER-2026-001/06-release/m2-human-approval-package.md
+  project_owner_confirmation:
+    approver: User
+    role: Requirement owner / project owner
+    date: 2026-10-08
+    decision: accepted_with_conditions

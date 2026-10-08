@@ -1,0 +1,9 @@
+{
+  "testId": "M2-NFR-05-RELEASE",
+  "status": "passed",
+  "credentialFieldsPersisted": false,
+  "defaultWorkspacePathTouched": false,
+  "shellCommandStringsAccepted": false,
+  "artifactAbsolutePathsExposed": false,
+  "basis": "M2 service tests, backend isolation regression and schema inspection"
+}

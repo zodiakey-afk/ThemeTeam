@@ -1,0 +1,8 @@
+{
+  "testId": "M2-NFR-03-RELEASE",
+  "status": "passed",
+  "samples": 200,
+  "p95Milliseconds": 39.039,
+  "maxMilliseconds": 63.586,
+  "measurement": "in-process SQLite command confirmation"
+}

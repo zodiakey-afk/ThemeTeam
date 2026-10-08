@@ -3,9 +3,12 @@ import { Crosshair, LocateFixed, Minus, MoreHorizontal, MoveRight, Plus, X } fro
 import { connectScene } from '../sceneBridge';
 import type { WorkspaceController } from '../workspace';
 import type { OfficeDestination, OfficeSafeRect, OfficeSceneAdapter } from './types';
+import type { Language, MessageKey } from '../i18n';
+import { translate } from '../i18n';
 import { createOfficeSceneAdapter } from './sceneAdapter';
 
-export function OfficeCanvas({ controller, onCreateAgent }: { controller: WorkspaceController; onCreateAgent?: () => void }) {
+export function OfficeCanvas({ controller, onCreateAgent, language = 'zh' }: { controller: WorkspaceController; onCreateAgent?: () => void; language?: Language }) {
+  const t = (key: MessageKey, values?: Record<string, string | number>) => translate(language, key, values);
   const targetId = useId();
   const host = useRef<HTMLDivElement>(null);
   const stageWrap = useRef<HTMLDivElement>(null);
@@ -18,11 +21,12 @@ export function OfficeCanvas({ controller, onCreateAgent }: { controller: Worksp
   const [generation, setGeneration] = useState(0);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; returnTo: 'stage' | 'more' } | null>(null);
   const [menuPosition, setMenuPosition] = useState<{ left: number; top: number } | null>(null);
-  const [feedback, setFeedback] = useState({ message: '正在加载办公室场景', kind: 'info' as 'info' | 'success' | 'error' });
+  const [feedback, setFeedback] = useState({ message: t('office.loading'), kind: 'info' as 'info' | 'success' | 'error' });
 
   useEffect(() => {
     if (!host.current) return;
     const instance = createOfficeSceneAdapter(host.current, {
+      t,
       onReady(next) {
         setDestinations(next);
         setTarget(current => current && next.some(item => item.id === current) ? current : next[0]?.id || '');
@@ -53,7 +57,7 @@ export function OfficeCanvas({ controller, onCreateAgent }: { controller: Worksp
     adapter.current = instance;
     const disconnect = connectScene(controller.store, instance, controller.subscribeNavigation);
     return () => { adapter.current = null; disconnect(); };
-  }, [controller, generation]);
+  }, [controller, generation, language]);
 
   useLayoutEffect(() => {
     if (!contextMenu || !menu.current || !stageWrap.current) return;
@@ -96,28 +100,28 @@ export function OfficeCanvas({ controller, onCreateAgent }: { controller: Worksp
     adapter.current?.setPreview(next);
   }
 
-  return <section className="office-surface" aria-label="办公室画布">
-    <div className="office-toolbar" aria-label="办公室画布工具">
-      <div className="office-mode" role="group" aria-label="场景模式">
-        <button className={!preview ? 'active' : ''} aria-pressed={!preview} onClick={() => { if (preview) togglePreview(); }}>工作区</button>
-        <button className={preview ? 'active' : ''} aria-pressed={preview} onClick={() => { if (!preview) togglePreview(); }}>演示</button>
+  return <section className="office-surface" aria-label={t('office.canvas')}>
+    <div className="office-toolbar" aria-label={t('office.canvas')}>
+      <div className="office-mode" role="group" aria-label={language === 'zh' ? '场景模式' : 'Scene mode'}>
+        <button className={!preview ? 'active' : ''} aria-pressed={!preview} onClick={() => { if (preview) togglePreview(); }}>{t('office.workspaceMode')}</button>
+        <button className={preview ? 'active' : ''} aria-pressed={preview} onClick={() => { if (!preview) togglePreview(); }}>{t('office.demoMode')}</button>
       </div>
       <div className="office-target">
-        <label htmlFor={targetId}>目标</label>
+        <label htmlFor={targetId}>{t('office.target')}</label>
         <select id={targetId} value={target} onChange={event => setTarget(event.target.value)}>
-          {destinations.map(item => <option key={item.id} value={item.id}>{item.label}{item.occupied ? ' · 已占用' : ''}</option>)}
+          {destinations.map(item => <option key={item.id} value={item.id}>{item.label}{item.occupied ? ` · ${t('office.occupied')}` : ''}</option>)}
         </select>
         <button className="primary move-command" disabled={!preview || !target} onClick={() => adapter.current?.moveSelected(target)}>
-          <MoveRight size={16} />移动
+          <MoveRight size={16} />{t('action.move')}
         </button>
       </div>
       <div className="office-tools">
-        {onCreateAgent && <button className="primary office-add-agent" aria-label="新增员工" onClick={onCreateAgent}><Plus size={16} />新增员工</button>}
-        <button className="icon" title="缩小" aria-label="缩小画布" onClick={() => adapter.current?.zoomBy(-1)}><Minus size={17} /></button>
-        <button className="icon" title="放大" aria-label="放大画布" onClick={() => adapter.current?.zoomBy(1)}><Plus size={17} /></button>
-        <button className="icon" title="总览" aria-label="办公室总览" onClick={() => adapter.current?.overview()}><LocateFixed size={17} /></button>
-        <button className="icon" title="聚焦选中成员" aria-label="聚焦选中成员" onClick={() => adapter.current?.focusSelected()}><Crosshair size={17} /></button>
-        <button ref={moreButton} className="icon touch-more" title="更多场景操作" aria-label="更多场景操作"
+        {onCreateAgent && <button className="primary office-add-agent" aria-label={t('action.addAgent')} onClick={onCreateAgent}><Plus size={16} />{t('action.addAgent')}</button>}
+        <button className="icon" title={t('action.zoomOut')} aria-label={t('action.zoomOut')} onClick={() => adapter.current?.zoomBy(-1)}><Minus size={17} /></button>
+        <button className="icon" title={t('action.zoomIn')} aria-label={t('action.zoomIn')} onClick={() => adapter.current?.zoomBy(1)}><Plus size={17} /></button>
+        <button className="icon" title={t('action.overview')} aria-label={t('action.overview')} onClick={() => adapter.current?.overview()}><LocateFixed size={17} /></button>
+        <button className="icon" title={t('action.focus')} aria-label={t('action.focus')} onClick={() => adapter.current?.focusSelected()}><Crosshair size={17} /></button>
+        <button ref={moreButton} className="icon touch-more" title={t('action.more')} aria-label={t('action.more')}
           aria-expanded={contextMenu !== null} onClick={() => {
             if (contextMenu) { closeMenu(); return; }
             setMenuPosition(null);
@@ -126,22 +130,23 @@ export function OfficeCanvas({ controller, onCreateAgent }: { controller: Worksp
       </div>
     </div>
     <div className="office-stage-wrap" ref={stageWrap}>
-      <div className="office-stage" ref={host} tabIndex={0} aria-label="可交互等轴办公室场景" />
-      {contextMenu && <div ref={menu} className="office-context-menu" role="menu" aria-label="成员场景操作"
+      <div className="office-stage" ref={host} tabIndex={0} aria-label={t('office.canvas')} />
+      {contextMenu && <div ref={menu} className="office-context-menu" role="menu" aria-label={t('office.sceneActions')}
         onKeyDown={menuKeyDown} style={{ left: menuPosition?.left ?? contextMenu.x, top: menuPosition?.top ?? contextMenu.y, visibility: menuPosition ? 'visible' : 'hidden' }}>
         <button role="menuitem" disabled={!preview || !target} onClick={() => { adapter.current?.moveSelected(target); closeMenu(); }}>
-          <MoveRight size={16} />移动到当前目标
+          <MoveRight size={16} />{t('action.move')}
         </button>
         <button role="menuitem" onClick={() => { adapter.current?.focusSelected(); closeMenu(); }}>
-          <Crosshair size={16} />聚焦成员
+          <Crosshair size={16} />{t('office.focusMember')}
         </button>
-        <button className="icon" role="menuitem" aria-label="关闭场景操作" title="关闭场景操作" onClick={() => closeMenu()}><X size={16} /></button>
+        <button className="icon" role="menuitem" aria-label={t('office.closeSceneActions')} title={t('office.closeSceneActions')} onClick={() => closeMenu()}><X size={16} /></button>
       </div>}
     </div>
     <div className={`office-feedback ${feedback.kind}`} role="status" aria-live="polite">
       <span className="connection-dot" />{feedback.message}
-      {feedback.kind === 'error' && <button className="retry-scene" onClick={() => setGeneration(value => value + 1)}>重试场景</button>}
-      {preview && <strong>演示位置不会保存</strong>}
+      {feedback.kind === 'error' && <button className="retry-scene" onClick={() => setGeneration(value => value + 1)}>{t('office.retryScene')}</button>}
+      <span className="drag-hint">{t('office.dragHint')}</span>
+      {preview && <strong>{t('office.demoNotSaved')}</strong>}
     </div>
   </section>;
 }

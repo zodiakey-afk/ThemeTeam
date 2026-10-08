@@ -60,6 +60,8 @@ def main() -> int:
             prompt=artifact_instruction,
             cwd=project,
         )
+        if store.get(handle.run_id)["status"] == "waiting":
+            dispatcher.approve(handle.run_id)
         dispatcher.wait(handle.run_id, timeout=120)
         record = store.get(handle.run_id)
         artifact_dir = Path(record["artifactDir"])

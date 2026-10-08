@@ -1,0 +1,13 @@
+{
+  "testId": "WB-M2-01-RELEASE",
+  "status": "passed",
+  "backupCreated": true,
+  "malformedJsonRejected": true,
+  "malformedTargetPreserved": true,
+  "atomicReplaceFailureInjected": true,
+  "replaceFailureTargetPreserved": true,
+  "temporaryDbRemovedAfterFailure": true,
+  "integrityCheck": "ok",
+  "foreignKeyViolations": 0,
+  "duplicateArtifactKeys": 0
+}

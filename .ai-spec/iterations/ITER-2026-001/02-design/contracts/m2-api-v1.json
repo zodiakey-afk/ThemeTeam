@@ -1,0 +1,205 @@
+{
+  "version": "1.0",
+  "status": "frozen-candidate",
+  "base": "/api/v1",
+  "compatibility": {
+    "legacyApi": "read-compatible during M2; no new JSON business writes",
+    "breakingChanges": []
+  },
+  "actorContext": {
+    "source": "server-resolved loopback actor; client role claims ignored",
+    "roles": ["owner", "operator", "observer"],
+    "credentialRef": "opaque string or null; secret never accepted in request"
+  },
+  "envelope": {
+    "commandId": "string",
+    "idempotencyKey": "string",
+    "correlationId": "string",
+    "expectedVersion": "integer|null",
+    "actorId": "server-resolved string"
+  },
+  "routes": {
+    "GET /api/v1/workspaces/{workspaceId}/snapshot": {
+      "response": {"snapshot": "WorkspaceSnapshot", "cursor": "integer"}
+    },
+    "POST /api/v1/tasks": {
+      "request": {"title": "string", "description": "string", "priority": "low|medium|high", "assigneeIds": "string[]"},
+      "response": {"task": "Task", "version": "integer", "correlationId": "string"}
+    },
+    "POST /api/v1/runs": {
+      "request": {
+        "taskId": "string",
+        "runtimeProfileId": "string",
+        "projectDirectoryProfileId": "string",
+        "prompt": "string"
+      },
+      "response": {"run": "Run", "version": "integer", "correlationId": "string"}
+    },
+    "POST /api/v1/runs/{runId}/approve": {
+      "request": {},
+      "response": {"run": "Run", "version": "integer", "correlationId": "string"}
+    },
+    "POST /api/v1/runs/{runId}/cancel": {
+      "request": {},
+      "response": {"run": "Run", "version": "integer", "correlationId": "string"}
+    },
+    "POST /api/v1/runs/{runId}/retry": {
+      "request": {},
+      "response": {"run": "Run", "version": "integer", "correlationId": "string"}
+    },
+    "GET /api/v1/runs": {
+      "query": {"taskId": "string|null", "cursor": "integer|null"},
+      "response": {"runs": "Run[]", "cursor": "integer"}
+    },
+    "GET /api/v1/agents": {
+      "response": {"agents": "Agent[]", "version": "integer"}
+    },
+    "GET /api/v1/model-profiles": {
+      "response": {"modelProfiles": "ModelProfile[]", "version": "integer"}
+    },
+    "POST /api/v1/model-profiles": {
+      "request": {
+        "name": "string",
+        "provider": "string",
+        "modelName": "string",
+        "contextWindow": "integer",
+        "capabilityTags": "string[]",
+        "costLabel": "string",
+        "credentialRef": "string|null"
+      },
+      "response": {"modelProfile": "ModelProfile", "version": "integer", "correlationId": "string"}
+    },
+    "POST /api/v1/runtime-profiles": {
+      "request": {
+        "name": "string",
+        "kind": "model-api|codex-cli|claude-cli|opencode-cli",
+        "executable": "string",
+        "approvalPolicy": "manual|automatic",
+        "timeoutSeconds": "integer",
+        "projectDirectoryProfileId": "string|null",
+        "credentialRef": "string|null",
+        "capabilities": "string[]"
+      },
+      "response": {"runtimeProfile": "RuntimeProfile", "version": "integer", "correlationId": "string"}
+    },
+    "POST /api/v1/project-directories": {
+      "request": {
+        "name": "string",
+        "path": "string",
+        "pathKind": "local|workspace",
+        "readOnly": "boolean",
+        "temporaryCopyPolicy": "none|per-task"
+      },
+      "response": {"projectDirectory": "ProjectDirectory", "version": "integer", "correlationId": "string"}
+    },
+    "GET /api/v1/approvals": {
+      "query": {"status": "pending|approved|rejected|null", "runId": "string|null"},
+      "response": {"approvals": "Approval[]"}
+    },
+    "POST /api/v1/runs/{runId}/reject": {
+      "request": {"reason": "string"},
+      "response": {"run": "Run", "version": "integer", "correlationId": "string"}
+    },
+    "GET /api/v1/audit": {
+      "query": {"correlationId": "string|null", "cursor": "integer|null"},
+      "response": {"events": "AuditEvent[]", "cursor": "integer"}
+    },
+    "GET /api/v1/artifacts/{runId}": {
+      "response": {"runId": "string", "artifacts": "relative-path[]"}
+    },
+    "GET /api/v1/documents": {
+      "query": {"sourceRef": "string|null", "taskId": "string|null"},
+      "response": {"documents": "Document[]", "version": "integer"}
+    }
+  },
+  "errors": {
+    "schema": "invalid_payload",
+    "auth": "forbidden",
+    "missing": "not_found",
+    "conflict": "conflict",
+    "storage": "storage_error",
+    "runtime": "runtime_unavailable",
+    "approval": "approval_required",
+    "resync": "resync_required"
+  },
+  "schemas": {
+    "ErrorEnvelope": {
+      "type": "object",
+      "required": ["error"],
+      "properties": {
+        "error": {
+          "type": "object",
+          "required": ["code", "message", "correlationId"],
+          "properties": {
+            "code": "errorCodes",
+            "message": "string",
+            "correlationId": "string",
+            "details": "object|null"
+          }
+        }
+      }
+    },
+    "ModelProfile": {
+      "required": ["id", "workspaceId", "name", "provider", "modelName", "contextWindow", "capabilityTags", "costLabel", "credentialRef", "version"]
+    },
+    "RuntimeProfile": {
+      "required": ["id", "workspaceId", "name", "kind", "executable", "enabled", "approvalPolicy", "timeoutSeconds", "projectDirectoryProfileId", "credentialRef", "capabilities", "version"]
+    },
+    "ProjectDirectory": {
+      "required": ["id", "workspaceId", "name", "pathKind", "allowed", "readOnly", "temporaryCopyPolicy", "version"]
+    },
+    "Approval": {
+      "required": ["id", "runId", "action", "status", "decidedAt", "decidedBy", "reason", "version"]
+    },
+    "Artifact": {
+      "required": ["id", "runId", "relativePath", "sha256", "sizeBytes", "status"]
+    },
+    "AuditEvent": {
+      "required": ["id", "workspaceId", "actorId", "correlationId", "type", "occurredAt", "payload"]
+    },
+    "Document": {
+      "required": ["id", "workspaceId", "sourceRef", "contentRef", "archiveStatus", "version"]
+    },
+    "Run.status": [
+      "waiting",
+      "queued",
+      "running",
+      "succeeded",
+      "failed",
+      "cancelled",
+      "timed_out",
+      "interrupted",
+      "environment_unavailable",
+      "rejected"
+    ],
+    "Run.artifactStatus": ["pending", "complete", "partial", "failed"],
+    "Approval.status": ["pending", "approved", "rejected"],
+    "requiredRunFields": [
+      "id",
+      "taskId",
+      "runtimeProfileId",
+      "projectDirectoryProfileId",
+      "status",
+      "approvalStatus",
+      "retryOf",
+      "correlationId",
+      "exitCode",
+      "artifactStatus",
+      "createdAt",
+      "startedAt",
+      "finishedAt",
+      "version"
+    ],
+    "errorCodes": [
+      "invalid_payload",
+      "forbidden",
+      "not_found",
+      "conflict",
+      "approval_required",
+      "runtime_unavailable",
+      "resync_required",
+      "payload_too_large",
+      "storage_error"
+    ]
+  }
+}

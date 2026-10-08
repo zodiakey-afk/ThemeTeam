@@ -3,7 +3,7 @@ mode: feature
 mode_reason: User now requests W01, W00V, W02 and M1 implementation; feature workflow continues with first-batch scope, NFR and interface confirmation before formal design and implementation.
 risk: M
 risk_reason: Future change affects rendering, shared state, storage and security; implementation risk must be reassessed after scope confirmation.
-current_stage: testing
+current_stage: implementation
 status: pending
 work_package_status:
   W01: independent_review_passed_68_test_executions_pending_final_confirmation
@@ -11,11 +11,14 @@ work_package_status:
   W02: implemented_independent_review_passed_192_tests_passed_pending_release_confirmation
   W03: implemented_24_tests_passed_independent_review_R01_R03_closed_pending_QA_release
   M1: v03_atlas_and_20_seat_layout_promoted_v04_spec_refrozen_p0_machine_complete_independent_review_pending
-  P1_P5_M2: p4_dispatcher_settings_codex_task_boundary_parallel_isolation_and_p5_overflow_assignment_verified_map_reflow_and_real_claude_opencode_smoke_deferred
+  P1_P5_M2: existing_baseline_verified_m2_design_revision_required_before_implementation
+  M2: machine_acceptance_complete_project_approved_conditional_submission_pending_independent_review_qa
+  UI_DRAG_LANGUAGE: implemented_product_confirmed_pending_browser_e2e_and_qa_review
 confirmed_requirements:
   - User replied confirm on 2026-09-08 approving docs/first-batch.md v1.0 scope, B01 acceptance, applicable NFR and interface boundaries.
   - User confirmed Theme Hospital as the office canvas UI, interaction and design reference on 2026-09-08; approval is limited to this direction, not all NFR or visual deliverables.
   - User authorized proceeding with W01, W00V, W02 and M1 on 2026-09-08 and requested first-batch scope, metrics and interface confirmation first.
+  - User manually confirmed the Office drag semantics, translation scope, default language and release surface on 2026-10-08.
 gates:
   G1:
     status: passed
@@ -32,7 +35,13 @@ gates:
   G5:
     status: pending
     evidence: gate-manifest.yaml#G5
+m2_gate_authority:
+  design: M2_G2
+  plan: M2_G3
+  note: Legacy G2/G3 entries belong to the earlier W01-W03/M1 scopes and cannot authorize M2 implementation.
 pending_human_review:
+  - M2 project-owner approval for repository submission and next-phase planning was received on 2026-10-08; independent implementation review and QA remain conditions for production release.
+  - Unified M2 human approval package is ready for review: .ai-spec/iterations/ITER-2026-001/06-release/m2-human-approval-package.md.
   - W01 and W02 independent code reviews passed; QA/release and final report confirmation pending.
   - W03 scoped independent code review complete with R01-R03 closed; QA/release and final report confirmation pending.
   - VIS-06 preserves approved identities and closes the meeting-to-workstation return chain; independent W00V v3 review passed TH-01 through TH-06 at design level. M1 runtime evidence remains separate.
@@ -45,6 +54,11 @@ pending_human_review:
   - Codex read-only adapter slice completed on 2026-09-23: ProcessSupervisor, ProjectDirectoryGuard, CodexCliAdapter, settings probe route, redacted evidence, and 57/57 x 2 backend plus 48/48 frontend regression.
   - P4/P5 implementation completed on 2026-09-23: independent settings store, dispatcher lifecycle, Codex workspace-write task boundary, artifact isolation, retry/recovery, shared Claude/OpenCode adapter contract, parallel project isolation, task-page run entry, and overflow-room assignment with Unplaced status. Evidence: .ai-spec/iterations/ITER-2026-001/05-testing/p4-p5-implementation-report.md.
   - Real Codex business-task smoke was attempted on 2026-09-23 and blocked by Windows ACL inherited from the elevated temporary-directory test fixture: Codex started and received the artifact --add-dir, but child writes returned Access Denied. This remains an environment-blocked verification item, not a passing business-task acceptance.
+  - Final M2 machine acceptance on 2026-10-07: M2 19/19, backend 83/83 x 2, frontend 48/48, WebSocket protocol reconnect/gap passed, migration fault matrix passed, SQLite CAS/FK hardening passed, correlation/restart-retry/worker-shutdown regressions passed, default workspace hash unchanged.
+  - Office drag and bilingual UI slice implemented on 2026-10-07: blank-area camera pan with member-hit protection, zh/en resource switch, localStorage preference, and browser E2E assertions added; typecheck and diff checks passed, full browser E2E remains pending environment availability.
+  - Office drag/language browser E2E must be rerun and independently reviewed against the current worktree before treating this UI slice as release-ready.
+  - Product/request-owner manually confirmed the Office drag and zh/en UI scope on 2026-10-08; confirmation is recorded in office-drag-language-clarification.md and does not close QA or release gates.
+  - Commit preflight on 2026-10-08: frontend typecheck and Python compile passed; local M2 unittest rerun was blocked because the selected Python environment lacks fastapi, while prior 19/19 evidence remains archived and is not re-certified by this rerun.
 assumptions:
   - Latest user request authorizes development; prior documentation-only scope is superseded, but staged approvals and tool permissions remain required.
   - First-batch requirements are approved; implementation remains gated by the scoped design and plan review.
@@ -52,4 +66,4 @@ assumptions:
   - Phaser3.90.0 and easystarjs0.4.4 are integrated and pinned following scoped G2/G3 approval and QA freeze; current-build formal evidence and independent acceptance remain pending.
   - Independent W01 reviewer Nash assigned on 2026-09-09; agent 01a083ff-3a0f-7292-b678-728a3c238443.
   - User-confirmed third-party HTTPS API generated VIS-01 through VIS-04; historical missing credential checks are superseded. Only design prompts/generated references may be transmitted. No secrets persisted.
-last_updated: 2026-09-23
+last_updated: 2026-10-08
